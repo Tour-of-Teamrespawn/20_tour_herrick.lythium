@@ -62,9 +62,6 @@ if ($PSCmdlet.ShouldProcess('This script', 'Update script with latest version fr
     Write-Verbose "Self-updater skipped"
 }
 
-# Path to FileBank, part of the Arma 3 Tools steam download
-$FileBank_EXE = "$Arma3ToolsFolder\FileBank\FileBank.exe"
-
 $ErrorActionPreference = 'Stop'
 if (($null -eq $PSScriptRoot) -or ([System.String]::IsNullOrWhiteSpace($PSScriptRoot))) {
     # assume we are in the root of the mission folder (same as this file)
