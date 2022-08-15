@@ -15,7 +15,7 @@ _headingText = switch (toLower _type) do
 
 _textHint = parseText format
 ["
-	<t size='1.25' font='puristaMedium' color='#0080ff' align='center' valign='top'>MISSION:</t>
+	<t size='1.25' font='puristaMedium' color='#D7DF01' align='center' valign='top'>SUPPORT INTERFACE:</t>
 	<br/>
 	<br/>
 	%1
@@ -24,4 +24,4 @@ _textHint = parseText format
 	<t size='0.85' font='TahomaB' color='#D0D0D0' align='left' valign='top'>%2</t>
 ",_headingText, _hintText];
 
-_textHint
+hint _textHint;

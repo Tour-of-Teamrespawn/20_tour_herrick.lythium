@@ -7,26 +7,13 @@ removeAllAssignedItems player;
 removebackpack player;
 removeVest player;
 removeHeadGear player;
+removeGoggles player;
 
 private _uniform = "";
 
 _uniform = switch (toLower TypeOf player) do 
 {
-	case "rhsusf_socom_marsoc_cso_breacher": {"rhs_uniform_g3_mc"};
-	case "rhsusf_socom_marsoc_cso": {"rhs_uniform_g3_mc"};
-	case "rhsusf_socom_marsoc_marksman": {"rhs_uniform_g3_mc"};
-	case "rhsusf_socom_marsoc_sarc": {"rhs_uniform_g3_mc"};
-	case "rhsusf_socom_marsoc_teamleader": {"rhs_uniform_g3_mc"};
-	case "rhsusf_army_ucp_helipilot": {"U_B_HeliPilotCoveralls"};
-	case "rhsusf_army_ucp_sniper_m24sws": {"rhs_uniform_g3_mc"};
-	case "rhsusf_army_ucp_sniper": {"rhs_uniform_g3_mc"};
-	case "rhsusf_socom_marsoc_teamleader": {"rhs_uniform_g3_mc"};
-	default {"rhs_uniform_acu_ucp"};
-};
-
-if (toLower (faction player) == "uk3cb_ana_b") then 
-{
-	_uniform = "uk3cb_ana_b_u_combatuniform_01_spec4ce";
+	default {"UK3CB_BAF_U_CombatUniform_MTP"};
 };
 
 player addUniform _uniform;

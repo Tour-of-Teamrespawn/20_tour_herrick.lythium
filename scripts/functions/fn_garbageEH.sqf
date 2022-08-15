@@ -14,10 +14,10 @@ if ((side _this == CIVILIAN)) then
 				"TOUR_objCiv" call A2S_taskHint;
 			};
 		};
-		if (_unit in TOUR_civCountGlobalTotal) then 
-		{
-			TOUR_civCountGlobalTotal = TOUR_civCountGlobalTotal - [_unit];
-		};
-		null = ["TOUR_mkrAO", 1] execVM "scripts\ambientLife\createPedestrians.sqf";
+	//	if (_unit in TOUR_civCountGlobalTotal) then 
+	//	{
+	//		TOUR_civCountGlobalTotal = TOUR_civCountGlobalTotal - [_unit];
+	//	};
+		//null = ["TOUR_mkrAO", 1] execVM "scripts\ambientLife\createPedestrians.sqf";
 	}];
 };

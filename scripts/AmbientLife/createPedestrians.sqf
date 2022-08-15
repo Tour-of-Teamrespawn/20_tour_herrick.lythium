@@ -42,6 +42,7 @@ _civCountGlobalTotal = 0;
 for "_i" from 1 to _max do
 {
 	_pos = (_posArray call BIS_fnc_selectRandom);
+	hint ((str _posArray) + " " + (str _i) + " " + _marker);
 	_posArray = _posArray - [_pos];
 	_type = _array call BIS_fnc_selectRandom;
 	_grp = createGroup CIVILIAN;

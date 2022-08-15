@@ -23,11 +23,44 @@ waitUntil {scriptDone _f};
 
 _siAction = if (true) then
 {
-	"(alive player) && ([player, ""ACRE_PRC148""] call acre_api_fnc_hasKindOfRadio)"
+	"(alive player) && ([player, ""ACRE_PRC148""] call acre_api_fnc_hasKindOfRadio) && (player isKindOf ""UK3CB_BAF_RO_MTP"")"
 }else
 {
 	"(alive player) && (""ItemRadio"" in (assignedItems player))"
 };
+
+_si = 
+[
+	TOUR_logic,
+	WEST,
+	_siAction,
+	"false",
+	true,
+	[
+		[
+			"artillery",
+			"Harbinger Two",
+			[
+				["6rnd_155mm_mo_smoke", 100]
+			]
+		],
+		[
+			"helicopter",
+			TOUR_chopper_1,
+			"Bishop Four",
+			[
+				"Circle",
+				"Land",
+				"Land (Engine Off)",
+				"Move To",
+				"Pickup",
+				"Return To Base",
+				"toggle engine"
+			],
+			getPosATL TOUR_chopper_1
+		],
+	]
+] execVM "scripts\TOUR_SI\TOUR_SI_init.sqf";
 
 TOUR_init_complete = true;
 

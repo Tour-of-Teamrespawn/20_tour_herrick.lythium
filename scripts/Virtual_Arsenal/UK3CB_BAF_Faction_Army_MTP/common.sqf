@@ -107,7 +107,7 @@ _static = [
 ];
 
 _backpacks = [
-	"B_parachute"
+
 ];
 
 _uniform_glasses = [
@@ -120,7 +120,8 @@ _uniform_glasses = [
 ];
 
 _uniform_items = [
-	"UK3CB_BAF_HMNVS"
+	"UK3CB_BAF_HMNVS",
+	"Binocular"	
 ];
 
 _uniform_vests = [
@@ -137,28 +138,13 @@ _uniform_vests = [
 _bis_items = [
 	"ItemWatch",
 	"ItemCompass",
-	"ItemGPS",
 	"ItemMap"
 ];
 
 _radio = if (!isNil "TOUR_ACRE") then
 {
 	[
-		"ACRE_PRC77",
-		"ACRE_PRC117F",
-		"ACRE_PRC148",
-		"ACRE_PRC152",
-		"ACRE_PRC343",
-		"ACRE_SEM52SL",
-		"ACRE_SEM70",
-		"ACRE_VRC64",
-		"ACRE_VRC103",
-		"ACRE_VRC110",
-		"ACRE_VRC111",
-		"ACRE_SEM90",
-		"ACRE_VHF30108SPIKE",
-		"ACRE_VHF30108",
-		"ACRE_VHF30108MAST"
+		"ACRE_PRC343"
 	]
 }else
 {
@@ -167,14 +153,36 @@ _radio = if (!isNil "TOUR_ACRE") then
 
 _ACE_backpack = 
 [
-	"ACE_TacticalLadder_Pack",
-	"ACE_NonSteerableParachute",
-	"ACE_ReserveParachute"
+	"ACE_TacticalLadder_Pack"
+];
+
+_ACE_common = 
+[
+	//medical common
+	"ACE_bodyBag",
+	"ACE_epinephrine",
+	"ACE_morphine",
+	"ACE_tourniquet",
+
+	"ACE_IR_Strobe_Item",
+	"ACE_CableTie",
+	"ACE_EntrenchingTool",
+	"ACE_Chemlight_HiOrange", "ACE_Chemlight_HiRed", "ACE_Chemlight_HiYellow", "ACE_Chemlight_HiWhite", "2ACE_Chemlight_Orange", "ACE_Chemlight_White", "ACE_Chemlight_IR",
+	"ACE_ConcertinaWireCoil",
+	"ACE_Flashlight_XL50",
+
+	"ACE_HandFlare_White",
+	"ACE_HandFlare_Red",
+	"ACE_HandFlare_Green",
+	"ACE_HandFlare_Yellow",
+	"ACE_Earplugs",
+	"ACE_wirecutter",
+	"ACE_MapTools"
 ];
 
 _array = [
 			(_weapons + _static), 
-			(_bis_items + _weapon_accessories + _uniform_glasses + _uniform_items + _radio + _uniform_vests),
+			(_bis_items + _weapon_accessories + _uniform_glasses + _uniform_items + _radio + _uniform_vests + _ACE_common),
 			_magazines,
 			(_backpacks + _ACE_backpack)
 			];

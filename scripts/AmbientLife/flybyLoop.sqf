@@ -1,8 +1,7 @@
 
-
+_time = time + 5;
 while {true} do
 {
-	_time = time + 5;
 	waitUntil {time > _time};
 	_dir = (ceil random 360);
 	_pos = (getMarkerPos "TOUR_mkr_AO") getPos [5000, _dir]; 
@@ -15,6 +14,9 @@ while {true} do
 	{
 		(_info select 0) setposATL [(getPosATL (_info select 0)) select 0, (getPosATL (_info select 0)) select 1, 150];
 		(_info select 0) flyinHeight 150;
+	}else 
+	{
+		(_info select 0) flyinHeight 250;
 	};
 	_grp setbehaviour "CARELESS";
 	_grp setCombatMode "BLUE";
@@ -23,6 +25,7 @@ while {true} do
 		_x disableAI "autotarget";
 		_x disableAI "fsm";
 	}forEach units _grp;
+	_grp setSpeedMode "LIMITED";
 	_pos2 = (getMarkerPos "TOUR_mkr_AO") getPos [5000, (_dir + 180)]; 
 	_wp = _grp addWaypoint [_pos2, 1000];
 	_time = time + 300;
@@ -46,4 +49,5 @@ while {true} do
 	{
 		deleteGroup (_info select 2);
 	};
+	_time = time + 300;
 };
