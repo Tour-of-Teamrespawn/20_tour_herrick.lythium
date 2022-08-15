@@ -7,7 +7,10 @@ _magazines = [
 ];
 
 _weapons = [
-
+	"UK3CB_BAF_L85A2_RIS",
+	"UK3CB_BAF_L85A2_RIS_Tan",
+	"UK3CB_BAF_L85A2_EMAG"
+	
 ];
 
 _launchers = [

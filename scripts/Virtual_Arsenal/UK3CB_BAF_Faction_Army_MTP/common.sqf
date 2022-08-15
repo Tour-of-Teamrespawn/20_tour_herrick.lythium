@@ -1,11 +1,7 @@
 _weapon_accessories = [
-	"optic_hamr",
 	"UK3CB_BAF_SUSAT",
-	"UK3CB_BAF_SUIT",
-	"rhsusf_acc_anpvs27",
 	"rhsusf_acc_acog_rmr",
 	"RKSL_optic_LDS",
-	"RKSL_optic_LDS_C",
 	"UK3CB_BAF_LLM_IR_Black",
 	"UK3CB_BAF_LLM_Flashlight_Black",
 	"UK3CB_BAF_Flashlight_L131A1",
@@ -94,17 +90,11 @@ _magazines = [
 
 
 _weapons = [
-	"UK3CB_BAF_L22",
-	"UK3CB_BAF_L22A2",
-	"UK3CB_BAF_L9A1",
 	"UK3CB_BAF_L131A1"
 ];
 
 _static = [
-	"UK3CB_BAF_Tripod", 
-	"UK3CB_BAF_L16_Tripod",
-	"UK3CB_BAF_L111A1", 
-	"UK3CB_BAF_L134A1"
+
 ];
 
 _backpacks = [
@@ -156,8 +146,8 @@ _uniform_uniform = [
 	"UK3CB_BAF_U_CombatUniform_MTP",
 	"UK3CB_BAF_U_CombatUniform_MTP_ShortSleeve",
 	"UK3CB_BAF_U_CombatUniform_MTP_TShirt",
-	"UK3CB_BAF_U_JumperUniform_Plain",
-	"UK3CB_BAF_U_JumperUniform_MTP"
+	"UK3CB_BAF_U_JumperUniform_MTP",
+	"UK3CB_BAF_U_Smock_MTP"
 ];
 
 _uniform_helmet = 

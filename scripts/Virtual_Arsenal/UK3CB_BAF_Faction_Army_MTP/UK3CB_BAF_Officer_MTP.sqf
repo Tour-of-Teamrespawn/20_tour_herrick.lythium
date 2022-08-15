@@ -7,7 +7,9 @@ _magazines = [
 ];
 
 _weapons = [
-
+	"UK3CB_BAF_L85A2_RIS",
+	"UK3CB_BAF_L85A2_RIS_Tan",
+	"UK3CB_BAF_L85A2_EMAG"
 ];
 
 _launchers = [
@@ -27,9 +29,9 @@ _backpacks =
 
 _uniform_berets = 
 [
-	"UK3CB_BAF_H_Beret_Rifles",
-	"UK3CB_BAF_H_Beret_Rifles_PRR",
-	"UK3CB_BAF_H_Beret_Rifles_PRR_Over"
+	"UK3CB_BAF_H_Beret_DOL",
+	"UK3CB_BAF_H_Beret_DOL_PRR",
+	"UK3CB_BAF_H_Beret_DOL_PRR_Over"
 ];
 
 _uniform_boonie = 

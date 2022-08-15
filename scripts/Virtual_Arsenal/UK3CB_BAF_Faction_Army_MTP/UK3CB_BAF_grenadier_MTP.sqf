@@ -34,7 +34,9 @@ _backpacks =
 
 _uniform_berets = 
 [
-	"UK3CB_BAF_H_Beret_Rifles"
+	"UK3CB_BAF_H_Beret_DOL",
+	"UK3CB_BAF_H_Beret_DOL_PRR",
+	"UK3CB_BAF_H_Beret_DOL_PRR_Over"
 ];
 
 _uniform_boonie = 
