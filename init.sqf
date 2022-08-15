@@ -23,7 +23,8 @@ waitUntil {scriptDone _f};
 
 _siAction = if (true) then
 {
-	"(alive player) && ([player, ""ACRE_PRC148""] call acre_api_fnc_hasKindOfRadio) && (player isKindOf ""UK3CB_BAF_RO_MTP"")"
+	"(alive player) && ([player, ""ACRE_PRC148""] call acre_api_fnc_hasKindOfRadio) && 
+	((toLower (backpack player)) in	[""uk3cb_baf_b_bergen_mtp_radio_h_a"",""uk3cb_baf_b_bergen_mtp_radio_h_b"",""uk3cb_baf_b_bergen_mtp_radio_l_a"",""uk3cb_baf_b_bergen_mtp_radio_l_b""])"
 }else
 {
 	"(alive player) && (""ItemRadio"" in (assignedItems player))"
@@ -35,7 +36,7 @@ _si =
 	WEST,
 	_siAction,
 	"false",
-	true,
+	false,
 	[
 		[
 			"artillery",
@@ -58,7 +59,7 @@ _si =
 				"toggle engine"
 			],
 			getPosATL TOUR_chopper_1
-		],
+		]
 	]
 ] execVM "scripts\TOUR_SI\TOUR_SI_init.sqf";
 

@@ -3,6 +3,7 @@ _weapon_accessories = [
 	"UK3CB_BAF_SUSAT",
 	"UK3CB_BAF_SUIT",
 	"rhsusf_acc_anpvs27",
+	"rhsusf_acc_acog_rmr",
 	"RKSL_optic_LDS",
 	"RKSL_optic_LDS_C",
 	"UK3CB_BAF_LLM_IR_Black",
@@ -107,7 +108,8 @@ _static = [
 ];
 
 _backpacks = [
-
+	"UK3CB_BAF_B_Carryall_MTP",
+	"UK3CB_BAF_B_Kitbag_MTP"
 ];
 
 _uniform_glasses = [
@@ -121,18 +123,82 @@ _uniform_glasses = [
 
 _uniform_items = [
 	"UK3CB_BAF_HMNVS",
-	"Binocular"	
+	"Binocular",
+	"UK3CB_BAF_M6_RangeTable",
+	"UK3CB_BAF_L16_RangeTable",
+	"ACE_RangeCard",
+	"ACE_Canteen",
+	"ACE_MRE_BeefStew",
+	"ACE_MRE_ChickenTikkaMasala",
+	"ACE_MRE_ChickenHerbDumplings",
+	"ACE_MRE_CreamChickenSoup",
+	"ACE_MRE_CreamTomatoSoup",
+	"ACE_MRE_LambCurry",
+	"ACE_MRE_MeatballsPasta",
+	"ACE_MRE_SteakVegetables",
+	"murshun_cigs_cigpack",
+	"murshun_cigs_lighter",
+	"murshun_cigs_matches",
+	"immersion_pops_poppack"
 ];
 
 _uniform_vests = [
 	"UK3CB_BAF_V_Osprey",
 	"UK3CB_BAF_V_Osprey_Belt_A",
 	"UK3CB_BAF_V_Osprey_Holster",
-	"UK3CB_BAF_V_Osprey_HiVis",
 	"UK3CB_BAF_V_Osprey_Lite",
 	"UK3CB_BAF_V_PLCE_Webbing_MTP",
 	"UK3CB_BAF_V_PLCE_Webbing_OLI",
 	"UK3CB_BAF_V_PLCE_Webbing_Plate_MTP"
+];
+
+_uniform_uniform = [
+	"UK3CB_BAF_U_CombatUniform_MTP",
+	"UK3CB_BAF_U_CombatUniform_MTP_ShortSleeve",
+	"UK3CB_BAF_U_CombatUniform_MTP_TShirt",
+	"UK3CB_BAF_U_JumperUniform_Plain",
+	"UK3CB_BAF_U_JumperUniform_MTP"
+];
+
+_uniform_helmet = 
+[
+	"UK3CB_BAF_H_Mk7_Camo_A",
+	"UK3CB_BAF_H_Mk7_Camo_B",
+	"UK3CB_BAF_H_Mk7_Camo_C",
+	"UK3CB_BAF_H_Mk7_Camo_D",
+	"UK3CB_BAF_H_Mk7_Camo_E",
+	"UK3CB_BAF_H_Mk7_Camo_F",
+	"UK3CB_BAF_H_Mk7_Camo_ESS_A",
+	"UK3CB_BAF_H_Mk7_Camo_ESS_B",
+	"UK3CB_BAF_H_Mk7_Camo_ESS_C",
+	"UK3CB_BAF_H_Mk7_Camo_ESS_D",
+	"UK3CB_BAF_H_Mk7_Camo_CESS_A",
+	"UK3CB_BAF_H_Mk7_Camo_CESS_B",
+	"UK3CB_BAF_H_Mk7_Camo_CESS_C",
+	"UK3CB_BAF_H_Mk7_Camo_CESS_D",
+	"UK3CB_BAF_H_Mk7_Net_A",
+	"UK3CB_BAF_H_Mk7_Net_B",
+	"UK3CB_BAF_H_Mk7_Net_C",
+	"UK3CB_BAF_H_Mk7_Net_D",
+	"UK3CB_BAF_H_Mk7_Net_ESS_A",
+	"UK3CB_BAF_H_Mk7_Net_ESS_B",
+	"UK3CB_BAF_H_Mk7_Net_ESS_C",
+	"UK3CB_BAF_H_Mk7_Net_ESS_D",
+	"UK3CB_BAF_H_Mk7_Net_CESS_A",
+	"UK3CB_BAF_H_Mk7_Net_CESS_B",
+	"UK3CB_BAF_H_Mk7_Net_CESS_C",
+	"UK3CB_BAF_H_Mk7_Net_CESS_D",
+	"UK3CB_BAF_H_Mk7_Scrim_A",
+	"UK3CB_BAF_H_Mk7_Scrim_B",
+	"UK3CB_BAF_H_Mk7_Scrim_C",
+	"UK3CB_BAF_H_Mk7_Scrim_D",
+	"UK3CB_BAF_H_Mk7_Scrim_E",
+	"UK3CB_BAF_H_Mk7_Scrim_F",
+	"UK3CB_BAF_H_Mk7_Scrim_ESS_A",
+	"UK3CB_BAF_H_Mk7_Scrim_ESS_B",
+	"UK3CB_BAF_H_Mk7_Scrim_ESS_C",
+
+	"UK3CB_BAF_H_Boonie_MTP"
 ];
 
 _bis_items = [
@@ -141,15 +207,11 @@ _bis_items = [
 	"ItemMap"
 ];
 
-_radio = if (!isNil "TOUR_ACRE") then
-{
-	[
-		"ACRE_PRC343"
-	]
-}else
-{
-	["ItemRadio"]
-};
+_radio = 
+[
+	"ACRE_PRC343",
+	"ACRE_PRC148"
+];
 
 _ACE_backpack = 
 [
@@ -182,7 +244,7 @@ _ACE_common =
 
 _array = [
 			(_weapons + _static), 
-			(_bis_items + _weapon_accessories + _uniform_glasses + _uniform_items + _radio + _uniform_vests + _ACE_common),
+			(_bis_items + _weapon_accessories + _uniform_uniform + _uniform_helmet + _uniform_glasses + _uniform_items + _radio + _uniform_vests + _ACE_common),
 			_magazines,
 			(_backpacks + _ACE_backpack)
 			];
