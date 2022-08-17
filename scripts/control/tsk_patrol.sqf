@@ -36,7 +36,7 @@ _taskName call A2S_taskHint;
 
 _men = [];
 
-if (random 1 > 0.6) then 
+if (random 1 > 0.5) then 
 {
 	for "_i" from 1 to (ceil random 2) do
 	{
@@ -51,7 +51,7 @@ if (random 1 > 0.6) then
 	};
 };
 
-if (random 1 > 0.7) then 
+if (random 1 > 0.5) then 
 {
 	for "_i" from 1 to (ceil random 2) do
 	{

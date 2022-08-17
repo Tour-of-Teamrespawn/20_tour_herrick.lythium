@@ -16,7 +16,7 @@ _side = _this select 2;
 _min = _this select 3;
 _max = _this select 4;
 _array_type = _this select 5;
-if (count _this > 6) then 
+if (count _this > 5) then 
 {
 	_bossType = _this select 6;
 };

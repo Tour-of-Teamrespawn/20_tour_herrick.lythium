@@ -94,11 +94,7 @@ _weapons = [
 ];
 
 _static = [
-	"UK3CB_BAF_Tripod", 
-	"UK3CB_BAF_L16_Tripod", 
-	"UK3CB_BAF_L111A1", 
-	"UK3CB_BAF_L134A1", 
-	"UK3CB_BAF_L16"
+
 ];
 
 _backpacks = [
@@ -191,8 +187,8 @@ _uniform_helmet =
 	"UK3CB_BAF_H_Mk7_Scrim_ESS_A",
 	"UK3CB_BAF_H_Mk7_Scrim_ESS_B",
 	"UK3CB_BAF_H_Mk7_Scrim_ESS_C",
-    "UK3CB_BAF_H_Boonie_MTP"
-	"UK3CB_BAF_H_Boonie_MTP_PRR"
+    "UK3CB_BAF_H_Boonie_MTP",
+	"UK3CB_BAF_H_Boonie_MTP_PRR",
 	"UK3CB_BAF_H_Earphone",
 	"UK3CB_BAF_H_Headset_PRR"
 ];
