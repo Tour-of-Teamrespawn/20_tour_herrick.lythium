@@ -1,5 +1,5 @@
 /* 
-###MISSION_VERSION 0.52
+###MISSION_VERSION 0.12
 */
 
 _d = execVM "scripts\general\debugRPT.sqf";
