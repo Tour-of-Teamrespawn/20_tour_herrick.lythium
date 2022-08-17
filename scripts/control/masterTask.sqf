@@ -5,7 +5,7 @@ TOUR_patrolNo = 0;
 TOUR_tskCountTarget = 10;
 TOUR_tskCount = 0;
 //TOUR_taskRepo = ["patrol", "patrol", "patrol", "patrol", "raid", "assault", "arrest", "kill"];
-TOUR_taskRepo = ["assault"];
+TOUR_taskRepo = ["patrol", "patrol", "patrol", "patrol", "raid", "assault", "arrest", "kill"];
 TOUR_tskAvailable = [];
 {
 	TOUR_tskAvailable pushBack _x;

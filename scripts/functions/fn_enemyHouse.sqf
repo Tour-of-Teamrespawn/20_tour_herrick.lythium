@@ -16,7 +16,7 @@ _side = _this select 2;
 _min = _this select 3;
 _max = _this select 4;
 _array_type = _this select 5;
-if (count _this > 5) then 
+if (count _this > 6) then 
 {
 	_bossType = _this select 6;
 };
@@ -73,10 +73,10 @@ if (_max < 1) then
 };
 
 if (count _posarray == 0) exitWith {};
-if ((count _this > 5) && count _warLordPosArray == 0) exitWith {};
+if ((count _this > 6) && count _warLordPosArray == 0) exitWith {};
 
 _men = [];
-if (count _this > 5) then 
+if (count _this > 6) then 
 {
 	_pos = (_warLordPosArray call BIS_fnc_selectRandom);
 	_posarray = _posarray - [_pos];
