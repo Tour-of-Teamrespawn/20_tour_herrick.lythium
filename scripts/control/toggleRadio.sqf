@@ -1,4 +1,4 @@
-_State = false;
+_state = true;
 while {true} do 
 {
 	if ((_state == false) && (missionNamespace getVariable "TOUR_backpacRadioON")) then 

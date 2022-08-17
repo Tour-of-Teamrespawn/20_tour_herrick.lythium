@@ -4,13 +4,13 @@ waitUntil {player == player};
 execVM "scripts\general\dust.sqf";
 
 {
-//	_x execVM "scripts\Virtual_arsenal\init.sqf";
+	_x execVM "scripts\Virtual_arsenal\init.sqf";
 }forEach [TOUR_AmmoBox_1];
 
 player addAction ["<t color=""#d16a02"">"+"REPLY", "scripts\control\radioReply.sqf", 0, 10, true, false, "", 
 "(missionNameSpace getVariable 'TOUR_tskRadioState' == 'calling') && 
 	(
-		((player distance TOUR_cmdRadio < 2) && (cursorTarget == TOUR_cmdRadio))
+		((player distance TOUR_laptop < 2) && (cursorTarget == TOUR_laptop))
 		or
 		(
 			(alive player) && (missionNameSpace getVariable 'TOUR_backpacRadioON') &&

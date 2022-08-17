@@ -1,5 +1,5 @@
 missionNameSpace setVariable ["TOUR_tskRadioState", "replying", true];
-if (cursorTarget != TOUR_cmdRadio) then 
+if (cursorTarget != TOUR_Laptop) then 
 {
 	[[],{TOUR_cmdRadio say3d ["TOUR_snd_line_16", 50];}] remoteExecCall ["BIS_fnc_spawn", 0, false];
 };

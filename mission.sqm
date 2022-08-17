@@ -16,10 +16,10 @@ class EditorData
 	};
 	class Camera
 	{
-		pos[]={9593.708,258.48712,11298.112};
-		dir[]={0.50026959,-0.61648387,0.60801154};
-		up[]={0.39169523,0.78736752,0.47605377};
-		aside[]={0.77220798,1.4901161e-008,-0.63536984};
+		pos[]={9723.751,203.97459,11291.028};
+		dir[]={-0.002931159,-0.6744085,0.7383709};
+		up[]={-0.0026774043,0.73834246,0.67441994};
+		aside[]={1.0000056,4.8088731e-007,0.0039700801};
 	};
 };
 binarizationWanted=0;
@@ -4871,7 +4871,7 @@ class Mission
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={9746.4287,148.25768,11413.988};
+						position[]={9663.0742,142.95871,11335.621};
 					};
 					side="West";
 					flags=7;
@@ -4886,6 +4886,7 @@ class Mission
 					};
 					id=804;
 					type="UK3CB_BAF_Officer_MTP";
+					atlOffset=-1.5258789e-005;
 					class CustomAttributes
 					{
 						class Attribute0
@@ -4972,7 +4973,7 @@ class Mission
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={9747.0928,148.17453,11411.863};
+						position[]={9664.3213,142.97012,11335.144};
 					};
 					side="West";
 					flags=5;
@@ -4986,6 +4987,7 @@ class Mission
 					};
 					id=806;
 					type="UK3CB_BAF_Officer_MTP";
+					atlOffset=-1.5258789e-005;
 					class CustomAttributes
 					{
 						class Attribute0
@@ -5072,7 +5074,7 @@ class Mission
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={9747.3965,148.10112,11409.298};
+						position[]={9665.4258,142.97687,11334.529};
 					};
 					side="West";
 					flags=5;
@@ -5086,6 +5088,7 @@ class Mission
 					};
 					id=808;
 					type="UK3CB_BAF_RO_MTP";
+					atlOffset=-3.0517578e-005;
 					class CustomAttributes
 					{
 						class Attribute0
@@ -5172,7 +5175,7 @@ class Mission
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={9749.5186,147.86131,11407.201};
+						position[]={9666.5645,142.9837,11334.107};
 					};
 					side="West";
 					flags=5;
@@ -5184,6 +5187,7 @@ class Mission
 					};
 					id=818;
 					type="UK3CB_BAF_Medic_MTP";
+					atlOffset=-1.5258789e-005;
 					class CustomAttributes
 					{
 						class Attribute0
@@ -5270,7 +5274,7 @@ class Mission
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={9750.792,147.58415,11405.199};
+						position[]={9667.8398,142.99123,11333.682};
 					};
 					side="West";
 					flags=5;
@@ -5368,6 +5372,7 @@ class Mission
 			{
 			};
 			id=803;
+			atlOffset=-1.5258789e-005;
 		};
 		class Item168
 		{
@@ -5381,7 +5386,8 @@ class Mission
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={9737.1143,147.98473,11396.572};
+						position[]={9668.4404,143.12785,11343.356};
+						angles[]={0,5.1478148,-0};
 					};
 					side="West";
 					flags=7;
@@ -5396,6 +5402,7 @@ class Mission
 					};
 					id=821;
 					type="UK3CB_BAF_SC_MTP";
+					atlOffset=-1.5258789e-005;
 					class CustomAttributes
 					{
 						class Attribute0
@@ -5482,7 +5489,8 @@ class Mission
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={9737.5693,147.94981,11394.385};
+						position[]={9666.3945,143.18375,11347.655};
+						angles[]={0,1.9416013,-0};
 					};
 					side="West";
 					flags=5;
@@ -5581,7 +5589,8 @@ class Mission
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={9738.5449,147.97221,11392.34};
+						position[]={9665.6641,143.15501,11346.604};
+						angles[]={0,1.9416013,-0};
 					};
 					side="West";
 					flags=5;
@@ -5594,6 +5603,7 @@ class Mission
 					};
 					id=825;
 					type="UK3CB_BAF_Grenadier_MTP";
+					atlOffset=9.1552734e-005;
 					class CustomAttributes
 					{
 						class Attribute0
@@ -5680,7 +5690,8 @@ class Mission
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={9739.5459,147.99278,11390.211};
+						position[]={9665.2441,143.12941,11345.519};
+						angles[]={0,1.9416013,-0};
 					};
 					side="West";
 					flags=5;
@@ -5692,6 +5703,7 @@ class Mission
 					};
 					id=826;
 					type="UK3CB_BAF_Sharpshooter_MTP";
+					atlOffset=0.00012207031;
 					class CustomAttributes
 					{
 						class Attribute0
@@ -5778,7 +5790,8 @@ class Mission
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={9733.6641,147.49406,11393.031};
+						position[]={9667.0898,143.21825,11349.024};
+						angles[]={0,1.9416013,-0};
 					};
 					side="West";
 					flags=5;
@@ -5791,6 +5804,7 @@ class Mission
 					};
 					id=827;
 					type="UK3CB_BAF_FT_MTP";
+					atlOffset=0.0001373291;
 					class CustomAttributes
 					{
 						class Attribute0
@@ -5877,7 +5891,8 @@ class Mission
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={9732.3037,147.22421,11390.021};
+						position[]={9664.5869,143.10446,11344.488};
+						angles[]={0,1.9416013,-0};
 					};
 					side="West";
 					flags=5;
@@ -5889,7 +5904,7 @@ class Mission
 					};
 					id=828;
 					type="UK3CB_BAF_Rifleman_MTP";
-					atlOffset=1.5258789e-005;
+					atlOffset=0.00015258789;
 					class CustomAttributes
 					{
 						class Attribute0
@@ -5976,7 +5991,8 @@ class Mission
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={9731.7031,146.86087,11387.624};
+						position[]={9663.9199,143.08281,11343.554};
+						angles[]={0,1.9416013,-0};
 					};
 					side="West";
 					flags=5;
@@ -5988,6 +6004,7 @@ class Mission
 					};
 					id=829;
 					type="UK3CB_BAF_Grenadier_MTP";
+					atlOffset=0.0001373291;
 					class CustomAttributes
 					{
 						class Attribute0
@@ -6074,7 +6091,8 @@ class Mission
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={9730.9863,146.81009,11385.715};
+						position[]={9663.2031,143.06033,11342.605};
+						angles[]={0,1.9416013,-0};
 					};
 					side="West";
 					flags=5;
@@ -6173,6 +6191,7 @@ class Mission
 			{
 			};
 			id=820;
+			atlOffset=-1.5258789e-005;
 		};
 		class Item169
 		{
@@ -6203,7 +6222,8 @@ class Mission
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={9723.6689,146.12918,11383.983};
+						position[]={9673.0078,143.14801,11341.852};
+						angles[]={0,0.62459517,-0};
 					};
 					side="West";
 					flags=7;
@@ -6218,7 +6238,6 @@ class Mission
 					};
 					id=941;
 					type="UK3CB_BAF_SC_MTP";
-					atlOffset=-0.0002746582;
 					class CustomAttributes
 					{
 						class Attribute0
@@ -6305,7 +6324,8 @@ class Mission
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={9725.3613,146.16696,11382.288};
+						position[]={9676.7188,143.2262,11344.477};
+						angles[]={0,3.3615494,-0};
 					};
 					side="West";
 					flags=5;
@@ -6404,7 +6424,8 @@ class Mission
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={9726.3369,146.02811,11380.244};
+						position[]={9675.9033,143.2291,11344.925};
+						angles[]={0,3.3615494,-0};
 					};
 					side="West";
 					flags=5;
@@ -6503,7 +6524,8 @@ class Mission
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={9727.7393,145.95329,11378.589};
+						position[]={9675.0996,143.23016,11345.222};
+						angles[]={0,3.3615494,-0};
 					};
 					side="West";
 					flags=5;
@@ -6656,7 +6678,6 @@ class Mission
 					};
 					id=944;
 					type="UK3CB_BAF_Sharpshooter_MTP";
-					atlOffset=-0.00032043457;
 					class CustomAttributes
 					{
 						class Attribute0
@@ -6743,7 +6764,8 @@ class Mission
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={9721.4561,145.2883,11380.935};
+						position[]={9677.5791,143.22437,11344.106};
+						angles[]={0,3.3615494,-0};
 					};
 					side="West";
 					flags=5;
@@ -6842,7 +6864,8 @@ class Mission
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={9720.0957,144.68149,11377.925};
+						position[]={9674.2686,143.23019,11345.558};
+						angles[]={0,3.3615494,-0};
 					};
 					side="West";
 					flags=5;
@@ -6854,6 +6877,7 @@ class Mission
 					};
 					id=946;
 					type="UK3CB_BAF_Rifleman_MTP";
+					atlOffset=1.5258789e-005;
 					class CustomAttributes
 					{
 						class Attribute0
@@ -6940,7 +6964,8 @@ class Mission
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={9719.4951,144.34969,11375.527};
+						position[]={9673.4473,143.23096,11346.022};
+						angles[]={0,3.3615494,-0};
 					};
 					side="West";
 					flags=5;
@@ -7039,7 +7064,8 @@ class Mission
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={9718.7783,144.05179,11373.618};
+						position[]={9672.5176,143.23003,11346.453};
+						angles[]={0,3.3615494,-0};
 					};
 					side="West";
 					flags=5;
@@ -7139,7 +7165,6 @@ class Mission
 			{
 			};
 			id=940;
-			atlOffset=-0.0002746582;
 		};
 		class Item171
 		{
@@ -7153,7 +7178,8 @@ class Mission
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={9713.3857,145.26595,11386.646};
+						position[]={9694.6592,143.22656,11341.991};
+						angles[]={0,0.24758786,-0};
 					};
 					side="West";
 					flags=7;
@@ -7168,7 +7194,7 @@ class Mission
 					};
 					id=950;
 					type="UK3CB_BAF_SC_MTP";
-					atlOffset=-0.00022888184;
+					atlOffset=-1.5258789e-005;
 					class CustomAttributes
 					{
 						class Attribute0
@@ -7255,7 +7281,8 @@ class Mission
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={9713.8408,144.92429,11384.458};
+						position[]={9696.8584,143.2438,11344.013};
+						angles[]={0,3.0910227,-0};
 					};
 					side="West";
 					flags=5;
@@ -7354,7 +7381,8 @@ class Mission
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={9714.8164,144.67517,11382.414};
+						position[]={9697.8691,143.23938,11343.608};
+						angles[]={0,3.0910227,-0};
 					};
 					side="West";
 					flags=5;
@@ -7453,7 +7481,8 @@ class Mission
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={9715.8174,144.4135,11380.284};
+						position[]={9695.9961,143.24881,11344.467};
+						angles[]={0,3.0910227,-0};
 					};
 					side="West";
 					flags=5;
@@ -7551,7 +7580,8 @@ class Mission
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={9709.9355,144.19481,11383.104};
+						position[]={9698.79,143.23578,11343.273};
+						angles[]={0,3.0910227,-0};
 					};
 					side="West";
 					flags=5;
@@ -7564,7 +7594,6 @@ class Mission
 					};
 					id=954;
 					type="UK3CB_BAF_FT_MTP";
-					atlOffset=0.00022888184;
 					class CustomAttributes
 					{
 						class Attribute0
@@ -7651,7 +7680,8 @@ class Mission
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={9708.8877,143.75336,11380.194};
+						position[]={9695.1133,143.2565,11345.15};
+						angles[]={0,3.0910227,-0};
 					};
 					side="West";
 					flags=5;
@@ -7663,7 +7693,6 @@ class Mission
 					};
 					id=955;
 					type="UK3CB_BAF_Rifleman_MTP";
-					atlOffset=-0.00010681152;
 					class CustomAttributes
 					{
 						class Attribute0
@@ -7750,7 +7779,8 @@ class Mission
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={9707.9746,143.76111,11377.697};
+						position[]={9694.2646,143.26247,11345.663};
+						angles[]={0,3.0910227,-0};
 					};
 					side="West";
 					flags=5;
@@ -7848,7 +7878,8 @@ class Mission
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={9707.0166,143.80707,11375.618};
+						position[]={9693.4346,143.2697,11346.267};
+						angles[]={0,3.0910227,-0};
 					};
 					side="West";
 					flags=5;
@@ -7861,7 +7892,6 @@ class Mission
 					};
 					id=957;
 					type="UK3CB_BAF_MGLMG_MTP";
-					atlOffset=0.00010681152;
 					class CustomAttributes
 					{
 						class Attribute0
@@ -7948,7 +7978,7 @@ class Mission
 			{
 			};
 			id=949;
-			atlOffset=-0.00022888184;
+			atlOffset=-1.5258789e-005;
 		};
 		class Item172
 		{
@@ -7985,11 +8015,11 @@ class Mission
 		class Item174
 		{
 			dataType="Marker";
-			position[]={9680.2402,143.1167,11337.872};
+			position[]={9679.8496,143.10449,11337.435};
 			name="TOUR_mkr_FOBFlag";
 			type="flag_UK";
 			id=993;
-			atlOffset=-0.023666382;
+			atlOffset=-0.025878906;
 		};
 		class Item175
 		{

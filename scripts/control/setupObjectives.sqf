@@ -1,4 +1,4 @@
-private ["_endHour", "_startHour", "_endMin", "_startMin"];
+private ["_endHour", "_startHour", "_endMin", "_startMin", "_endDay"];
 
 _startDay = TOUR_StartTime select 2;
 _startHour = TOUR_StartTime select 3;
@@ -7,9 +7,11 @@ _startMin = TOUR_StartTime select 4;
 if ((_startHour + TOUR_playTime) >= 24) then 
 {
 	_endHour = 24 - (_startHour + TOUR_playTime);
+	_endDay = _endDay + 1;
 }else 
 {
 	_endHour = (_startHour + TOUR_playTime);
+	_endDay = _startDay;
 };
 
 _endMin = _startMin;
@@ -21,3 +23,41 @@ call compile format ["[""TOUR_objBase"", {""Guard <marker name=""""TOUR_mkr_FOB"
 ["TOUR_objCiv", {"Protect Civilians"}] call A2S_createSimpleTask;
 ["TOUR_objCiv", {"Ensure there are no civilian casualties."}, {"Protect Civilians"}, {"Protect Civilians"}] call A2S_setSimpleTaskDescription;
 "TOUR_objCiv" call A2S_taskCommit;
+
+waitUntil 
+{
+	sleep 2;
+	TOUR_RC_WEST_DEAD
+	or
+	({(side _x == EAST) && (alive _x) && (_x distance (getMarkerPos "TOUR_mkr_FOB") <20)} count allUnits > 0)
+	or
+	(
+		(date select 2 >= _endHour)
+		&&
+		(date select 3 >= _endHour)
+		&&
+		(date select 4 >= _endMin)
+	)	
+};
+
+if ("TOUR_objCiv" call A2S_getTaskState != "FAILED") then
+{
+	["TOUR_objCiv", "SUCCEEDED"] call A2S_setTaskState;
+	"TOUR_objCiv" call A2S_taskCommit;
+};
+
+if 	(
+		(date select 2 >= _endHour)
+		&&
+		(date select 3 >= _endHour)
+		&&
+		(date select 4 >= _endMin)
+	)then 
+{
+	["TOUR_objBase", "SUCCEEDED"] call A2S_setTaskState;
+	"TOUR_objBase" call A2S_taskCommit;
+}else 
+{
+	["TOUR_objBase", "FAILED"] call A2S_setTaskState;
+	"TOUR_objBase" call A2S_taskCommit;
+};

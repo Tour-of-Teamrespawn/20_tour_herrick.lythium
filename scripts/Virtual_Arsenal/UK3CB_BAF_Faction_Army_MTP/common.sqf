@@ -94,7 +94,11 @@ _weapons = [
 ];
 
 _static = [
-
+	"UK3CB_BAF_Tripod", 
+	"UK3CB_BAF_L16_Tripod", 
+	"UK3CB_BAF_L111A1", 
+	"UK3CB_BAF_L134A1", 
+	"UK3CB_BAF_L16"
 ];
 
 _backpacks = [
