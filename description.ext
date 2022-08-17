@@ -6,8 +6,8 @@ class Header
 };
 
 author = "Mr.Ben [Tour]";
-briefingName = "20 [Tour] Herrick v0.12";
-//onLoadName = "20 [Tour] Herrick v0.12";
+briefingName = "20 [Tour] Herrick v0.13";
+//onLoadName = "20 [Tour] Herrick v0.13";
 onLoadMissionTime = true;
 enableItemsDropping = 0;
 disabledAI = true; 
