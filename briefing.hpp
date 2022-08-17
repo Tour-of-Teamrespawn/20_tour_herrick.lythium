@@ -44,16 +44,16 @@ player createDiaryRecord
 		<font size='20' align='center' color='#0080ff'>CALLSIGNS PLAYERS</font>
 		<br />
 		<br />
-		<font size='16' color='#ffa500'>Broadsword Actual:</font> Platoon Lead
+		<font size='16' color='#ffa500'>Broadsword Actual:</font> HQ Section
 		<br />
 		<br />
-		<font size='16' color='#ffa500'>Broadsword One:</font> Section
+		<font size='16' color='#ffa500'>Broadsword One:</font> One Section
 		<br />
 		<br />
-		<font size='16' color='#ffa500'>Broadsword Two:</font> Section
+		<font size='16' color='#ffa500'>Broadsword Two:</font> Two Section
 		<br />
 		<br />
-		<font size='16' color='#ffa500'>Broadsword Three:</font> Section
+		<font size='16' color='#ffa500'>Broadsword Three:</font> Three Section
 		<br />
 		<br />
 		<font size='20' align='center' color='#0080ff'>CALLSIGNS SUPPORT</font>
