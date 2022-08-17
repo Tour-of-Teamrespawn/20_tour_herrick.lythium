@@ -104,7 +104,7 @@ player createDiaryRecord
 		2nd Battalion, The Duke of Lancaster's Regiment    14/04/13
 		<br/>
 		<br/>
-		Last month the Scots Guards rounded off their tour here Afghanistan by taking advantage of the winter lull in fighting and pushing forward into Taliban-occupied territory to occupy and fortify several compounds in the region, including <marker name='TOUR_Mkr_FOB'>ours.</marker> This unholiest corner of God's fucking creation will be home for you shaggers for the remainder of our operatinal deployment here in Afghanistan.
+		Last month the Scots Guards rounded off their tour here Afghanistan by taking advantage of the winter lull in fighting and pushing forward into Taliban-occupied territory to occupy and fortify several compounds in the region. <marker name='TOUR_Mkr_FOB'>This </marker> unholiest corner of God's fucking creation will be home for you shaggers for the remainder of our operational deployment here in Afghanistan.
 		<br/>
 		<br/>
 		As you may know our arrival here coincides with the start of the fighting season and the locals aren't the kind to pop 'round  around with tea and biscuits to welcome us to their lovely neighborhood. In fact Terry Taliban's been all over ICOM chatting about their plans to recapture this place and send us all home in boxes. We do not plan on cooperating.
