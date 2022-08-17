@@ -1,5 +1,5 @@
 /* 
-###MISSION_VERSION 0.001
+###MISSION_VERSION 0.12
 */
 
 _d = execVM "scripts\general\debugRPT.sqf";
@@ -65,6 +65,11 @@ _si =
 ] execVM "scripts\TOUR_SI\TOUR_SI_init.sqf";
 
 TOUR_init_complete = true;
+
+
+
+
+
 
 
 

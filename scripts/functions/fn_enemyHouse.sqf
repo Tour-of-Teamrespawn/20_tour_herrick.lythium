@@ -73,10 +73,10 @@ if (_max < 1) then
 };
 
 if (count _posarray == 0) exitWith {};
-if ((count _this > 5) && count _warLordPosArray == 0) exitWith {};
+if ((count _this > 6) && count _warLordPosArray == 0) exitWith {};
 
 _men = [];
-if (count _this > 5) then 
+if (count _this > 6) then 
 {
 	_pos = (_warLordPosArray call BIS_fnc_selectRandom);
 	_posarray = _posarray - [_pos];

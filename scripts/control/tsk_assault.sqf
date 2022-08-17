@@ -33,7 +33,7 @@ sleep 1;
 
 _men = [getMarkerPos _mkr, 50, EAST, 20, 40, TOUR_EnemyInfMen] call TOUR_fnc_enemyHouse;
 
-for "_i" from 1 to (ceil random 3) do
+for "_i" from 1 to (1 + (ceil random 2)) do
 {
 	_type = TOUR_EnemyInfGrp call BIS_fnc_selectRandom;
 	_grp = [getMarkerPos _mkr, EAST, (configFile >> "CfgGroups" >> "EAST" >> "UK3CB_TKM_O" >> _type select 0 >> _type select 1)] call BIS_fnc_spawnGroup;

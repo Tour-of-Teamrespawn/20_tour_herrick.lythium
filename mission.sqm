@@ -5,10 +5,10 @@ class EditorData
 	angleGridStep=0.2617994;
 	scaleGridStep=1;
 	autoGroupingDist=10;
-	toggles=9;
+	toggles=521;
 	class ItemIDProvider
 	{
-		nextID=1001;
+		nextID=1010;
 	};
 	class MarkerIDProvider
 	{
@@ -16,10 +16,10 @@ class EditorData
 	};
 	class Camera
 	{
-		pos[]={9733.2998,208.96686,11275.936};
-		dir[]={-0.065646797,-0.72795695,0.68247294};
-		up[]={-0.069700181,0.68562281,0.72461247};
-		aside[]={0.99540567,0,0.095747679};
+		pos[]={9666.1963,167.45712,11300.73};
+		dir[]={0,-0.70710683,0.70710683};
+		up[]={0,0.70710677,0.70710677};
+		aside[]={0.99999994,0,-0};
 	};
 };
 binarizationWanted=0;
@@ -91,13 +91,14 @@ addons[]=
 	"UK3CB_BAF_Weapons_ACE",
 	"ace_rangecard",
 	"ace_field_rations",
-	"A3_Structures_F_Mil_Helipads"
+	"A3_Structures_F_Mil_Helipads",
+	"ace_dragging"
 };
 class AddonsMetaData
 {
 	class List
 	{
-		items=52;
+		items=53;
 		class Item0
 		{
 			className="A3_Modules_F";
@@ -444,6 +445,13 @@ class AddonsMetaData
 			author="ACE-Team";
 			url="https://ace3.acemod.org/";
 		};
+		class Item52
+		{
+			className="ace_dragging";
+			name="ACE3 - Dragging";
+			author="ACE-Team";
+			url="https://ace3.acemod.org/";
+		};
 	};
 };
 dlcs[]=
@@ -491,7 +499,7 @@ class Mission
 	};
 	class Entities
 	{
-		items=178;
+		items=187;
 		class Item0
 		{
 			dataType="Logic";
@@ -4848,7 +4856,7 @@ class Mission
 			dataType="Object";
 			class PositionInfo
 			{
-				position[]={9666.3672,145.16644,11326.801};
+				position[]={9666.3672,145.16652,11326.801};
 			};
 			side="Empty";
 			class Attributes
@@ -4858,7 +4866,7 @@ class Mission
 			};
 			id=799;
 			type="Land_PortableLongRangeRadio_F";
-			atlOffset=0.8139801;
+			atlOffset=0.8140564;
 		};
 		class Item167
 		{
@@ -6199,8 +6207,8 @@ class Mission
 			dataType="Object";
 			class PositionInfo
 			{
-				position[]={9684.3828,144.59541,11343.161};
-				angles[]={6.2708807,3.6400762,0.0033859389};
+				position[]={9683.7979,144.60274,11343.917};
+				angles[]={6.2708764,3.6400762,0.0033829133};
 			};
 			side="Empty";
 			flags=4;
@@ -6210,6 +6218,7 @@ class Mission
 			};
 			id=831;
 			type="VirtualReammoBox_camonet_F";
+			atlOffset=-1.5258789e-005;
 		};
 		class Item170
 		{
@@ -8048,6 +8057,156 @@ class Mission
 			type="Empty";
 			id=998;
 			atlOffset=-0.064712524;
+		};
+		class Item178
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={9688.4297,143.66913,11344.582};
+				angles[]={6.2735987,5.1774511,0.00069053395};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+			};
+			id=999;
+			type="Land_CampingTable_F";
+		};
+		class Item179
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={9689.333,143.6866,11346.339};
+				angles[]={6.2735987,5.1774511,0.00069053395};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+			};
+			id=1000;
+			type="Land_CampingTable_F";
+			atlOffset=1.5258789e-005;
+		};
+		class Item180
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={9686.124,143.22337,11342.364};
+				angles[]={6.2708764,0,0.0033829133};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+			};
+			id=1001;
+			type="UK3CB_BAF_Static_L111A1_Deployed_High_MTP";
+		};
+		class Item181
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={9687.3965,143.23174,11341.576};
+				angles[]={6.2708764,0,0.0033829133};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+			};
+			id=1003;
+			type="UK3CB_BAF_Static_L7A2_Deployed_High_MTP";
+			atlOffset=0.0057220459;
+		};
+		class Item182
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={9688.5918,143.23761,11342.307};
+				angles[]={6.2735987,0,0.00069053395};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+			};
+			id=1004;
+			type="UK3CB_BAF_Static_L7A2_Deployed_Mid_MTP";
+			atlOffset=0.0012817383;
+		};
+		class Item183
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={9689.4678,144.14243,11346.587};
+				angles[]={6.2735987,2.3647192,0.00069053395};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+			};
+			id=1006;
+			type="UK3CB_BAF_WeaponsSecondary_NLAW_Launcher";
+			atlOffset=0.049285889;
+		};
+		class Item184
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={9688.8672,144.12898,11345.231};
+				angles[]={6.2735987,1.9787694,0.00069053395};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+			};
+			id=1007;
+			type="UK3CB_BAF_WeaponsSecondary_NLAW_Launcher";
+			atlOffset=0.049255371;
+		};
+		class Item185
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={9688.2139,144.06725,11343.977};
+				angles[]={6.2735987,0,0.00069053395};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+			};
+			id=1008;
+			type="UK3CB_BAF_WeaponsPrimary_L85A2";
+		};
+		class Item186
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={9688.3281,144.07457,11344.731};
+				angles[]={6.2735987,4.6872602,0.00069053395};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+			};
+			id=1009;
+			type="UK3CB_BAF_WeaponsPrimary_L85A2";
+			atlOffset=1.5258789e-005;
 		};
 	};
 };
