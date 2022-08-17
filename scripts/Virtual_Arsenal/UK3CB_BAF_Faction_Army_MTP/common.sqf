@@ -191,8 +191,10 @@ _uniform_helmet =
 	"UK3CB_BAF_H_Mk7_Scrim_ESS_A",
 	"UK3CB_BAF_H_Mk7_Scrim_ESS_B",
 	"UK3CB_BAF_H_Mk7_Scrim_ESS_C",
-
-	"UK3CB_BAF_H_Boonie_MTP"
+    "UK3CB_BAF_H_Boonie_MTP"
+	"UK3CB_BAF_H_Boonie_MTP_PRR"
+	"UK3CB_BAF_H_Earphone",
+	"UK3CB_BAF_H_Headset_PRR"
 ];
 
 _bis_items = [
