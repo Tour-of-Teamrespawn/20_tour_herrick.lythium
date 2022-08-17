@@ -98,11 +98,24 @@ player createDiaryRecord
 player createDiaryRecord 
 ["Diary", ["Mission", 
 	"
-		<font size='20' align='center' color='#0080ff'>MISSION</font>
+		<font size='20' align='center' color='#0080ff'>Operation Herrick XVIII</font>
 		<br/>
 		<br/>
-		Place some text here to describe the mission and you can use <marker name='TOUR_Mkr_FOB'>marker links</marker> to help.
+		2nd Battalion, The Duke of Lancaster's Regiment    14/04/13
 		<br/>
 		<br/>
+		Last month the Scots Guards rounded off their tour here Afghanistan by taking advantage of the winter lull in fighting and pushing forward into Taliban-occupied territory to occupy and fortify several compounds in the region, including <marker name='TOUR_Mkr_FOB'>ours.</marker> This unholiest corner of God's fucking creation will be home for you shaggers for the remainder of our operatinal deployment here in Afghanistan.
+		<br/>
+		<br/>
+		As you may know our arrival here coincides with the start of the fighting season and the locals aren't the kind to pop 'round  around with tea and biscuits to welcome us to their lovely neighborhood. In fact Terry Taliban's been all over ICOM chatting about their plans to recapture this place and send us all home in boxes. We do not plan on cooperating.
+		<br/>
+		<br/>
+		Our mission here is to hold <marker name='TOUR_Mkr_FOB'>FOB Mikis</marker> and use this location as a springboard to carry out further tasks within the local area which all build towards the larger goal of diminishing and eventually neutralizing the enemy threat here and bring the district into the fold of the Afghan government.
+		<br/>
+		<br/>
+		Remember your drills: Maintain your weapon, your kit and yourself in that order. Remember to drink plenty because it's fucking boiling here and of course keep an ear on the <marker name='TOUR_Mkr_Radio'>net</marker> for further orders from Company Headquarters.
+		<br/>
+		<br/>
+		Mag on and stag on, troops. 
         "
 ]];
