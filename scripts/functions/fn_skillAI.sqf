@@ -14,24 +14,13 @@ _skillArray = [["aimingShake",0.3],["aimingSpeed",0.35],["commanding",0.85],["co
 
 _sf = 
 [
-	"rhs_vdv_rifleman",
-	"rhs_vdv_rifleman",
-	"rhs_vdv_rifleman",
-	"rhs_vdv_arifleman_rpk",
-	"rhs_vdv_arifleman_rpk",
-	"rhs_vdv_arifleman",
-	"rhs_vdv_AT",
-	"rhs_vdv_medic",
-	"rhs_vdv_marksman",
-	"rhs_vdv_machinegunner",
-	"rhs_vdv_grenadier",
-	"rhs_vdv_lat"
+
 ];
 _sniper = 
 [
-	"rhsgref_ins_militiaman_mosin",
-	"rhsgref_ins_sniper",
-	"rhs_vdv_marksman"
+	"uk3cb_tkm_o_mk",
+	"uk3cb_tkm_o_sni",
+	"uk3cb_tkm_o_spot"
 ];
 
 if ((toLower (typeof _guy)) in _sf) then

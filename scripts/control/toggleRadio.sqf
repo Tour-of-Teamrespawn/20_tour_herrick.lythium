@@ -1,9 +1,7 @@
-private ["_time"];
-
 _State = false;
 while {true} do 
 {
-	if ((_state = false) && (missionNamespace getVariable "TOUR_backpacRadioON")) then 
+	if ((_state == false) && (missionNamespace getVariable "TOUR_backpacRadioON")) then 
 	{
 		if (!isNil "TOUR_player_3") then 
 		{
@@ -14,7 +12,7 @@ while {true} do
 			};
 		};
 	};
-	if ((_state = true) && !(missionNamespace getVariable "TOUR_backpacRadioON")) then 
+	if ((_state == true) && !(missionNamespace getVariable "TOUR_backpacRadioON")) then 
 	{
 		if (!isNil "TOUR_player_3") then 
 		{

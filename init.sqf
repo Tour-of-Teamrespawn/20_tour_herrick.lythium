@@ -11,11 +11,12 @@ waitUntil {scriptDone _p};
 _a = TOUR_logic execVM "a2s_multitask.sqf";
 waitUntil {scriptDone _a};
 
+/*
 enableRadio false;
 {
 	_x setVariable ["BIS_noCoreConversations",true];
 } forEach allUnits;
-
+*/
 TOUR_HQ = [WEST, "HQ"];
 
 _f = execVM "scripts\functions\fn_init.sqf";
@@ -40,7 +41,7 @@ _si =
 	[
 		[
 			"artillery",
-			"Harbinger Two",
+			"Harbinger",
 			[
 				["6rnd_155mm_mo_smoke", 100]
 			]

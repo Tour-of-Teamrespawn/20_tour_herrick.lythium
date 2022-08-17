@@ -1,4 +1,4 @@
-private ["_location", "_mkr", "_item"];
+private ["_location", "_mkr", "_item", "_grp", "_rumbled", "_men", "_man"];
 
 _distance = 400 + (random 900);
 _dir = random 360;
@@ -13,7 +13,7 @@ _types = ["evmap", "evphoto", "evmoscow"];
 while {true} do 
 {
 	_location = _locations call BIS_fnc_selectRandom;
-	if ({((alive _x) && ((vehicle _x) distance _pos < 300)) or (_location in TOUR_taskLocations)}count (playableUnits + switchableunits) == 0) exitWith {TOUR_tskAccept = true};
+	if (!(_location in TOUR_taskLocations) && {((alive _x) && ((vehicle _x) distance _pos < 300))}count (playableUnits + switchableunits) == 0) exitWith {TOUR_tskAccept = true};
 	if (time > _time) exitWith {TOUR_tskAccept = false};
 	sleep 0.05;
 };
@@ -29,6 +29,8 @@ if (str getMarkerPos "TOUR_mkr_tskraid" == "[0,0,0]") then
 };
 
 TOUR_taskLocations pushBack _location;
+
+["raid", 7.5] call TOUR_fnc_hqOrders;
 
 ["TOUR_objRaid", {"Acquire Intel"}] call A2S_createSimpleTask;
 ["TOUR_objRaid", {"Raid <marker name=""TOUR_mkr_tskraid"">these buildings</marker> and search for intel on local Taliban within the area."}, {"Acquire Intel"}, {"Acquire Intel"}] call A2S_setSimpleTaskDescription;
@@ -91,10 +93,33 @@ _evidence setVariable ["TOUR_tskRaidIntel", true, true];
 	]
 }forEach _items;
 
-waitUntil 
+_side = if (random 1 > 0) then {RESISTANCE} else {EAST};
+_men = [getMarkerPos _mkr, 50, _side, 0, 10, TOUR_EnemyInfMen] call TOUR_fnc_enemyHouse;
+_rumbled = false;
+
+while {!isNull _evidence} do 
 {
-	sleep 5;
-	isNull _evidence
+	if (_side == RESISTANCE) then 
+	{
+		if !(_rumbled) then 
+		{
+			if ({(alive _x) && (_x distance (getMarkerPos _mkr) < 50)} count (playableUnits + switchableUnits) > 0) then 
+			{
+				if (random 200 > 199) then 
+				{
+					{
+						if ((!isNull _x)&&(alive _x)) then 
+						{
+							_grp = createGroup EAST;
+							_x joinAsSilent [_grp, count units _grp];
+						};
+					}forEach _men;
+					_rumbled = true;
+				};
+			}
+		};
+	};
+	sleep 1;
 };
 
 ["TOUR_objRaid", "SUCCEEDED"] call A2S_setTaskState;
@@ -106,6 +131,24 @@ TOUR_tskCount = TOUR_tskCount + 1;
 
 sleep 60;
 
-TOUR_taskLocations delteAt (TOUR_taskLocations find _location);
+"TOUR_objRaid" call A2S_removeSimpleTask;
+
+sleep 2;
+
+TOUR_taskLocations deleteAt (TOUR_taskLocations find _location);
+
+{
+	_man = _x;
+	if (!isNull _x) then 
+	{
+		if (({(alive _x) && (_man distance _x < 300)} count (playableUnits + switchableUnits)) == 0) then 
+		{
+			deleteVehicle _x;
+		};
+	};
+	sleep 0.5;
+	if ({!isNull _x}count _men == 0) exitwith {};
+}forEach _men;
+
 
 //remove task?

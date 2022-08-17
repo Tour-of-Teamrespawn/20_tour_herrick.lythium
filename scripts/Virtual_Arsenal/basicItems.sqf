@@ -13,7 +13,7 @@ private _uniform = "";
 
 _uniform = switch (toLower TypeOf player) do 
 {
-	default {"UK3CB_BAF_U_CombatUniform_MTP"};
+	default {"UK3CB_BAF_U_CombatUniform_MTP_TShirt"};
 };
 
 player addUniform _uniform;
@@ -35,4 +35,13 @@ player addUniform _uniform;
 	"ACE_Earplugs",
 	"ACRE_PRC343"
 ];
+
+sleep 1;
+[player,"uk3cb_baf_insignia_redcross"] call BIS_fnc_setUnitInsignia;
+
+if (toLower TypeOf player != "uk3cb_baf_medic_mtp") then 
+{
+	[player,"QLR"] call BIS_fnc_setUnitInsignia;
+};
+
 

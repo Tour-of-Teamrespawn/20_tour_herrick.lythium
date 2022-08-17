@@ -2,7 +2,7 @@
 /*%FSM<HEAD>*/
 /*
 item0[] = {"Start",0,250,82.253479,-247.581390,172.253479,-197.581390,0.000000,"Start"};
-item1[] = {"End_",1,4346,-264.287537,-247.549606,-174.287537,-197.549652,0.000000,"End" \n ""};
+item1[] = {"End_",1,250,-264.287537,-247.549606,-174.287537,-197.549652,0.000000,"End" \n ""};
 item2[] = {"unitReady",4,218,82.824799,-153.412231,172.824799,-103.412231,0.000000,"unitReady"};
 item3[] = {"_",4,218,-122.406982,-156.165649,-32.406982,-106.165649,0.000000,""};
 item4[] = {"",7,210,23.643768,-47.031647,31.643768,-39.031647,0.000000,""};
@@ -15,7 +15,7 @@ item10[] = {"__2",4,218,-119.653503,24.645950,-29.653503,74.645950,0.000000,""};
 item11[] = {"__2",2,250,-120.718048,117.050171,-30.718033,167.050171,0.000000,""};
 item12[] = {"",7,210,23.643768,138.369110,31.643768,146.369110,0.000000,""};
 item13[] = {"__2",4,218,-119.250000,211.012650,-29.250000,261.012634,0.000000,""};
-item14[] = {"__3",2,250,-121.803711,310.293335,-31.803696,360.293335,0.000000,""};
+item14[] = {"__3",2,4346,-121.803711,310.293335,-31.803696,360.293335,0.000000,""};
 item15[] = {"",7,210,20.386932,333.783600,28.386932,341.783600,0.000000,""};
 item16[] = {"",7,210,24.769165,45.939240,32.769165,53.939240,0.000000,""};
 item17[] = {"",7,210,22.597839,235.925476,30.597839,243.925476,0.000000,""};
@@ -41,8 +41,8 @@ link18[] = {14,15};
 link19[] = {15,17};
 link20[] = {16,4};
 link21[] = {17,12};
-globals[] = {0.000000,0,0,0,0,640,480,1,21,6316128,1,-584.615051,584.614746,558.016785,-445.110657,1077,924,1};
-window[] = {2,-1,-1,-1,-1,919,130,1570,130,3,1095};
+globals[] = {0.000000,0,0,0,0,640,480,1,22,6316128,1,-464.114838,464.114197,454.634705,-341.728851,1077,924,1};
+window[] = {2,-1,-1,-32000,-32000,997,208,1648,208,3,1095};
 *//*%FSM</HEAD>*/
 class FSM
 {
@@ -54,10 +54,12 @@ class FSM
                 {
                         name = "Start";
                         itemno = 0;
-                        init = /*%FSM<STATEINIT""">*/"private [""_unit"", ""_posArray"", ""_time""];" \n
+                        init = /*%FSM<STATEINIT""">*/"private [""_unit"", ""_posArray"", ""_time"", ""_pos"", ""_sleepNeeded""];" \n
                          "" \n
                          "_unit = _this select 0;" \n
                          "_posArray = _this select 1;" \n
+                         "_sleepNeeded = _this select 2;" \n
+                         "_pos = getpos _unit;" \n
                          "" \n
                          "_unit removeEventHandler [""FiredNear"", 0];"/*%FSM</STATEINIT""">*/;
                         precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
@@ -81,7 +83,20 @@ class FSM
                                         priority = 0.000000;
                                         to="_";
                                         precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
-                                        condition=/*%FSM<CONDITION""">*/"unitReady _unit && (isNil {_unit getVariable ""TDMC_civ_fNear""})"/*%FSM</CONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"(unitReady _unit && (isNil {_unit getVariable ""TDMC_civ_fNear""}))" \n
+                                         "&&" \n
+                                         "" \n
+                                         "!(" \n
+                                         "	(_pos distance _unit < 10)" \n
+                                         "	&&" \n
+                                         "	(" \n
+                                         "	(((date select 3 == 4) && (date select 4 <= 30)) or (date select 3 < 4))" \n
+                                         "	or" \n
+                                         "	(((date select 3 == 19) && (date select 4 >= 30)) or (date select 3 > 19))" \n
+                                         "	)" \n
+                                         "	&&" \n
+                                         "	_sleepNeeded" \n
+                                         ")"/*%FSM</CONDITION""">*/;
                                         action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
                                 };
                                 /*%FSM</LINK>*/
@@ -117,7 +132,8 @@ class FSM
                          "_unit setBehaviour ""SAFE"";" \n
                          "_unit enableAI ""MOVE"";" \n
                          "_unit setUnitPos ""UP"";" \n
-                         "_unit doMove (_posArray select ( floor (random (count _posArray))));"/*%FSM</STATEINIT""">*/;
+                         "_pos = (_posArray select ( floor (random (count _posArray))));" \n
+                         "_unit doMove _pos;"/*%FSM</STATEINIT""">*/;
                         precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
                         class Links
                         {
@@ -152,7 +168,20 @@ class FSM
                                         priority = 0.000000;
                                         to="_";
                                         precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
-                                        condition=/*%FSM<CONDITION""">*/"unitReady _unit && (isNil {_unit getVariable ""TDMC_civ_fNear""})"/*%FSM</CONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"(unitReady _unit && (isNil {_unit getVariable ""TDMC_civ_fNear""}))" \n
+                                         "&&" \n
+                                         "" \n
+                                         "!(" \n
+                                         "	(_pos distance _unit < 10)" \n
+                                         "	&&" \n
+                                         "	(" \n
+                                         "	(((date select 3 == 4) && (date select 4 <= 30)) or (date select 3 < 4))" \n
+                                         "	or" \n
+                                         "	(((date select 3 == 19) && (date select 4 >= 30)) or (date select 3 > 19))" \n
+                                         "	)" \n
+                                         "	&&" \n
+                                         "	_sleepNeeded" \n
+                                         ")"/*%FSM</CONDITION""">*/;
                                         action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
                                 };
                                 /*%FSM</LINK>*/
@@ -171,13 +200,31 @@ class FSM
                          "{" \n
                          "	_unit setUnitPos ""DOWN"";" \n
                          "};" \n
-                         "_time = time + 5;" \n
+                         "" \n
                          "_unit setBehaviour ""CARELESS"";" \n
                          "_unit disableAi ""MOVE"";" \n
                          "_unit disableAi ""TARGET"";" \n
                          "_unit disableAi ""AUTOTARGET"";" \n
                          "_unit allowFleeing 0;" \n
-                         "_unit setVariable [""TDMC_civ_fNear"", 2, false];"/*%FSM</STATEINIT""">*/;
+                         "_unit setVariable [""TDMC_civ_fNear"", 2, false];" \n
+                         "" \n
+                         "if !(" \n
+                         "	(_pos distance _unit < 10)" \n
+                         "	&&" \n
+                         "	(" \n
+                         "	(((date select 3 == 4) && (date select 4 <= 30)) or (date select 3 < 4))" \n
+                         "	or" \n
+                         "	(((date select 3 == 19) && (date select 4 >= 30)) or (date select 3 > 19))" \n
+                         "	)" \n
+                         "	&&" \n
+                         "	_sleepNeeded" \n
+                         ")then " \n
+                         "{" \n
+                         "	_time = time + 5;" \n
+                         "}else" \n
+                         "{" \n
+                         "	_time = time + 60;" \n
+                         "};"/*%FSM</STATEINIT""">*/;
                         precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
                         class Links
                         {
@@ -188,7 +235,20 @@ class FSM
                                         priority = 0.000000;
                                         to="_";
                                         precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
-                                        condition=/*%FSM<CONDITION""">*/"unitReady _unit && (isNil {_unit getVariable ""TDMC_civ_fNear""})"/*%FSM</CONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"(unitReady _unit && (isNil {_unit getVariable ""TDMC_civ_fNear""}))" \n
+                                         "&&" \n
+                                         "" \n
+                                         "!(" \n
+                                         "	(_pos distance _unit < 10)" \n
+                                         "	&&" \n
+                                         "	(" \n
+                                         "	(((date select 3 == 4) && (date select 4 <= 30)) or (date select 3 < 4))" \n
+                                         "	or" \n
+                                         "	(((date select 3 == 19) && (date select 4 >= 30)) or (date select 3 > 19))" \n
+                                         "	)" \n
+                                         "	&&" \n
+                                         "	_sleepNeeded" \n
+                                         ")"/*%FSM</CONDITION""">*/;
                                         action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
                                 };
                                 /*%FSM</LINK>*/
@@ -235,13 +295,26 @@ class FSM
                 {
                         name = "__2";
                         itemno = 11;
-                        init = /*%FSM<STATEINIT""">*/"_unit enableAI ""MOVE"";" \n
-                         "_unit disableAi ""TARGET"";" \n
-                         "_time = time + 120;" \n
-                         "_unit setVariable [""TDMC_civ_fNear"", 3, false];" \n
-                         "_unit setUnitPos ""UP"";" \n
-                         "_unit doMove (_unit getpos [50, (random 360)]);" \n
-                         "_unit setSpeedMode ""FULL"";"/*%FSM</STATEINIT""">*/;
+                        init = /*%FSM<STATEINIT""">*/"if !(" \n
+                         "	(_pos distance _unit < 10)" \n
+                         "	&&" \n
+                         "	(" \n
+                         "	(((date select 3 == 4) && (date select 4 <= 30)) or (date select 3 < 4))" \n
+                         "	or" \n
+                         "	(((date select 3 == 19) && (date select 4 >= 30)) or (date select 3 > 19))" \n
+                         "	)" \n
+                         "	&&" \n
+                         "	_sleepNeeded" \n
+                         ") then" \n
+                         "{" \n
+                         "	_unit enableAI ""MOVE"";" \n
+                         "	_unit disableAi ""TARGET"";" \n
+                         "	_time = time + 120;" \n
+                         "	_unit setVariable [""TDMC_civ_fNear"", 3, false];" \n
+                         "	_unit setUnitPos ""UP"";" \n
+                         "	_unit doMove (_unit getpos [50, (random 360)]);" \n
+                         "	_unit setSpeedMode ""FULL"";" \n
+                         "};"/*%FSM</STATEINIT""">*/;
                         precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
                         class Links
                         {
@@ -252,7 +325,20 @@ class FSM
                                         priority = 0.000000;
                                         to="_";
                                         precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
-                                        condition=/*%FSM<CONDITION""">*/"unitReady _unit && (isNil {_unit getVariable ""TDMC_civ_fNear""})"/*%FSM</CONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"(unitReady _unit && (isNil {_unit getVariable ""TDMC_civ_fNear""}))" \n
+                                         "&&" \n
+                                         "" \n
+                                         "!(" \n
+                                         "	(_pos distance _unit < 10)" \n
+                                         "	&&" \n
+                                         "	(" \n
+                                         "	(((date select 3 == 4) && (date select 4 <= 30)) or (date select 3 < 4))" \n
+                                         "	or" \n
+                                         "	(((date select 3 == 19) && (date select 4 >= 30)) or (date select 3 > 19))" \n
+                                         "	)" \n
+                                         "	&&" \n
+                                         "	_sleepNeeded" \n
+                                         ")"/*%FSM</CONDITION""">*/;
                                         action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
                                 };
                                 /*%FSM</LINK>*/
@@ -338,7 +424,20 @@ class FSM
                                         priority = 0.000000;
                                         to="_";
                                         precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
-                                        condition=/*%FSM<CONDITION""">*/"unitReady _unit && (isNil {_unit getVariable ""TDMC_civ_fNear""})"/*%FSM</CONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"(unitReady _unit && (isNil {_unit getVariable ""TDMC_civ_fNear""}))" \n
+                                         "&&" \n
+                                         "" \n
+                                         "!(" \n
+                                         "	(_pos distance _unit < 10)" \n
+                                         "	&&" \n
+                                         "	(" \n
+                                         "	(((date select 3 == 4) && (date select 4 <= 30)) or (date select 3 < 4))" \n
+                                         "	or" \n
+                                         "	(((date select 3 == 19) && (date select 4 >= 30)) or (date select 3 > 19))" \n
+                                         "	)" \n
+                                         "	&&" \n
+                                         "	_sleepNeeded" \n
+                                         ")"/*%FSM</CONDITION""">*/;
                                         action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
                                 };
                                 /*%FSM</LINK>*/

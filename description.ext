@@ -72,9 +72,18 @@ class Params
 		texts[] = {"1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "18", "24"};
 	};	
 
-	class TOUR_param_fogSettings
+	class TOUR_param_start
 	{
 		//paramsArray[4]
+		title = "Start Time:";
+		values[] = {1, 2, 3, 4};
+		default = 2;
+		texts[] = {"Sunrise", "Noon", "Sunset", "Night"};
+	};	
+
+	class TOUR_param_fogSettings
+	{
+		//paramsArray[45]
 		title = "Fog Settings:";
 		values[] = {1, 2, 3, 4};
 		default = 1;
@@ -83,11 +92,27 @@ class Params
 
 	class TOUR_param_weather
 	{
-		//paramsArray[5]
+		//paramsArray[6]
 		title = "Weather Settings:";
 		values[] = {0, 0.65, 0.80, 1};
 		default = 0;
 		texts[] = {"Clear Skies", "Overcast", "Rain", "Storm"};
+	};
+	class TOUR_param_baseAssaultProb
+	{
+		//paramsArray[7]
+		title = "Probability Of Attack On Base:";
+		values[] = {0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100};
+		default = 70;
+		texts[] = {"0", "10", "20", "30", "40", "50", "60", "70", "80", "90", "100"};
+	};
+	class TOUR_param_randomAttackProb
+	{
+		//paramsArray[8]
+		title = "Probability Of Random Attacks Per Hour:";
+		values[] = {0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100};
+		default = 50;
+		texts[] = {"0", "10", "20", "30", "40", "50", "60", "70", "80", "90", "100"};
 	};	
 };
 
@@ -178,6 +203,118 @@ class CfgRadio
 	}; 
 };
 
-
+class CfgSounds
+{
+	sounds[] = {};
+   
+	class TOUR_snd_line_1
+	{
+		name = "TOUR_snd_line_1";
+		sound[] = {"sounds\line1.ogg", 1, 1, 25};
+		titles[] = {};
+	};
+	class TOUR_snd_line_2
+	{
+		name = "TOUR_snd_line_2";
+		sound[] = {"sounds\line2.ogg", 1, 1, 25};
+		titles[] = {};
+	};
+	class TOUR_snd_line_3
+	{
+		name = "TOUR_snd_line_3";
+		sound[] = {"sounds\line3.ogg", 1, 1, 25};
+		titles[] = {};
+	};
+	class TOUR_snd_line_4
+	{
+		name = "TOUR_snd_line_4";
+		sound[] = {"sounds\line4.ogg", 1, 1, 25};
+		titles[] = {};
+	};
+	class TOUR_snd_line_5
+	{
+		name = "TOUR_snd_line_5";
+		sound[] = {"sounds\line5.ogg", 1, 1, 25};
+		titles[] = {};
+	};
+	class TOUR_snd_mission_patrol
+	{
+		name = "TOUR_snd_mission_patrol";
+		sound[] = {"sounds\line6.ogg", 1, 1, 25};
+		titles[] = {};
+	};
+	class TOUR_snd_mission_arrest
+	{
+		name = "TOUR_snd_mission_arrest";
+		sound[] = {"sounds\line7.ogg", 1, 1, 25};
+		titles[] = {};
+	};
+	class TOUR_snd_mission_kill
+	{
+		name = "TOUR_snd_mission_kill";
+		sound[] = {"sounds\line8.ogg", 1, 1, 25};
+		titles[] = {};
+	};
+	class TOUR_snd_mission_assault
+	{
+		name = "TOUR_snd_mission_assault";
+		sound[] = {"sounds\line9.ogg", 1, 1, 25};
+		titles[] = {};
+	};
+	class TOUR_snd_mission_raid
+	{
+		name = "TOUR_snd_mission_raid";
+		sound[] = {"sounds\line10.ogg", 1, 1, 25};
+		titles[] = {};
+	};
+	class TOUR_snd_mission_ied
+	{
+		name = "TOUR_snd_mission_ied";
+		sound[] = {"sounds\line11.ogg", 1, 1, 25};
+		titles[] = {};
+	};
+	class TOUR_snd_mission_elder
+	{
+		name = "TOUR_snd_mission_elder";
+		sound[] = {"sounds\line12.ogg", 1, 1, 25};
+		titles[] = {};
+	};
+	class TOUR_snd_mission_details
+	{
+		name = "TOUR_snd_mission_details";
+		sound[] = {"sounds\line13.ogg", 1, 1, 25};
+		titles[] = {};
+	};
+	class TOUR_snd_mission_talk
+	{
+		name = "TOUR_snd_mission_talk";
+		sound[] = {"sounds\line14.ogg", 1, 1, 25};
+		titles[] = {};
+	};
+	class TOUR_snd_mission_protect
+	{
+		name = "TOUR_snd_mission_protect";
+		sound[] = {"sounds\line15.ogg", 1, 1, 25};
+		titles[] = {};
+	};
+	class TOUR_snd_line_16
+	{
+		name = "TOUR_snd_line_16";
+		sound[] = {"sounds\line16.ogg", 1, 1, 25};
+		titles[] = {};
+	};
+	class TOUR_snd_line_17
+	{
+		name = "TOUR_snd_line_17";
+		sound[] = {"sounds\line17.ogg", 1, 1, 25};
+		titles[] = {};
+	};
+	class TOUR_radioManSpeak
+	{
+		name = "TOUR_radioManSpeak";
+		sound[] = {"sounds\line17.ogg", 1, 1, 25};
+		titles[] = {};
+	};
+};
 
 

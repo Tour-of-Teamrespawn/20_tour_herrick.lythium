@@ -39,10 +39,20 @@ if (count _buildingsnew > 0) then
 };
 _civCountGlobalTotal = 0;
 
+_counter = 1;
+
 for "_i" from 1 to _max do
 {
+	_sleepNeeded = false;
+	if (_counter == 6) then 
+	{
+		_counter == 1;
+		_sleepNeeded = true;
+	}else 
+	{
+		_counter = _counter + 1;
+	};
 	_pos = (_posArray call BIS_fnc_selectRandom);
-	hint ((str _posArray) + " " + (str _i) + " " + _marker);
 	_posArray = _posArray - [_pos];
 	_type = _array call BIS_fnc_selectRandom;
 	_grp = createGroup CIVILIAN;
@@ -52,5 +62,5 @@ for "_i" from 1 to _max do
 	_civCountGlobalTotal = _civCountGlobalTotal + 1;
 	_unit call Tour_fnc_garbageEH;
 	_unit call TOUR_fnc_skillAI;
-	[_unit, _posArray] execFSM "scripts\ambientLife\civilianControl.fsm";
+	[_unit, _posArray, _sleepNeeded] execFSM "scripts\ambientLife\civilianControl.fsm";
 };

@@ -1,4 +1,4 @@
-private ["_pos"];
+private ["_pos", "_mkr", "_men"];
 
 _time = time + 5;
 while {true} do 
@@ -13,21 +13,58 @@ while {true} do
 
 if !(TOUR_tskAccept) exitWith {};
 
-if (str getMarkerPos "TOUR_mkr_tskPatrol" == "[0,0,0]") then 
+TOUR_patrolNo = TOUR_patrolNo + 1;
+_taskName = (format ["TOUR_objPatrol_%1", TOUR_patrolNo]);
+
+if (str getMarkerPos (format ["TOUR_mkr_tskPatrol_%1", TOUR_patrolNo]) == "[0,0,0]") then 
 {
-	_mkr = createMarker ["TOUR_mkr_tskPatrol", _pos];
+	_mkr = createMarker [(format ["TOUR_mkr_tskPatrol_%1", TOUR_patrolNo]), _pos];
 }else
 {
-	"TOUR_mkr_tskPatrol" setMarkerPos _pos;
+	(format ["TOUR_mkr_tskPatrol_%1", TOUR_patrolNo]) setMarkerPos _pos;
 };
 
 TOUR_taskLocations pushBack _pos;
 
-["TOUR_objPatrol", {"Patrol"}] call A2S_createSimpleTask;
-["TOUR_objPatrol", {"Patrol and scout <marker name=""TOUR_mkr_tskPatrol"">this area</marker>."}, {"Patrol"}, {"Patrol"}] call A2S_setSimpleTaskDescription;
-"TOUR_objPatrol" call A2S_taskCommit;
+["patrol", 3] call TOUR_fnc_hqOrders;
+
+[_taskName, {"Patrol"}] call A2S_createSimpleTask;
+call compile format ["[""TOUR_objPatrol_%1"", {""Patrol and scout <marker name=""""TOUR_mkr_tskPatrol_%1"""">this area</marker>.""}, {""Patrol""}, {""Patrol""}] call A2S_setSimpleTaskDescription;", TOUR_patrolNo];
+_taskName call A2S_taskCommit;
 sleep 1;
-"TOUR_objPatrol" call A2S_taskHint;
+_taskName call A2S_taskHint;
+
+_men = [];
+
+if (random 1 > 0.6) then 
+{
+	for "_i" from 1 to (ceil random 2) do
+	{
+		_type = TOUR_EnemyInfGrp call BIS_fnc_selectRandom;
+		_grp = [getMarkerPos _mkr, EAST, (configFile >> "CfgGroups" >> "EAST" >> "UK3CB_TKM_O" >> _type select 0 >> _type select 1)] call BIS_fnc_spawnGroup;
+		[_grp, (getPosATL (leader _grp))] call BIS_fnc_taskDefend;
+		{
+			_x call Tour_fnc_garbageEH;
+			_x call TOUR_fnc_skillAI;
+			_men pushBack _x;
+		}forEach units _grp;
+	};
+};
+
+if (random 1 > 0.7) then 
+{
+	for "_i" from 1 to (ceil random 2) do
+	{
+		_type = TOUR_EnemyInfGrp call BIS_fnc_selectRandom;
+		_grp = [getMarkerPos _mkr, EAST, (configFile >> "CfgGroups" >> "EAST" >> "UK3CB_TKM_O" >> _type select 0 >> _type select 1)] call BIS_fnc_spawnGroup;
+		[_grp, (getMarkerPos _mkr) getpos [50, random 360], 100] call TOUR_fnc_rndPatrol;
+		{
+			_x call Tour_fnc_garbageEH;
+			_x call TOUR_fnc_skillAI;
+			_men pushBack _x;
+		}forEach units _grp;
+	};
+};
 
 waitUntil 
 {
@@ -35,15 +72,30 @@ waitUntil
 	({(alive _x) && ((vehicle _x) distance _pos < 50)}count (playableUnits + switchableunits) > 0)
 };
 
-["TOUR_objPatrol", "SUCCEEDED"] call A2S_setTaskState;
-"TOUR_objPatrol" call A2S_taskCommit;
+[_taskName, "SUCCEEDED"] call A2S_setTaskState;
+_taskName call A2S_taskCommit;
 sleep 2;
-"TOUR_objPatrol" call A2S_taskHint;
+_taskName call A2S_taskHint;
 
 TOUR_tskCount = TOUR_tskCount + 1;
 
 sleep 60;
 
-TOUR_taskLocations delteAt (TOUR_taskLocations find _pos);
+_taskName call A2S_removeSimpleTask;
 
-//remove task?
+sleep 2;
+
+TOUR_taskLocations deleteAt (TOUR_taskLocations find _pos);
+
+{
+	_man = _x;
+	if (!isNull _x) then 
+	{
+		if (({(alive _x) && (_man distance _x < 300)} count (playableUnits + switchableUnits)) == 0) then 
+		{
+			deleteVehicle _x;
+		};
+	};
+	sleep 0.5;
+	if ({!isNull _x}count _men == 0) exitwith {};
+}forEach _men;
