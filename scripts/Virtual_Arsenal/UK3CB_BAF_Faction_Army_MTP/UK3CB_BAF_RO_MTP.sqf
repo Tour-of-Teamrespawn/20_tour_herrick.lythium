@@ -69,7 +69,12 @@ _uniform_uniform =
 
 _uniform_vest = 
 [
-
+	"UK3CB_BAF_V_Osprey_Rifleman_A",
+	"UK3CB_BAF_V_Osprey_Rifleman_B",
+	"UK3CB_BAF_V_Osprey_Rifleman_C",
+	"UK3CB_BAF_V_Osprey_Rifleman_D",
+	"UK3CB_BAF_V_Osprey_Rifleman_E",
+	"UK3CB_BAF_V_Osprey_Rifleman_F"
 ];
 
 _bis_items = 

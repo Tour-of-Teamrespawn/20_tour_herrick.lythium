@@ -107,15 +107,15 @@ player createDiaryRecord
 		Last month the Scots Guards rounded off their tour here Afghanistan by taking advantage of the winter lull in fighting and pushing forward into Taliban-occupied territory to occupy and fortify several compounds in the region. <marker name='TOUR_Mkr_FOB'>This </marker> unholiest corner of God's fucking creation will be home for you shaggers for the remainder of our operational deployment here in Afghanistan.
 		<br/>
 		<br/>
-		As you may know our arrival here coincides with the start of the fighting season and the locals aren't the kind to pop 'round  around with tea and biscuits to welcome us to their lovely neighborhood. In fact Terry Taliban's been all over ICOM chatting about their plans to recapture this place and send us all home in boxes. We do not plan on cooperating.
+		As you may know our arrival here coincides with the start of the fighting season and the locals aren't the kind to pop 'round  around with tea and biscuits to welcome us to their lovely neighborhood. In fact Terry Taliban's been all over ICOM chatting about their plans to attack this place and send us all home in boxes. Naturally, we do not plan on cooperating.
 		<br/>
 		<br/>
-		Our mission here is to hold <marker name='TOUR_Mkr_FOB'>FOB Mikis</marker> and use this location as a springboard to carry out further tasks within the local area which all build towards the larger goal of diminishing and eventually neutralizing the enemy threat here and bring the district into the fold of the Afghan government.
+		Our mission here is to hold <marker name='TOUR_Mkr_FOB'>FOB Mikis</marker> and use this location as a springboard to carry out further tasks within the local area, all of which will build towards the larger objective of diminishing and eventually neutralizing the enemy presence here and help bring the province into the fold of the Afghan government.
 		<br/>
 		<br/>
-		Remember your drills: Maintain your weapon, your kit and yourself in that order. Remember to drink plenty because it's fucking boiling here and of course keep an ear on the <marker name='TOUR_Mkr_Radio'>net</marker> for further orders from Company Headquarters.
+		Remember your drills: Maintain your weapon, your kit and yourself in that order. Be mindful that many here are armed, therefore a male carrying a rifle should not be treated as an enemy threat for that reason alone. Lastly keep an ear on the <marker name='TOUR_Mkr_Radio'>net</marker> for further orders from Company Headquarters.
 		<br/>
 		<br/>
-		Mag on and stag on, troops. 
+		Nec Aspera Terrent.
         "
 ]];
