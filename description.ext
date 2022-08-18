@@ -20,7 +20,7 @@ respawnTemplates[] = {"tickets"};
 respawnVehicleDelay = 30;
 
 #include "scripts\TOUR_RC\dialog\hpp\admintool.hpp"
-
+#include "scripts\TOUR_IED\dlg\bombDefuseDlg.hpp"
 #include "scripts\TOUR_SI\interface\hpp\interface.hpp"
 
 class CfgUnitInsignia

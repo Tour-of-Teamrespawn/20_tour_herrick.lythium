@@ -1,0 +1,269 @@
+/*%FSM<COMPILE "scriptedFSM.cfg, main">*/
+/*%FSM<HEAD>*/
+/*
+item0[] = {"_",2,250,45.000000,-75.000000,60.000000,-60.000000,0.000000,""};
+item1[] = {"Player_alive",4,218,300.000000,0.000000,390.000000,45.000000,0.000000,"Player alive"};
+item2[] = {"Start",0,250,15.000000,-330.000000,120.000000,-285.000000,0.000000,"Start"};
+item3[] = {"__1",2,250,270.000000,90.000000,285.000000,105.000000,0.000000,""};
+item4[] = {"bomb_close_defus",4,4314,-191.724960,-2.294861,-101.724960,42.705139,3.000000,"bomb close" \n "defuse"};
+item5[] = {"Bombs_are_presen",4,218,104.769623,173.401764,224.769623,248.401764,1.000000,"Bombs are present"};
+item6[] = {"not_close",8,218,-13.815796,-2.017212,76.184204,42.982788,1.000000,"not close"};
+item7[] = {"bomb_not_present",8,218,135.000000,0.000000,240.000000,75.000000,0.000000,"bomb not present" \n ""};
+item8[] = {"Not_dedicated",8,218,0.000000,-180.000000,90.000000,-135.000000,0.000000,"Not dedicated"};
+item9[] = {"__2",2,250,-64.896217,87.079102,-49.017151,102.983490,0.000000,""};
+item10[] = {"Bomb_close_exami",4,218,-101.949921,-4.392548,-11.949921,45.607452,2.000000,"Bomb close" \n "examine"};
+link0[] = {0,1};
+link1[] = {1,3};
+link2[] = {2,8};
+link3[] = {3,5};
+link4[] = {3,7};
+link5[] = {4,0};
+link6[] = {5,9};
+link7[] = {6,0};
+link8[] = {7,0};
+link9[] = {8,0};
+link10[] = {9,4};
+link11[] = {9,6};
+link12[] = {9,10};
+link13[] = {10,0};
+globals[] = {0.000000,0,0,0,0,640,480,2,92,6316128,1,-319.665619,456.567413,414.079559,-427.065002,1134,1244,1};
+window[] = {2,-1,-1,-32000,-32000,1340,338,1768,338,3,1152};
+*//*%FSM</HEAD>*/
+class FSM
+{
+        fsmName = "main";
+        class States
+        {
+                /*%FSM<STATE "_">*/
+                class _
+                {
+                        name = "_";
+                        itemno = 0;
+                        init = /*%FSM<STATEINIT""">*/""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "Player_alive">*/
+                                class Player_alive
+                                {
+                                        itemno = 1;
+                                        priority = 0.000000;
+                                        to="__1";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/""/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "Start">*/
+                class Start
+                {
+                        name = "Start";
+                        itemno = 2;
+                        init = /*%FSM<STATEINIT""">*/"" \n
+                         "	private [""_bombs"",""_bomb""];" \n
+                         "	TOUR_IED_defuseStart = false;" \n
+                         "	TOUR_IED_action = false;" \n
+                         "	TOUR_IED_examineAction = false;" \n
+                         "//	player addAction [""<t color=""""#FF0000"""">"" +""Defuse"", ""scripts\TOUR_IED\bombdefuse.sqf"", 0, 10, true, false, """", ""TOUR_IED_action""];" \n
+                         "[" \n
+                         "	player," \n
+                         "	""<t color='#FF0000'>Defuse</t>""," \n
+                         "	""\a3\ui_f_oldman\data\IGUI\Cfg\holdactions\destroy_ca.paa""," \n
+                         "	""\a3\ui_f_oldman\data\IGUI\Cfg\holdactions\destroy_ca.paa""," \n
+                         "	""TOUR_IED_action""," \n
+                         "	""TOUR_IED_action""," \n
+                         "	{}," \n
+                         "	{}," \n
+                         "	{" \n
+                         "		_this execVM ""scripts\TOUR_IED\bombdefuse.sqf"";" \n
+                         "	}," \n
+                         "	{}," \n
+                         "	[]," \n
+                         "	1.5," \n
+                         "	0," \n
+                         "	false," \n
+                         "	false" \n
+                         "] call BIS_fnc_holdActionAdd;" \n
+                         "" \n
+                         "" \n
+                         "	player addEventHandler [""RESPAWN"", " \n
+                         "{" \n
+                         "[" \n
+                         "	player," \n
+                         "	""<t color='#FF0000'>Defuse</t>""," \n
+                         "	""\a3\ui_f_oldman\data\IGUI\Cfg\holdactions\destroy_ca.paa""," \n
+                         "	""\a3\ui_f_oldman\data\IGUI\Cfg\holdactions\destroy_ca.paa""," \n
+                         "	""TOUR_IED_action""," \n
+                         "	""TOUR_IED_action""," \n
+                         "	{}," \n
+                         "	{}," \n
+                         "	{" \n
+                         "		_this execVM ""scripts\TOUR_IED\bombdefuse.sqf"";" \n
+                         "	}," \n
+                         "	{}," \n
+                         "	[]," \n
+                         "	1.5," \n
+                         "	0," \n
+                         "	false," \n
+                         "	false" \n
+                         "] call BIS_fnc_holdActionAdd;" \n
+                         "	" \n
+                         "}];" \n
+                         "" \n
+                         "[" \n
+                         "	player," \n
+                         "	""<t color='#FF0000'>Examine</t>""," \n
+                         "	""\a3\ui_f_oldman\data\IGUI\Cfg\holdactions\destroy_ca.paa""," \n
+                         "	""\a3\ui_f_oldman\data\IGUI\Cfg\holdactions\destroy_ca.paa""," \n
+                         "	""TOUR_IED_examineAction""," \n
+                         "	""TOUR_IED_examineAction""," \n
+                         "	{}," \n
+                         "	{}," \n
+                         "	{" \n
+                         "		_this execVM ""scripts\TOUR_IED\bombExamine.sqf"";" \n
+                         "	}," \n
+                         "	{}," \n
+                         "	[]," \n
+                         "	1.5," \n
+                         "	0," \n
+                         "	false," \n
+                         "	false" \n
+                         "] call BIS_fnc_holdActionAdd;" \n
+                         "" \n
+                         "" \n
+                         "	player addEventHandler [""RESPAWN"", " \n
+                         "{" \n
+                         "[" \n
+                         "	player," \n
+                         "	""<t color='#FF0000'>Examine</t>""," \n
+                         "	""\a3\ui_f_oldman\data\IGUI\Cfg\holdactions\destroy_ca.paa""," \n
+                         "	""\a3\ui_f_oldman\data\IGUI\Cfg\holdactions\destroy_ca.paa""," \n
+                         "	""TOUR_IED_examineAction""," \n
+                         "	""TOUR_IED_examineAction""," \n
+                         "	{}," \n
+                         "	{}," \n
+                         "	{" \n
+                         "		_this execVM ""scripts\TOUR_IED\bombExamine.sqf"";" \n
+                         "	}," \n
+                         "	{}," \n
+                         "	[]," \n
+                         "	1.5," \n
+                         "	0," \n
+                         "	false," \n
+                         "	false" \n
+                         "] call BIS_fnc_holdActionAdd;" \n
+                         "	" \n
+                         "}];" \n
+                         ""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "Not_dedicated">*/
+                                class Not_dedicated
+                                {
+                                        itemno = 8;
+                                        priority = 0.000000;
+                                        to="_";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/""/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "__1">*/
+                class __1
+                {
+                        name = "__1";
+                        itemno = 3;
+                        init = /*%FSM<STATEINIT""">*/"_bombs = nearestObjects [vehicle player, [""IEDLandBig_F"",""IEDLandSmall_F"",""IEDUrbanBig_F"",""IEDUrbanSmall_F"",""Land_GarbageHeap_03_F"",""Land_GarbageHeap_04_F"","" Land_GarbagePallet_F"",""Land_GarbageWashingMachine_F"",""Land_GarbageBags_F""],100];"/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "Bombs_are_presen">*/
+                                class Bombs_are_presen
+                                {
+                                        itemno = 5;
+                                        priority = 1.000000;
+                                        to="__2";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"(count _bombs > 0)" \n
+                                         ""/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/"_bomb = _bombs select 0;" \n
+                                         ""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "bomb_not_present">*/
+                                class bomb_not_present
+                                {
+                                        itemno = 7;
+                                        priority = 0.000000;
+                                        to="_";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/""/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/"TOUR_IED_action = false;" \n
+                                         "TOUR_IED_examineAction = false;"/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "__2">*/
+                class __2
+                {
+                        name = "__2";
+                        itemno = 9;
+                        init = /*%FSM<STATEINIT""">*/""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "bomb_close_defus">*/
+                                class bomb_close_defus
+                                {
+                                        itemno = 4;
+                                        priority = 3.000000;
+                                        to="_";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"(player distance _bomb < 3)&&(_bomb getVariable ""TOUR_IED_bombActive"" == True)&&(_bomb getVariable ""TOUR_IED_examined"" == True)"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/"TOUR_IED_action = true;" \n
+                                         "TOUR_ied_examineAction = false;"/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "Bomb_close_exami">*/
+                                class Bomb_close_exami
+                                {
+                                        itemno = 10;
+                                        priority = 2.000000;
+                                        to="_";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"(player distance _bomb < 3)&&(_bomb getVariable ""TOUR_IED_examined"" == False)"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/"TOUR_IED_action = false;" \n
+                                         "TOUR_IED_examineAction = true;"/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "not_close">*/
+                                class not_close
+                                {
+                                        itemno = 6;
+                                        priority = 1.000000;
+                                        to="_";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/""/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/"TOUR_IED_action = false;" \n
+                                         "TOUR_IED_examineAction = false;"/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+        };
+        initState="Start";
+        finalStates[] =
+        {
+        };
+};
+/*%FSM</COMPILE>*/
