@@ -1,5 +1,5 @@
 _this addEventHandler ["KILLED", {_this spawn TOUR_fnc_garbage;}];
-if ((side _this == CIVILIAN)) then
+if ((side _this != EAST) && !(_this in TOUR_IED_triggermen)) then
 {
 	_this addEventHandler ["KILLED", 
 	{

@@ -8,14 +8,17 @@ PARAMS:
 	5: Variable name of the functions module <VARIABLE>
 */
 
-private ["_ied", "_ieds", "_size", "_marker", "_bombCountMin", "_bombCountMax", "_fmodule", "_side", "_bombPosCount", "_bombtype"];
+private ["_ied", "_ieds", "_iedsNew", "_size", "_marker", "_bombCountMin", "_bombCountMax", "_fmodule", "_side", "_bombPosCount", "_bombtype", "_road"];
 
 waituntil {!isnil "BIS_fnc_init"};
 if (!isDedicated) then
 {
 	if (isNil "TOUR_IED_scriptran") then
 	{
-		execVM "scripts\TOUR_IED\init.sqf";
+		//execFSM "scripts\TOUR_IED\TOUR_IED_MAIN.fsm";
+		TOUR_IED_scriptran = true;
+		_fn_ied = execVM "scripts\TOUR_IED\functions\functions_init.sqf";
+		waitUntil {scriptDone _fn_ied};
 	};
 };
 
@@ -29,9 +32,8 @@ _size = 10;
 _marker = (_this select 0);
 _bombCountMin = _this select 1;//6;
 _bombCountMax = _this select 2;//10;
-_fmodule = _this select 3;
-_side = _this select 4;
-if (count _this > 5) then
+_side = _this select 3;
+if (count _this > 4) then
 {
 	TOUR_IEDtest = true;
 }else
@@ -50,8 +52,15 @@ if (((getmarkersize _marker) select 0)>((getmarkersize _marker) select 1)) then
 };
 _roads = ((getMarkerPos _marker) nearRoads _size);
 
+_ieds = [];
+if (!isNil {missionNameSpace getVariable "TOUR_IEDs"}) then 
 {
-	if !((getPosATL _x) inArea _marker) then 
+	_ieds = (missionNameSpace getVariable "TOUR_IEDs");
+};
+
+{
+	_road = (getPosATL _x);
+	if (!(_road inArea _marker) or ({(_road distance _x) < 25}count _ieds > 0)) then 
 	{
 		_roads = _roads - [_x];
 	};
@@ -62,12 +71,13 @@ if (_bombCountMax > count _roads) exitwith {"There are too many possible IED's, 
 {
 	if (_x inarea _marker) then
 	{
-		_bombPosCount set [(count _bombPosCount), _x];
+		_pos =_x getPos [ (1 + (random 2)), random 360];
+		_bombPosCount set [(count _bombPosCount), _pos];
 	};
 }forEach _roads;
 
 _used = [];
-_ieds = [];
+_iedsNew = [];
 
 if (_bombCountMax > count _bombPosCount) exitwith {"There are too many possible IED's, for possible postions" remoteExec ["hint"]; };
 
@@ -76,50 +86,30 @@ for "_i" from 1 to (_bombCountMin + floor (random (_bombCountMax - _bombCountMin
 
 	_rnd = _bombPosCount call BIS_fnc_selectRandom;
 	_bombPosCount = _bombPosCount - [_rnd];
-	
-	_sequence = "";
-	for "_i" from 1 to 8 do
-	{
-		if (floor (random 2) == 0) then
-		{
-			_sequence = _sequence + "l";
-		}
-		else
-		{
-			_sequence = _sequence + "r";
-		};
-	};
-	
-	_bombtype = switch (floor (random 4)) do
-	{
-		case 0:
-		{
-			"IEDLandBig_F";
-		};
-		case 1:
-		{
-			"IEDLandSmall_F";
-		};
-		case 2:
-		{
-			"IEDUrbanBig_F";
-		};
-		case 3:
-		{
-			"IEDUrbanSmall_F";
-		};
-	
-	};
 
-	_pos = ([(getpos _rnd), (1 +(random 2)), (random 360)] call BIS_fnc_relPos);
-	_ied = createVehicle [_bombtype, [_pos select 0, _pos select 1, 0], [], 0, "NONE"];
-	_ied addEventHandler ["HIT", {if ((damage (_this select 0) > 0.8)&&(random 3 > 1)) then {null = (_this select 0) execVM "scripts\TOUR_ied\bombDetonate.sqf";};}];
-	_ied setPosATL [ _pos select 0, _pos select 1, 0];
-	_ied setVariable ["TOUR_IED_bombSequence", [_sequence, (15 + (ceil random 10))], true]; 
-	_ied setVariable ["TOUR_IED_bombActive", true, true];
+	_ied = [_rnd] call TOUR_IED_fnc_createIED;
+
 	[_ied, _side] execvm "scripts\TOUR_ied\bombProximityCheck.sqf";
-	_ieds set [count _ieds, _ied];
-	
+	_iedsNew set [count _iedsNew, _ied];
 };
 
-_fmodule setVariable ["TOUR_IEDs", _ieds, true];
+_ieds = _ieds + _iedsNew;
+missionNamespace setVariable ["TOUR_IEDs", _ieds, true];
+
+if (!isNil "TOUR_IEDtest") then 
+{
+	_num = 0;
+	while {(str (getMarkerPos (format ["TOUR_IED_mkr_loc_%1", _num]))) != "[0,0,0]"} do 
+	{
+		_num = _num + 1;
+	};
+
+	{
+		_mkr = createMarker [format ["TOUR_IED_mkr_loc_%1", _num], getPos _x];
+		_mkr setMarkerType "hd_dot_noShadow";
+		_mkr setMarkerColor "colorRed";
+		_num = _num + 1;
+	}forEach _iedsNew;
+
+	_iedsNew
+};

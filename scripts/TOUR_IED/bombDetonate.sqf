@@ -4,9 +4,9 @@ _ied = _this;
 _pos = getPosATL _ied;
 
 if (_ied getVariable "TOUR_IED_info" select 2 == "Remote Phone") then {
-	_sound = [_ied, ["TOUR_detonation",100,3, false, 0]] remoteExec ["say3D"];
+	_sound = [_ied, ["TOUR_IED_detonation",100,3, false, 0]] remoteExec ["say3D"];
 	sleep 2;
-	_sound = [_ied, ["TOUR_detonation",100,3, false, 0]] remoteExec ["say3D"];
+	_sound = [_ied, ["TOUR_IED_detonation",100,3, false, 0]] remoteExec ["say3D"];
 
 	sleep 2;
 };

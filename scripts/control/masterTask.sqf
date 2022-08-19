@@ -4,8 +4,7 @@ TOUR_patrolNo = 0;
 
 TOUR_tskCountTarget = 10;
 TOUR_tskCount = 0;
-//TOUR_taskRepo = ["patrol", "patrol", "patrol", "patrol", "raid", "assault", "arrest", "kill"];
-TOUR_taskRepo = ["patrol", "patrol", "patrol", "patrol", "raid", "assault", "arrest", "kill"];
+TOUR_taskRepo = ["patrol", "patrol", "patrol", "raid", "assault", "arrest", "kill", "ied"];
 TOUR_tskAvailable = [];
 {
 	TOUR_tskAvailable pushBack _x;
@@ -14,6 +13,8 @@ TOUR_taskLocations = [];
 
 missionNameSpace setVariable ["TOUR_backpacRadioON", false, true];
 execVM "scripts\control\toggleRadio.sqf";
+
+sleep 20;
 
 while {TOUR_tskCount < TOUR_tskCountTarget} do 
 {
@@ -65,5 +66,5 @@ while {TOUR_tskCount < TOUR_tskCountTarget} do
 			TOUR_tskAvailable pushBack _x;
 		} forEach TOUR_taskRepo;
 	};
-	sleep 90;
+	sleep 900;
 };

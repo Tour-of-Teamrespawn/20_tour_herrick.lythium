@@ -23,40 +23,23 @@ _enemy_array =
 	"UK3CB_TKM_O_Datsun_Open",
 	"UK3CB_TKM_O_Datsun_Pkm",
 	"UK3CB_TKM_O_Hilux_Dshkm",
+	"UK3CB_TKM_O_Hilux_Dshkm",
 	"UK3CB_TKM_O_Hilux_GMG",
 	"UK3CB_TKM_O_Hilux_Open",
 	"UK3CB_TKM_O_Hilux_Pkm",
-	"UK3CB_TKM_O_Hilux_Rocket",
-	"UK3CB_TKM_O_Hilux_Rocket_Arty",
 	"UK3CB_TKM_O_Hilux_Spg9",
-	"UK3CB_TKM_O_Hilux_Zu23",
-	"UK3CB_TKM_O_LR_Closed",
-	"UK3CB_TKM_O_LR_Open",
-	"UK3CB_TKM_O_LR_M2",
-	"UK3CB_TKM_O_LR_AGS30",
-	"UK3CB_TKM_O_LR_SPG9",
-	"UK3CB_TKM_O_LR_SF_AGS30",
-	"UK3CB_TKM_O_LR_SF_M2",
 	"UK3CB_TKM_O_UAZ_Closed",
 	"UK3CB_TKM_O_UAZ_Open",
 	"UK3CB_TKM_O_UAZ_Dshkm",
+	"UK3CB_TKM_O_UAZ_Dshkm",
 	"UK3CB_TKM_O_UAZ_AGS30",
 	"UK3CB_TKM_O_UAZ_SPG9",
-	"UK3CB_TKM_O_Ural_Ammo",
+	"UK3CB_TKM_O_UAZ_SPG9",
 	"UK3CB_TKM_O_Ural_Covered",
 	"UK3CB_TKM_O_Ural_Empty",
-	"UK3CB_TKM_O_Ural_Fuel",
 	"UK3CB_TKM_O_Ural_Open",
-	"UK3CB_TKM_O_Ural_Recovery",
-	"UK3CB_TKM_O_Ural_Repair",
-	"UK3CB_TKM_O_Ural_Zu23",
 	"UK3CB_TKM_O_V3S_Closed",
-	"UK3CB_TKM_O_V3S_Open",
-	"UK3CB_TKM_O_V3S_Reammo",
-	"UK3CB_TKM_O_V3S_Recovery",
-	"UK3CB_TKM_O_V3S_Refuel",
-	"UK3CB_TKM_O_V3S_Repair",
-	"UK3CB_TKM_O_V3S_Zu23"
+	"UK3CB_TKM_O_V3S_Open"
 ];
 
 _chance = _this select 0;
@@ -84,11 +67,11 @@ while {true} do
 
 		_veh forcespeed 10;
 
-		_grp = createGroup EAST;
+		_grp = if (random 1 > 0.75) then {createGroup EAST}else {createGroup RESISTANCE};
 		[_veh, _grp] call BIS_fnc_spawnCrew;
 		{
 			//_x call Tour_fnc_garbageEH;
-			//_x call TOUR_fnc_loadouts;
+			_x call TOUR_fnc_skillAI;
 		}forEach units _grp;
 		_wp1 = _grp addWaypoint [_vehicle_end, 0];
 		_wp1 setWaypointSpeed "NORMAL";

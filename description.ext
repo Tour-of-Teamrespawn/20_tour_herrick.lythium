@@ -207,7 +207,20 @@ class CfgRadio
 class CfgSounds
 {
 	sounds[] = {};
-   
+
+ 	class TOUR_key_noise
+	{
+		name = "TOUR_key_noise";
+		sound[] = {"sounds\TOUR_key_noise.wav", 1, 1};
+		titles[] = {};
+	}; 
+
+	class TOUR_IED_detonation{
+		name = "TOUR_IED_detonationNokia";
+		sound[] = {"sounds\TOUR_IED_detonation.ogg", 2, 1};
+		titles[] = {};
+	};
+
 	class TOUR_snd_line_1
 	{
 		name = "TOUR_snd_line_1";

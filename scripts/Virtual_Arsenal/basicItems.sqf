@@ -11,10 +11,7 @@ removeGoggles player;
 
 private _uniform = "";
 
-_uniform = switch (toLower TypeOf player) do 
-{
-	default {"UK3CB_BAF_U_CombatUniform_MTP_TShirt"};
-};
+_uniform = ["UK3CB_BAF_U_CombatUniform_MTP", "UK3CB_BAF_U_CombatUniform_MTP_ShortSleeve", "UK3CB_BAF_U_CombatUniform_MTP_TShirt"]call BIS_fnc_selectRandom;
 
 player addUniform _uniform;
 

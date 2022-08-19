@@ -14,8 +14,10 @@ if (!isDedicated) then
 {
 	if (isNil "TOUR_IED_scriptran") then
 	{
-		execFSM "scripts\TOUR_IED\TOUR_IED_MAIN.fsm";
+		//execFSM "scripts\TOUR_IED\TOUR_IED_MAIN.fsm";
 		TOUR_IED_scriptran = true;
+		_fn_ied = execVM "scripts\TOUR_IED\functions\functions_init.sqf";
+		waitUntil {scriptDone _fn_ied};
 	};
 };
 
@@ -29,9 +31,8 @@ if (isNil "TOUR_IED_Triggermen") then
 _bombPosCount = _this select 0;//10;
 _bombCountMin = _this select 1;//6;
 _bombCountMax = _this select 2;//10;
-_fmodule = _this select 3;
-_side = _this select 4;
-if (count _this > 6) then
+_side = _this select 3;
+if (count _this > 4) then
 {
 	TOUR_IEDtest = true;
 }else
@@ -53,6 +54,12 @@ for "_p" from 1 to 129 do
 
 _used = [];
 _ieds = [];
+_iedsNew = [];
+
+if (!isNil {missionNameSpace getVariable "TOUR_IEDs"}) then 
+{
+	_ieds = (missionNameSpace getVariable "TOUR_IEDs");
+};
 
 //_maxBombCount = (_bombCountMin + floor (random (_bombCountMax - _bombCountMin + 1)));
 _maxBombCount = [_bombCountMin, _bombCountMax] call BIS_fnc_randomInt;
@@ -65,11 +72,27 @@ for "_i" from 1 to _maxBombCount do
 	};
 	_used set [count _used, _rnd];
 
-	_ied = [_rnd] call TOUR_fnc_ied;
+	_ied = [_rnd] call TOUR_IED_fnc_createIED;
 	
 	[_ied, _side] execvm "scripts\TOUR_ied\bombProximityCheck.sqf";
-	_ieds set [count _ieds, _ied];
+	_iedsNew set [count _iedsNew, _ied];
 };
 
+_ieds = _ieds + _iedsNew;
 missionNamespace setVariable ["TOUR_IEDs", _ieds, true];
+
+if (!isNil "TOUR_IEDtest") then 
+{
+	_num = 0;
+	while {(str (getMarkerPos (format ["TOUR_IED_mkr_loc_%1", _num]))) == "[0,0,0]"} do 
+	{
+		_num = _num + 1;
+	};
+	{
+		_mkr = createMarker [format ["TOUR_IED_mkr_loc_%1", _num], getPos _x];
+		_mkr setMarkerType "hd_dot_noShadow";
+		_mkr setMarkerColor "colorRed";
+		_num = _num + 1;
+	}forEach _iedsNew;
+};
 

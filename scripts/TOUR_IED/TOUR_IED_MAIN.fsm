@@ -73,8 +73,8 @@ class FSM
                          "	""<t color='#FF0000'>Defuse</t>""," \n
                          "	""\a3\ui_f_oldman\data\IGUI\Cfg\holdactions\destroy_ca.paa""," \n
                          "	""\a3\ui_f_oldman\data\IGUI\Cfg\holdactions\destroy_ca.paa""," \n
-                         "	""TOUR_IED_action""," \n
-                         "	""TOUR_IED_action""," \n
+                         "	""TOUR_IED_action && (player distance _target < 1.5) && ((getDir player) < ((player getDir _target) + 20)) && ((getDir player) > ((player getDir _target) - 20)) && (str cursorObject != """"<NULL-object>"""") && ((stance player == """"PRONE"""")or(stance player == """"CROUCH""""))""," \n
+                         "	""TOUR_IED_action && (player distance _target < 1.5) && ((getDir player) < ((player getDir _target) + 20)) && ((getDir player) > ((player getDir _target) - 20)) && (str cursorObject != """"<NULL-object>"""") && ((stance player == """"PRONE"""")or(stance player == """"CROUCH""""))""," \n
                          "	{}," \n
                          "	{}," \n
                          "	{" \n
@@ -118,8 +118,8 @@ class FSM
                          "	""<t color='#FF0000'>Examine</t>""," \n
                          "	""\a3\ui_f_oldman\data\IGUI\Cfg\holdactions\destroy_ca.paa""," \n
                          "	""\a3\ui_f_oldman\data\IGUI\Cfg\holdactions\destroy_ca.paa""," \n
-                         "	""TOUR_IED_examineAction""," \n
-                         "	""TOUR_IED_examineAction""," \n
+                         "	""TOUR_IED_examineAction && (player distance _target < 1.5) && ((getDir player) < ((player getDir _target) + 20)) && ((getDir player) > ((player getDir _target) - 20)) && (str cursorObject != """"<NULL-object>"""") && ((stance player == """"PRONE"""")or(stance player == """"CROUCH""""))""," \n
+                         "	""TOUR_IED_examineAction && (player distance _target < 1.5) && ((getDir player) < ((player getDir _target) + 20)) && ((getDir player) > ((player getDir _target) - 20)) && (str cursorObject != """"<NULL-object>"""") && ((stance player == """"PRONE"""")or(stance player == """"CROUCH""""))""," \n
                          "	{}," \n
                          "	{}," \n
                          "	{" \n

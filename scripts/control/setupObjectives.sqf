@@ -17,7 +17,7 @@ if ((_startHour + TOUR_playTime) >= 24) then
 _endMin = _startMin;
 
 ["TOUR_objBase", {"Guard Base"}] call A2S_createSimpleTask;
-call compile format ["[""TOUR_objBase"", {""Guard <marker name=""""TOUR_mkr_FOB"""">FOB MIKIS</marker> and carry out orders from command for %1 hours, till %2:%3.""}, {""Guard Base""}, {""Guard Base""}] call A2S_setSimpleTaskDescription;", TOUR_playTime, _endHour, _endMin];
+call compile format ["[""TOUR_objBase"", {""Guard <marker name=""""TOUR_mkr_FOB"""">FOB MIKIS</marker> and carry out orders from command for %1 %4, till %2:%3.""}, {""Guard Base""}, {""Guard Base""}] call A2S_setSimpleTaskDescription;", TOUR_playTime, _endHour, "00" , if (TOUR_playTime > 1) then {"hours"}else{"hours"}];
 "TOUR_objBase" call A2S_taskCommit;
 
 ["TOUR_objCiv", {"Protect Civilians"}] call A2S_createSimpleTask;
