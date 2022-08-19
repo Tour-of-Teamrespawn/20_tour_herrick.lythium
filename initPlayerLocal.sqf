@@ -19,6 +19,19 @@ TOUR_laptop addAction ["<t color=""#d16a02"">"+"REPLY", "scripts\control\radioRe
 	)
 "];
 
+if (TOUR_introEnable) then 
+{
+	execVM "scripts\general\intro.sqf";
+};
+
+[] call A2S_tasksSync;
+
+#include "briefing.hpp";
+
+[] execVM "scripts\TOUR_IED\init.sqf";
+
+TOUR_campfire_1 execVM "scripts\general\flicker.sqf";
+
 waitUntil {!isNil {missionNameSpace getVariable "TOUR_backpacRadioON"}};
 
 player addAction ["<t color=""#d16a02"">"+"TURN ON RADIO", {missionNameSpace setVariable ["TOUR_backpacRadioON", true, true];}, 0, 10, true, false, "", 
@@ -51,11 +64,3 @@ player addEventHandler ["Respawn" ,
 		)
 	"];
 }];
-
-[] call A2S_tasksSync;
-
-#include "briefing.hpp";
-
-[] execVM "scripts\TOUR_IED\init.sqf";
-
-TOUR_campfire_1 execVM "scripts\general\flicker.sqf";
