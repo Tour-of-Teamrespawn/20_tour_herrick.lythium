@@ -64,3 +64,7 @@ player addEventHandler ["Respawn" ,
 		)
 	"];
 }];
+
+sleep 5;
+
+[player,"img\insigniaQLR"] call BIS_fnc_setUnitInsignia;

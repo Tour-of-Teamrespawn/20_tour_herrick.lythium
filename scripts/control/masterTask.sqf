@@ -14,7 +14,7 @@ TOUR_taskLocations = [];
 missionNameSpace setVariable ["TOUR_backpacRadioON", false, true];
 execVM "scripts\control\toggleRadio.sqf";
 
-sleep 20;
+sleep 60;
 
 while {TOUR_tskCount < TOUR_tskCountTarget} do 
 {
