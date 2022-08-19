@@ -14,10 +14,13 @@ TOUR_taskLocations = [];
 missionNameSpace setVariable ["TOUR_backpacRadioON", false, true];
 execVM "scripts\control\toggleRadio.sqf";
 
+missionNameSpace setVariable ["TOUR_tskRadioState", "SILENT", true];
+execVM "scripts\control\radioChatterLoop.sqf";
 sleep 60;
 
 while {TOUR_tskCount < TOUR_tskCountTarget} do 
 {
+	waitUntil {(missionNameSpace getVariable "TOUR_tskRadioState" != "tali")};
 	missionNameSpace setVariable ["TOUR_tskRadioState", "calling", true];
 	_waitTime = time + 120;
 	_time = time - 1;

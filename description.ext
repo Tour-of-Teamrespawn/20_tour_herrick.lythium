@@ -329,6 +329,105 @@ class CfgSounds
 		sound[] = {"sounds\line17.ogg", 1, 1, 25};
 		titles[] = {};
 	};
+
+//TAL TALK 
+
+	class TOUR_radio_tal_1
+	{
+		name = "TOUR_radio_tal_1";
+		sound[] = {"sounds\tal_a_1.ogg", 1, 1, 25};
+		titles[] = {};
+	};
+	class TOUR_radio_tal_2
+	{
+		name = "TOUR_radio_tal_2";
+		sound[] = {"sounds\tal_a_2.ogg", 1, 1, 25};
+		titles[] = {};
+	};
+	class TOUR_radio_tal_3
+	{
+		name = "TOUR_radio_tal_3";
+		sound[] = {"sounds\tal_a_3.ogg", 1, 1, 25};
+		titles[] = {};
+	};
+	class TOUR_radio_tal_4
+	{
+		name = "TOUR_radio_tal_4";
+		sound[] = {"sounds\tal_a_4.ogg", 1, 1, 25};
+		titles[] = {};
+	};
+	class TOUR_radio_tal_5
+	{
+		name = "TOUR_radio_tal_5";
+		sound[] = {"sounds\tal_a_5.ogg", 1, 1, 25};
+		titles[] = {};
+	};
+	class TOUR_radio_tal_6
+	{
+		name = "TOUR_radio_tal_6";
+		sound[] = {"sounds\tal_a_6.ogg", 1, 1, 25};
+		titles[] = {};
+	};
+	class TOUR_radio_tal_7
+	{
+		name = "TOUR_radio_tal_7";
+		sound[] = {"sounds\tal_a_7.ogg", 1, 1, 25};
+		titles[] = {};
+	};
+	class TOUR_radio_tal_8
+	{
+		name = "TOUR_radio_tal_8";
+		sound[] = {"sounds\tal_a_8.ogg", 1, 1, 25};
+		titles[] = {};
+	};
+	class TOUR_radio_tal_9
+	{
+		name = "TOUR_radio_tal_9";
+		sound[] = {"sounds\tal_a_9.ogg", 1, 1, 25};
+		titles[] = {};
+	};
+	class TOUR_radio_tal_10
+	{
+		name = "TOUR_radio_tal_10";
+		sound[] = {"sounds\tal_a_10.ogg", 1, 1, 25};
+		titles[] = {};
+	};
+	class TOUR_radio_tal_11
+	{
+		name = "TOUR_radio_tal_11";
+		sound[] = {"sounds\tal_a_11.ogg", 1, 1, 25};
+		titles[] = {};
+	};
+	class TOUR_radio_tal_12
+	{
+		name = "TOUR_radio_tal_12";
+		sound[] = {"sounds\tal_a_12.ogg", 1, 1, 25};
+		titles[] = {};
+	};
+	class TOUR_radio_tal_13
+	{
+		name = "TOUR_radio_tal_13";
+		sound[] = {"sounds\tal_a_13.ogg", 1, 1, 25};
+		titles[] = {};
+	};
+	class TOUR_radio_tal_14
+	{
+		name = "TOUR_radio_tal_14";
+		sound[] = {"sounds\tal_a_14.ogg", 1, 1, 25};
+		titles[] = {};
+	};
+	class TOUR_radio_tal_15
+	{
+		name = "TOUR_radio_tal_15";
+		sound[] = {"sounds\tal_a_15.ogg", 1, 1, 25};
+		titles[] = {};
+	};
+	class TOUR_radio_tal_16
+	{
+		name = "TOUR_radio_tal_16";
+		sound[] = {"sounds\tal_a_16.ogg", 1, 1, 25};
+		titles[] = {};
+	};
 };
 
 

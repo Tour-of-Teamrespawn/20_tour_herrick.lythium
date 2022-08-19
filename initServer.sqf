@@ -12,14 +12,14 @@ tour_garbagearray = [];
 tour_mission_units = [];
 
 execVM "scripts\control\mastertask.sqf";
-/*
+
 _cp = ["TOUR_mkr_civArea1", 15, "TOUR_mkr_FOBArea"] execVM "scripts\ambientLife\createPedestrians.sqf";
 _cp = ["TOUR_mkr_civArea2", 15, "TOUR_mkr_FOBArea"] execVM "scripts\ambientLife\createPedestrians.sqf";
 _cp = ["TOUR_mkr_civArea3", 15, "TOUR_mkr_FOBArea"] execVM "scripts\ambientLife\createPedestrians.sqf";
 _cp = ["TOUR_mkr_civArea4", 7, "TOUR_mkr_FOBArea"] execVM "scripts\ambientLife\createPedestrians.sqf";
 _cp = ["TOUR_mkr_civArea5", 15, "TOUR_mkr_FOBArea"] execVM "scripts\ambientLife\createPedestrians.sqf";
 _cp = ["TOUR_mkr_civArea6", 10, "TOUR_mkr_FOBArea"] execVM "scripts\ambientLife\createPedestrians.sqf";
-*/
+
 []spawn 
 {
 	for "_i" from 1 to 6 do 
