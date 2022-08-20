@@ -16,10 +16,10 @@ class EditorData
 	};
 	class Camera
 	{
-		pos[]={9721.2783,177.08932,11311.348};
-		dir[]={-0.68841267,-0.32993731,0.64593303};
-		up[]={-0.24060631,0.94400287,0.2257593};
-		aside[]={0.68424904,0,0.72924852};
+		pos[]={9594.5039,422.02808,10903.862};
+		dir[]={0.656259,-0.18931381,0.73040015};
+		up[]={0.12652692,0.98191661,0.14082135};
+		aside[]={0.74385148,0,-0.66834491};
 	};
 };
 binarizationWanted=0;
@@ -2864,49 +2864,49 @@ class Mission
 		class Item113
 		{
 			dataType="Marker";
-			position[]={10044.193,139.70239,11255.599};
+			position[]={10044.193,139.702,11255.599};
 			name="TOUR_mkr_civArea1";
 			markerType="RECTANGLE";
 			type="";
 			colorName="ColorRed";
-			alpha=0.51270777;
+			alpha=0;
 			fillName="Border";
 			a=300;
 			b=200;
-			angle=221.82533;
+			angle=221.82494;
 			drawBorder=1;
 			id=617;
-			atlOffset=-2.7204285;
+			atlOffset=-2.7208252;
 		};
 		class Item114
 		{
 			dataType="Marker";
-			position[]={9353.5293,129.44305,10687.15};
+			position[]={9353.5303,129.44299,10687.15};
 			name="TOUR_mkr_civArea2";
 			markerType="RECTANGLE";
 			type="";
 			colorName="ColorRed";
-			alpha=0.51270777;
+			alpha=0;
 			fillName="Border";
 			a=700;
 			b=400;
 			angle=216.92393;
 			drawBorder=1;
 			id=618;
-			atlOffset=5.0954132;
+			atlOffset=5.0953979;
 		};
 		class Item115
 		{
 			dataType="Logic";
 			class PositionInfo
 			{
-				position[]={7905.0439,363.0918,11249.259};
-				angles[]={0.011995304,0,6.2362208};
+				position[]={7919.3975,362.22461,11265.119};
+				angles[]={0.011995304,0,6.2232571};
 			};
 			name="TOUR_logic";
 			id=619;
 			type="VirtualAISquad";
-			atlOffset=-3.0517578e-005;
+			atlOffset=-9.1552734e-005;
 		};
 		class Item116
 		{
@@ -2916,7 +2916,7 @@ class Mission
 			markerType="RECTANGLE";
 			type="";
 			colorName="ColorRed";
-			alpha=0.51270777;
+			alpha=0;
 			fillName="Border";
 			a=350;
 			b=200;
@@ -2933,11 +2933,11 @@ class Mission
 			markerType="RECTANGLE";
 			type="";
 			colorName="ColorRed";
-			alpha=0.51270777;
+			alpha=0;
 			fillName="Border";
 			a=350;
 			b=200;
-			angle=208.39792;
+			angle=208.39793;
 			drawBorder=1;
 			id=625;
 			atlOffset=-3.1304169;
@@ -2945,19 +2945,19 @@ class Mission
 		class Item118
 		{
 			dataType="Marker";
-			position[]={9655.4658,147.61963,11498.177};
+			position[]={9655.4658,147.62,11498.177};
 			name="TOUR_mkr_civArea5";
 			markerType="RECTANGLE";
 			type="";
 			colorName="ColorRed";
-			alpha=0.51270777;
+			alpha=0;
 			fillName="Border";
 			a=250;
 			b=150;
 			angle=131.351;
 			drawBorder=1;
 			id=626;
-			atlOffset=-3.7643127;
+			atlOffset=-3.7639465;
 		};
 		class Item119
 		{
@@ -3023,7 +3023,7 @@ class Mission
 			markerType="RECTANGLE";
 			type="";
 			colorName="ColorRed";
-			alpha=0.51270777;
+			alpha=0;
 			fillName="Border";
 			a=300;
 			b=200;
@@ -4910,7 +4910,7 @@ class Mission
 					class PositionInfo
 					{
 						position[]={9684.5742,143.21669,11341.593};
-						angles[]={0,3.1661999,0};
+						angles[]={0,3.1662018,0};
 					};
 					side="West";
 					flags=7;
@@ -4921,6 +4921,7 @@ class Mission
 						init="this setGroupID [""Broadsword""];";
 						name="TOUR_player_1";
 						description="1: Platoon Commander@Broadsword Actual";
+						isPlayer=1;
 						isPlayable=1;
 					};
 					id=804;
@@ -5123,7 +5124,6 @@ class Mission
 						init="this setGroupID [""Broadsword""]; [this,""QLR""] call BIS_fnc_setUnitInsignia;";
 						name="TOUR_player_3";
 						description="3: Signaller";
-						isPlayer=1;
 						isPlayable=1;
 					};
 					id=808;

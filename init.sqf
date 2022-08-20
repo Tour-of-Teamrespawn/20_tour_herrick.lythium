@@ -1,5 +1,5 @@
 /* 
-###MISSION_VERSION 0.13
+###MISSION_VERSION 0.16
 */
 
 _d = execVM "scripts\general\debugRPT.sqf";
@@ -11,7 +11,7 @@ waitUntil {scriptDone _p};
 _a = TOUR_logic execVM "a2s_multitask.sqf";
 waitUntil {scriptDone _a};
 
-TOUR_IED_jammers = [TOUR_player_22];
+TOUR_IED_jammers = [];
 TOUR_IED_triggermen = [];
 
 enableRadio false;

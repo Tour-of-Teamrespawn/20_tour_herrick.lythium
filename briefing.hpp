@@ -4,7 +4,7 @@ player createDiaryRecord
 		Tour of Teamrespawn
 		<br />
 		<br />
-		Mission Design: Mr.Ben & Zero 2022
+		Mission Design: Mr.Ben and Zero 2022
 		<br />
 		<br />
 		Thanks to all Tour members for testing and feedback.

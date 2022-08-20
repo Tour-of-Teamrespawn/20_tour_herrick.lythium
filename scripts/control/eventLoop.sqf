@@ -1,11 +1,17 @@
 private ["_array", "_arrayNew", "_grp", "_unit", "_grpPatrols", "_soldierPatrols", "_type", "_positions", "_men", "_pos", "_time", "_wps", "_type", "_time", "_time2"];
 
-TOUR_grpPatrolsTarget = 1;
-TOUR_soldierPatrolsTarget = 3;
 TOUR_dangerEvents = ["PATROL", "RANDOM"];
 TOUR_dangerEvent = "TIMING";
 
-missionNameSpace setVariable ["TOUR_switchSideGroups", [], true];
+_man = ["TOUR_mkr_civArea1", RESISTANCE, TOUR_EnemyInfMen, "TOUR_mkr_FOB"] call TOUR_fnc_rndSoldierPatrol;
+_man = ["TOUR_mkr_civArea1", RESISTANCE, TOUR_EnemyInfMen, "TOUR_mkr_FOB"] call TOUR_fnc_rndSoldierPatrol;
+_man = ["TOUR_mkr_civArea2", RESISTANCE, TOUR_EnemyInfMen, "TOUR_mkr_FOB"] call TOUR_fnc_rndSoldierPatrol;
+_man = ["TOUR_mkr_civArea2", RESISTANCE, TOUR_EnemyInfMen, "TOUR_mkr_FOB"] call TOUR_fnc_rndSoldierPatrol;
+_man = ["TOUR_mkr_civArea3", RESISTANCE, TOUR_EnemyInfMen, "TOUR_mkr_FOB"] call TOUR_fnc_rndSoldierPatrol;
+_man = ["TOUR_mkr_civArea3", RESISTANCE, TOUR_EnemyInfMen, "TOUR_mkr_FOB"] call TOUR_fnc_rndSoldierPatrol;
+_man = ["TOUR_mkr_civArea4", RESISTANCE, TOUR_EnemyInfMen, "TOUR_mkr_FOB"] call TOUR_fnc_rndSoldierPatrol;
+_man = ["TOUR_mkr_civArea5", RESISTANCE, TOUR_EnemyInfMen, "TOUR_mkr_FOB"] call TOUR_fnc_rndSoldierPatrol;
+_man = ["TOUR_mkr_civArea6", RESISTANCE, TOUR_EnemyInfMen, "TOUR_mkr_FOB"] call TOUR_fnc_rndSoldierPatrol;
 
 // CALCULATE TIME OF BUILD UP FOR MAIN ASSAULT IF IT IS GOING TO HAPPEN
 
@@ -78,74 +84,6 @@ for "_i" from 1 to 24 do
 
 while {true} do 
 {
-	// CLEAN UP ARRAYS TO GIVE A VIABLE LIST OF GROUPS
-	_array = missionNameSpace getVariable "TOUR_switchSideGroups";
-	_arrayNew = [];
-	TOUR_grpPatrols = 0;
-	TOUR_soldierPatrols = 0;
-
-	if (count _array > 0) then 
-	{
-		{
-			_grp = _x select 0;
-			_wps = _x select 1;
-			_type = _x select 2;
-			_time2 = _x select 3;
-			if (count waypoints _grp == 0) then 
-			{
-				{
-					if (_forEachIndex > 0) then 
-					{
-						_wp = _grp addWaypoint [_x, 0];
-						_wp setWaypointType "MOVE";
-					};
-				}forEach _wps;
-			};
-
-			if (
-					(isNull _grp)
-					or
-					({alive _x}count units _grp == 0)
-					or
-					((_type == "group") && {(alive _x) && (_x distance (_wps select 2) > 70)}count units _grp == 0)
-					or
-					((_type == "soldier") && {(alive _x) && (_x distance (_wps select 1) > 15)}count units _grp == 0)
-					or
-					((time > _time2 + 120) && {(alive _x) && (_x distance (_wps select 0) < 30)}count units _grp > 0)
-			 	) then 
-				{
-					//hint str ((time > _time2 + 120) && {(alive _x) && (_x distance (_wps select 0) < 30)}count units _grp > 0);
-					sleep 1;
-					{deleteVehicle _x} forEach (units _grp);
-				}else 
-				{
-					_arrayNew pushback [_grp, _wps, _type, _time2];
-				};
-				
-		}forEach _array;
-	};
-	//sleep 2;
-	//hint str _arrayNew;
-
-	missionNameSpace setVariable ["TOUR_switchSideGroups", _arrayNew, true];
-
-	// ADD MORE GROUPS IF NEEDED TO REACH THE TARGET LEVEL OF PATROLS
-
-	if (count _arrayNew > 0) then 
-	{
-		TOUR_grpPatrols = {_x select 2 == "group"} count _arrayNew;
-		TOUR_soldierPatrols = {_x select 2 == "soldier"} count _arrayNew;
-	};
-
-
-	if (TOUR_grpPatrols < TOUR_grpPatrolsTarget) then 
-	{
-		_men = [getMarkerPos "TOUR_mkr_AO", TOUR_EnemyInfGrp, RESISTANCE, TOUR_enemyGrpSpawns, 1500, 1200, 500] call TOUR_fnc_rndGroupPatrol;
-	};
-	if (TOUR_soldierPatrols < TOUR_soldierPatrolsTarget) then 
-	{
-		_man = [format ["TOUR_mkr_civArea%1", ceil random 6], RESISTANCE, TOUR_EnemyInfMen, "TOUR_mkr_FOB"] call TOUR_fnc_rndSoldierPatrol;
-	};
 
 	// SELECT DANGER EVENTS
 
@@ -221,18 +159,6 @@ while {true} do
 								sleep 120;
 								TOUR_enemyChatter = 4;
 
-								{
-									if ((alive _x) && (_pos distance _x > 100)) then 
-									{
-										_positions pushBack (getPos _x);
-									};
-								}forEach playableUnits + switchableUNits;
-
-								if (count _positions > 0) then 
-								{
-									_pos = _positions call BIS_fnc_selectRandom;
-								};
-
 								[]call TOUR_fnc_patrolSwitchSides;
 								sleep 120;
 							};
@@ -267,6 +193,7 @@ while {true} do
 			default {};
 		};
 		TOUR_dangerEvent = "STOPPED";
+		TOUR_enemyChatter = 1;
 	};
 	sleep 5;
 };

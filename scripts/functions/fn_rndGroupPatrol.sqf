@@ -42,20 +42,18 @@ _grp = [_pos1, _side, (configFile >> "CfgGroups" >> "EAST" >> "UK3CB_TKM_O" >> _
 	_x call Tour_fnc_garbageEH;
 	_x call TOUR_fnc_skillAI;
 	_men pushBack _x;
+	_x setVariable ["TOUR_switchableSide", true, true];
 }forEach units _grp;
 
 _pos2 = _position getPos [150  + random 350, random 360];
 
 _wp = _grp addWaypoint [_pos2, 0];
 _wp setWaypointType "MOVE";	
+_wp setWaypointType "MOVE";
+_wp setWaypointBehaviour "SAFE";
+_wp setWaypointCombatMode "YELLOW";	
+_wp setWaypointSpeed "LIMITED";	
 _wp setWaypointCompletionRadius 50;	
 
 _wp2 = _grp addWaypoint [_pos3, 0];
 _wp2 setWaypointType "MOVE";	
-_grp setCombatBehaviour "SAFE";
-_grp setCombatMode "YELLOW";
-_grp setSpeedMode "LIMITED";
-
-_array = missionNameSpace getVariable "TOUR_switchSideGroups";
-_array pushBack [_grp, [_pos1, _pos2, _pos3], "group", time];
-missionNameSpace setVariable ["TOUR_switchSideGroups", _array, true];

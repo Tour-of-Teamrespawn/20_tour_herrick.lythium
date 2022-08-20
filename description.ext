@@ -2,12 +2,13 @@ class Header
 {
 	gameType = Coop;
 	minPlayers = 1;
-	maxPlayers = 20; 
+	maxPlayers = 30; 
 };
 
 author = "Mr.Ben [Tour]";
-briefingName = "20 [Tour] Herrick v0.13";
-//onLoadName = "20 [Tour] Herrick v0.13";
+briefingName = "20 [Tour] Herrick v0.16";
+//onLoadName = "20 [Tour] Herrick v0.16";
+loadScreen = "img\imgHerrick.paa";
 onLoadMissionTime = true;
 enableItemsDropping = 0;
 disabledAI = true; 
@@ -122,8 +123,8 @@ class CfgDebriefing
 	class complete
 	{
 		title = "Mission Success";
-		subtitle = "Objective Complete";
-		description = "You successfully captured the airstrip!";
+		subtitle = "FOB Secure";
+		description = "You successfully held the FOB!";
 		pictureBackground = "img\ukflag";
 		picture = "b_inf";
 		pictureColor[] = { 0.0, 0.0, 0.0, 1 };
@@ -131,8 +132,8 @@ class CfgDebriefing
 	class aborted
 	{
 		title = "Mission Failure";
-		subtitle = "Aborted";
-		description = "You failed to capture the airstrip!";
+		subtitle = "FOB Fallen";
+		description = "The FOB fell into enemy hands!";
 		pictureBackground = "img\ukflag";
 		picture = "o_inf";
 		pictureColor[] = { 0.6,0.1,0.2,1  };
@@ -141,19 +142,10 @@ class CfgDebriefing
 	{
 		title = "Mission Failure";
 		subtitle = "KIA";
-		description = "You failed to capture the airstrip!";
+		description = "All your men were killed in action!";
 		pictureBackground = "img\ukflag";
 		picture = "o_inf";
 		pictureColor[] = { 0.6,0.1,0.2,1 };
-	};
-	class chopper
-	{
-		title = "Mission Failure";
-		subtitle = "Extraction Helictopers Destroyed";
-		description = "You could not extract to complete the mission!";
-		pictureBackground = "img\ukflag";
-		picture = "o_inf";
-		pictureColor[] = { 0.6,0.1,0.2,1  };
 	};
 };
 

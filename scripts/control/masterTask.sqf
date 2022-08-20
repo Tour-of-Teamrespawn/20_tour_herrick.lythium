@@ -43,6 +43,7 @@ while {TOUR_tskCount < TOUR_tskCountTarget} do
 	if (time > _waitTime) then 
 	{
 		missionNameSpace setVariable ["TOUR_tskRadioState", "silent", true];
+		sleep 10;
 	};
 	if (missionNameSpace getVariable "TOUR_tskRadioState" == "accepted") then 
 	{
