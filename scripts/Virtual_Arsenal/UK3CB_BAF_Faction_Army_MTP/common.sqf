@@ -201,8 +201,7 @@ _bis_items = [
 
 _radio = 
 [
-	"ACRE_PRC343",
-	"ACRE_PRC148"
+	"ACRE_PRC343"
 ];
 
 _ACE_backpack = 

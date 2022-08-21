@@ -9,7 +9,6 @@ _magazines = [
 
 _weapons = [
 	"UK3CB_BAF_L86A3",
-	"UK3CB_BAF_L129A1"
 	"UK3CB_BAF_L129A1",
     "UK3CB_BAF_L129A1_Grippod",
     "UK3CB_BAF_L129A1_AFG",

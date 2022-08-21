@@ -90,7 +90,7 @@ _bis_magazines =
 
 _ACE_items =
 [	
-
+	"ACRE_PRC148"
 ];
 
 _ctab = 

@@ -18,7 +18,7 @@ if (!isdedicated) then
 	"dynamicBlur" ppEffectEnable true;
 	"dynamicBlur" ppEffectAdjust [5];
 	"dynamicBlur" ppEffectCommit 0;
-	sleep 1;
+	sleep 7;
 	cutText ["","BLACK FADED", 0];		
 	doStop player;
 	"dynamicBlur" ppEffectAdjust [0];

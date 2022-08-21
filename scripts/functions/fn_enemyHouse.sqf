@@ -89,6 +89,12 @@ if (count _this > 6) then
 	_warLord setDir _dir;
 	_grp setFormDir _dir;
 	_warLord setUnitPos "UP";
+	if (_type == "UK3CB_TKC_C_CIV") then 
+	{
+		_warLord addWeapon "rhs_weap_akm";
+		_warLord addBackpack "UK3CB_B_INVISIBLE";
+		for "_i" from 1 to 7 do {_warLord addMagazine "rhs_30Rnd_762x39mm_bakelite";};
+	};
 	_warLord call TOUR_fnc_skillAI;
 	_warLord disableAI "move";
 	_warLord setVariable ["lambs_danger_disableAI", true];
@@ -114,6 +120,12 @@ for "_i" from 1 to (_min + (ceil (random (_max - _min)))) do
 	_unit setDir _dir;
 	_grp setFormDir _dir;
 	_unit setUnitPos "UP";
+	if (_type == "UK3CB_TKC_C_CIV") then 
+	{
+		_unit addWeapon "rhs_weap_akm";
+		_unit addBackpack "UK3CB_B_INVISIBLE";
+		for "_i" from 1 to 7 do {_unit addMagazine "rhs_30Rnd_762x39mm_bakelite";};
+	};
 	_unit call Tour_fnc_garbageEH;
 	_unit call TOUR_fnc_skillAI;
 	_unit setVariable ["lambs_danger_disableAI", true];

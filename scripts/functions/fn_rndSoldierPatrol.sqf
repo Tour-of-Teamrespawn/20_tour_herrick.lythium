@@ -73,6 +73,9 @@ _unit setPos _pos1;
 _unit setUnitPos "UP";
 _unit call Tour_fnc_garbageEH;
 _unit call TOUR_fnc_skillAI;
+_unit addWeapon "rhs_weap_akm";
+_unit addBackpack "UK3CB_B_INVISIBLE";
+for "_i" from 1 to 7 do {_unit addMagazine "rhs_30Rnd_762x39mm_bakelite";};
 _unit setVariable ["TOUR_switchableSide", true, true];
 
 [_unit, _posArray, _mkr] execFSM "scripts\ambientLife\soldierControl.fsm";

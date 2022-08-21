@@ -6,7 +6,9 @@ _type_array =
 [
 	"UK3CB_TKC_C_Gaz24",
 	"UK3CB_TKC_C_Hatchback",
+	"UK3CB_TKC_C_S1203",
 	"UK3CB_TKC_C_Hilux_Civ_Open",
+	"UK3CB_TKC_C_Hilux_Civ_closed",
 	"UK3CB_TKC_C_Kamaz_Open",
 	"UK3CB_TKC_C_Lada_Taxi",
 	"UK3CB_TKC_C_Lada",
@@ -14,8 +16,11 @@ _type_array =
 	"UK3CB_TKC_C_V3S_Closed",
 	"UK3CB_TKC_C_Ural_Recovery",
 	"UK3CB_TKC_C_Skoda",
-	"UK3CB_TKC_C_Golf",
-	"UK3CB_TKC_C_Datsun_Civ_Closed"
+	"UK3CB_TKC_C_pickup",
+	"UK3CB_TKC_C_ikarus",
+	"UK3CB_TKC_C_Datsun_Civ_Closed",
+	"UK3CB_TKC_C_Datsun_Civ_open",
+	"UK3CB_TKC_C_yava"
 ];
 
 _enemy_array = 
@@ -47,7 +52,7 @@ _rnd = _this select 1;
 
 while {true} do
 {
-	if ((floor (random 101)) <= _chance) then
+	if ((random 100) <= _chance) then
 	{
 		_stt = ceil random 2;
 		_stp = if (_stt == 1) then {2} else {1};
@@ -67,15 +72,40 @@ while {true} do
 
 		_veh forcespeed 10;
 
-		_grp = if (random 1 > 0.75) then {createGroup EAST}else {createGroup RESISTANCE};
+		_grp = createGroup EAST;
 		[_veh, _grp] call BIS_fnc_spawnCrew;
 		{
 			//_x call Tour_fnc_garbageEH;
 			_x call TOUR_fnc_skillAI;
 		}forEach units _grp;
+		if (_rnd == 1) then 
+		{
+			if (_stt == 1) then 
+			{
+				_wp2 = _grp addWaypoint [getMarkerPos (format ["TOUR_mkr_carSpawn_%1_%2", 1, 3]), 0];
+				_wp2 setWaypointSpeed "NORMAL";
+				_wp2 setWaypointCombatMode "RED";
+				_wp2 setWaypointCompletionRadius 25;
+				_wp4 = _grp addWaypoint [getMarkerPos (format ["TOUR_mkr_carSpawn_%1_%2", 1, 5]), 0];
+				_wp4 setWaypointCompletionRadius 25;
+				_wp3 = _grp addWaypoint [getMarkerPos (format ["TOUR_mkr_carSpawn_%1_%2", 1, 4]), 0];
+				_wp3 setWaypointCompletionRadius 25;
+			}else 
+			{
+				_wp2 = _grp addWaypoint [getMarkerPos (format ["TOUR_mkr_carSpawn_%1_%2", 1, 4]), 0];
+				_wp2 setWaypointSpeed "NORMAL";
+				_wp2 setWaypointCombatMode "RED";
+				_wp2 setWaypointCompletionRadius 25;
+				_wp4 = _grp addWaypoint [getMarkerPos (format ["TOUR_mkr_carSpawn_%1_%2", 1, 5]), 0];
+				_wp4 setWaypointCompletionRadius 25;
+				_wp3 = _grp addWaypoint [getMarkerPos (format ["TOUR_mkr_carSpawn_%1_%2", 1, 3]), 0];
+				_wp3 setWaypointCompletionRadius 25;
+			};
+		};
 		_wp1 = _grp addWaypoint [_vehicle_end, 0];
 		_wp1 setWaypointSpeed "NORMAL";
 		_wp1 setWaypointCombatMode "RED";
+
 		_time = time + 100;
 		_detinationreached = false;
 		while {(({alive _x} count units _grp) > 0)} do 
@@ -121,7 +151,7 @@ while {true} do
 		_veh setVelocity [0,0,-1];
 
 		_grp = createGroup CIVILIAN;
-		_type = ["UK3CB_CHC_C_CIT", "UK3CB_CHC_C_WORKER","UK3CB_CHC_C_HIKER", "UK3CB_CHC_C_VILL", "UK3CB_CHC_C_WOOD", "UK3CB_CHC_C_LABOUR", "UK3CB_CHC_C_FUNC"];
+		_type = ["UK3CB_TKC_C_CIV"];
 		_man = _grp createUnit [(_type call BIS_fnc_selectRandom), _vehicle_spawn, [], 0, "NONE"];
 		_man assignAsDriver _veh;
 		_man moveInDriver _veh;
@@ -131,11 +161,33 @@ while {true} do
 			//_x call TOUR_fnc_loadouts;
 			_x setVariable ["BIS_noCoreConversations",true];
 		}forEach units _grp;
-		
+		if (_rnd == 1) then 
+		{
+			if (_stt == 1) then 
+			{
+				_wp2 = _grp addWaypoint [getMarkerPos (format ["TOUR_mkr_carSpawn_%1_%2", 1, 3]), 0];
+				_wp2 setWaypointSpeed "NORMAL";
+				_wp2 setWaypointCompletionRadius 25;
+				_wp4 = _grp addWaypoint [getMarkerPos (format ["TOUR_mkr_carSpawn_%1_%2", 1, 5]), 0];
+				_wp4 setWaypointCompletionRadius 25;
+				_wp3 = _grp addWaypoint [getMarkerPos (format ["TOUR_mkr_carSpawn_%1_%2", 1, 4]), 0];
+				_wp3 setWaypointCompletionRadius 25;
+			}else 
+			{
+				_wp2 = _grp addWaypoint [getMarkerPos (format ["TOUR_mkr_carSpawn_%1_%2", 1, 4]), 0];
+				_wp2 setWaypointSpeed "NORMAL";
+				_wp2 setWaypointCompletionRadius 25;
+				_wp4 = _grp addWaypoint [getMarkerPos (format ["TOUR_mkr_carSpawn_%1_%2", 1, 5]), 0];
+				_wp4 setWaypointCompletionRadius 25;
+				_wp3 = _grp addWaypoint [getMarkerPos (format ["TOUR_mkr_carSpawn_%1_%2", 1, 3]), 0];
+				_wp3 setWaypointCompletionRadius 25;
+			};
+
+		};		
 		_wp1 = _grp addWaypoint [_vehicle_end, 0];
 		_wp1 setWaypointSpeed "NORMAL";
 		
-	_veh forcespeed (8 + random 5);
+		_veh forcespeed (8 + random 5);
 
 		_detinationreached = false;
 		_time = time + 100;

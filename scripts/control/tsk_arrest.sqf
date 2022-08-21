@@ -25,7 +25,7 @@ TOUR_taskLocations pushBack _pos;
 
 ["arrest", 3] call TOUR_fnc_hqOrders;
 
-_array = [getMarkerPos _mkr, 50, RESISTANCE, 5, 15, TOUR_EnemyInfMen, "uk3cb_tkm_o_war"] call TOUR_fnc_enemyHouse;
+_array = [getMarkerPos _mkr, 50, RESISTANCE, 5, 15, ["UK3CB_TKC_C_CIV"], "UK3CB_TKC_C_CIV"] call TOUR_fnc_enemyHouse;
 _warlord = _array select 0;
 _men = _array select 1;
 

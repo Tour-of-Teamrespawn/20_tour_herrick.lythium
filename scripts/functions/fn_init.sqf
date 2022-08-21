@@ -11,3 +11,4 @@ TOUR_fnc_rndHouseAttack = compile preProcessFileLineNumbers "scripts\functions\f
 TOUR_fnc_rndGroupPatrol = compile preProcessFileLineNumbers "scripts\functions\fn_rndGroupPatrol.sqf";
 TOUR_fnc_rndsoldierPatrol = compile preProcessFileLineNumbers "scripts\functions\fn_rndsoldierPatrol.sqf";
 TOUR_fnc_patrolSwitchSides = compile preProcessFileLineNumbers "scripts\functions\fn_patrolSwitchSides.sqf";
+TOUR_fnc_enemyChatterIncrease = compile preProcessFileLineNumbers "scripts\functions\fn_enemyChatterIncrease.sqf";

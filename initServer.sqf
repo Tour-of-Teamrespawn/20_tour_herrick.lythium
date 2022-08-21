@@ -24,8 +24,8 @@ _cp = ["TOUR_mkr_civArea6", 10, "TOUR_mkr_FOBArea"] execVM "scripts\ambientLife\
 {
 	for "_i" from 1 to 6 do 
 	{
-		_cd = [8, 1] execVM "scripts\ambientLife\createVehicles.sqf";
-		_cd = [8, 2] execVM "scripts\ambientLife\createVehicles.sqf";
+		_cd = [1, 1] execVM "scripts\ambientLife\createVehicles.sqf";
+		_cd = [1, 2] execVM "scripts\ambientLife\createVehicles.sqf";
 		sleep 60;
 	};
 };
@@ -34,7 +34,11 @@ execVM "scripts\ambientLife\flybyLoop.sqf";
 
 execVM "scripts\control\eventloop.sqf";
 
-["TOUR_mkr_AO", 3, 3, WEST] execVM "scripts\TOUR_IED\bombsCreateArea.sqf";
+["TOUR_mkr_AO", 4, 6, WEST] execVM "scripts\TOUR_IED\bombsCreateArea.sqf";
+
+clearMagazineCargoGlobal TOUR_decAmmo; 
+clearMagazineCargoGlobal TOUR_decAmmo;
+clearitemCargoGlobal TOUR_decAmmo;
 
 TOUR_EnemyInfMen = [
 	"UK3CB_TKM_O_SL",

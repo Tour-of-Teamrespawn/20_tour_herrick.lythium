@@ -8,7 +8,6 @@ _magazines = [
 
 _weapons = [
 	"UK3CB_BAF_L85A2_UGL",
-	"UK3CB_BAF_L85A3_UGL",
 	"UK3CB_BAF_L85A2_UGL_HWS"
 ];
 

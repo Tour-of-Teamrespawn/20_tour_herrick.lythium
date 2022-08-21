@@ -101,7 +101,7 @@ player createDiaryRecord
 		<font size='20' align='center' color='#0080ff'>Operation Herrick XVIII</font>
 		<br/>
 		<br/>
-		2nd Battalion, The Duke of Lancaster's Regiment    14/04/13
+		2nd Battalion, The Duke of Lancaster's Regiment    19/06/13
 		<br/>
 		<br/>
 		Last month the Scots Guards rounded off their tour here in Afghanistan by taking advantage of the winter lull in fighting and pushing forward into Taliban-occupied territory to occupy and fortify several compounds in the region. <marker name='TOUR_Mkr_FOB'>This </marker> unholiest corner of God's fucking creation will be home to you shaggers for the remainder of our operational deployment here in Afghanistan.

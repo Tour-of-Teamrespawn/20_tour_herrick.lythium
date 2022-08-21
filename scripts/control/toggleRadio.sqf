@@ -1,7 +1,7 @@
 _state = true;
 while {true} do 
 {
-	if ((_state == false) && (missionNamespace getVariable "TOUR_backpacRadioON")) then 
+	if ((_state == false) && (missionNamespace getVariable "TOUR_backpackRadioON")) then 
 	{
 		if (!isNil "TOUR_player_3") then 
 		{
@@ -12,7 +12,7 @@ while {true} do
 			};
 		};
 	};
-	if ((_state == true) && !(missionNamespace getVariable "TOUR_backpacRadioON")) then 
+	if ((_state == true) && !(missionNamespace getVariable "TOUR_backpackRadioON")) then 
 	{
 		if (!isNil "TOUR_player_3") then 
 		{

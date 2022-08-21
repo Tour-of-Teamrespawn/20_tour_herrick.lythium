@@ -1,8 +1,8 @@
-private ["_time", "_waitTime", "_task"];
+private ["_time", "_waitTime", "_task", "_patrolActive"];
 
 TOUR_patrolNo = 0;
 
-TOUR_tskCountTarget = 10;
+TOUR_tskCountTarget = 1000;
 TOUR_tskCount = 0;
 TOUR_taskRepo = ["patrol", "patrol", "patrol", "raid", "assault", "arrest", "kill", "ied"];
 TOUR_tskAvailable = [];
@@ -11,7 +11,8 @@ TOUR_tskAvailable = [];
 } forEach TOUR_taskRepo;
 TOUR_taskLocations = [];
 
-missionNameSpace setVariable ["TOUR_backpacRadioON", false, true];
+missionNameSpace setVariable ["TOUR_backpackRadioON", false, true];
+missionNameSpace setVariable ["TOUR_backpackRadioBroadcast", true, true];
 execVM "scripts\control\toggleRadio.sqf";
 
 missionNameSpace setVariable ["TOUR_tskRadioState", "SILENT", true];
@@ -20,7 +21,7 @@ sleep 60;
 
 while {TOUR_tskCount < TOUR_tskCountTarget} do 
 {
-	waitUntil {(missionNameSpace getVariable "TOUR_tskRadioState" != "tali")};
+	waitUntil {!(missionNameSpace getVariable "TOUR_tskRadioState" == "enemy")};
 	missionNameSpace setVariable ["TOUR_tskRadioState", "calling", true];
 	_waitTime = time + 120;
 	_time = time - 1;
@@ -32,9 +33,27 @@ while {TOUR_tskCount < TOUR_tskCountTarget} do
 		{
 			_sound = format ["TOUR_snd_Line_%1", ceil random 4];
 			[[_sound],{TOUR_cmdRadio say3d [_this select 0, 50];}] remoteExecCall ["BIS_fnc_spawn", 0, false];
-			if (missionNameSpace getVariable "TOUR_backpacRadioON") then
+			if (missionNameSpace getVariable "TOUR_backpackRadioON") then
 			{
-				[[_sound],{TOUR_radioSound say3d [_this select 0, 50];}] remoteExecCall ["BIS_fnc_spawn", 0, false];
+				if (missionNameSpace getVariable "TOUR_backpackRadioBroadcast") then
+				{
+					[[_sound],{TOUR_radioSound say3d [_this select 0, 50];}] remoteExecCall ["BIS_fnc_spawn", 0, false];
+				}else 
+				{
+					if !(missionNameSpace getVariable "TOUR_backpackRadioBroadcast") then 
+					{
+						[[_sound],
+						{ 
+							if (!isDedicated) then 
+							{
+								if ((toLower (backpack player)) in	["uk3cb_baf_b_bergen_mtp_radio_h_a","uk3cb_baf_b_bergen_mtp_radio_h_b","uk3cb_baf_b_bergen_mtp_radio_l_a","uk3cb_baf_b_bergen_mtp_radio_l_b"]) then
+								{
+									player say2d [_this select 0, 50];
+								};
+							};
+						}] remoteExecCall ["BIS_fnc_spawn", 0, false];
+					};
+				};
 			};
 			_time = time + (10 + random 5);
 		};
@@ -50,7 +69,31 @@ while {TOUR_tskCount < TOUR_tskCountTarget} do
 		while {true} do 
 		{
 			TOUR_tskAccept = nil;
-			_task = TOUR_tskAvailable call BIS_fnc_selectRandom;
+			_patrolActive = false;
+			for "_i" from 0 to 10 do
+			{
+				if ((format ["TOUR_objPatrol_%1", _i]) call A2S_taskExists) exitWith 
+				{
+					_patrolActive = true;
+				};
+			};
+			if (_patrolActive) then 
+			{
+				_weights = [];
+				{
+					if (_x == "patrol") then 
+					{
+						_weights pushBack 0.001;
+					}else 
+					{
+						_weights pushBack 1;
+					};
+				}forEach TOUR_tskAvailable;
+				_task = TOUR_tskAvailable selectRandomWeighted _weights;
+			}else 
+			{
+				_task = selectRandom TOUR_tskAvailable;
+			};
 			execVM format ["scripts\control\tsk_%1.sqf", _task];
 			waitUntil {!isNil "TOUR_tskAccept"};
 			if (TOUR_tskAccept == true) exitWith 
@@ -69,6 +112,7 @@ while {TOUR_tskCount < TOUR_tskCountTarget} do
 		{
 			TOUR_tskAvailable pushBack _x;
 		} forEach TOUR_taskRepo;
+		TOUR_patrolNo = 0;
 	};
 	sleep 900;
 };
