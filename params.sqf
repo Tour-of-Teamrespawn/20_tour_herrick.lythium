@@ -22,11 +22,11 @@ if (isMultiplayer) then
 	//Start Time
 	TOUR_StartTime = switch (paramsArray select 4) do 
 	{
-		case 1: {[2010,6,7,3,30]};
-		case 2: {[2010,6,7,12,00]};
-		case 3: {[2010,6,7,17,30]};
-		case 4: {[2010,6,7,09,0]};
-		default {[2010,6,7,3,30]};
+		case 1: {[2013,6,7,3,30]};
+		case 2: {[2013,6,7,12,00]};
+		case 3: {[2013,6,7,17,30]};
+		case 4: {[2013,6,7,09,0]};
+		default {[2013,6,7,3,30]};
 	};
 
 	//Fog
