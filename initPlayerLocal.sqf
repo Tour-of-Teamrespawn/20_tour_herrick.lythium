@@ -4,7 +4,7 @@ waitUntil {player == player};
 execVM "scripts\general\dust.sqf";
 
 {
-	_x execVM "scripts\Virtual_arsenal\init.sqf";
+//	_x execVM "scripts\Virtual_arsenal\init.sqf";
 }forEach [TOUR_AmmoBox_1];
 
 if (TOUR_introEnable) then 

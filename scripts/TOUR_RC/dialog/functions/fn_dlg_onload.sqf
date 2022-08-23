@@ -48,11 +48,11 @@ lbClear _combotype; { _combotype lbAdd _x } forEach ["Clear", "Do Not Clear"];
 
 lbClear _comboplayer;
 {
-	if (isNil {_x getVariable "TOUR_RC_spectator"}) then
+	if (!(alive _x) && (isNil {_x getVariable "TOUR_RC_spectator"})) then
 	{
 		_comboplayer lbAdd (name _x);
 	};
-}forEach alldead;
+}forEach allPlayers;
 
 
 _combolives ctrlSetEventHandler ["LBSelChanged", "_this call TOUR_RC_dlg_fnc_onCombolives"];

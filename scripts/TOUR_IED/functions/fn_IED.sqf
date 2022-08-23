@@ -69,7 +69,7 @@ if (_ied getVariable "TOUR_IED_bombActive" == true) then {
 
 		TOUR_IED_Triggermen = TOUR_IED_Triggermen + [_unit];
 	};
-	_ied allowDamage false;
+	_ied allowDamage true;
 
 	_ied setVariable ["TOUR_IED_info", [_bombSize, _explosiveMass,_activationType], true];
 	if !(isNil "TOUR_InsurgentBoolean") then 

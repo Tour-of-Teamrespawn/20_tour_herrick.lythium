@@ -14,20 +14,20 @@ if (_playername != "") then
 	{
 		if (_playername == name _x) exitWith
 		{
-			_player = str _x;
+			_player = _x;
 		};
 	}forEach (playableUnits + switchableUnits + alldead);
 	
-	[_player, {_this call TOUR_RC_dlg_fnc_player_admin_respawn}] remoteExecCall ["spawn", 0, false];
+	[_playername, {_this call TOUR_RC_dlg_fnc_player_admin_respawn}] remoteExecCall ["spawn", 0, false];
 	_i = [_playername, _player] spawn
 	{
 		_playername = _this select 0;
 		_player = _this select 1;
 		_deadUIDs = missionNameSpace getVariable "TOUR_RC_deadUIDs";
-		_deadUIDs = _deadUIDs - [(getPlayerUID player)];
+		_deadUIDs = _deadUIDs - [(getPlayerUID _player)];
 		missionNameSpace setVariable ["TOUR_RC_deadUIDs", _deadUIDs, true];
 		["info", (format ["Respawning %1, please wait...",_playername])] call TOUR_RC_fn_hint;
-		waitUntil {({(_player == str _x)}count alldead == 0)};
+		waitUntil {({(_player == _x)}count alldead == 0)};
 		["info", (format ["%1 has now respawned",_playername])] call TOUR_RC_fn_hint;
 	};
 }else

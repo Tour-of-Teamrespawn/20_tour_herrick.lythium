@@ -1,3 +1,5 @@
+private ["_side", "_ied", "_crator", "_exp"];
+
 _ied = _this select 0;
 _side = _this select 1;
 
@@ -28,6 +30,19 @@ while {(!isnull _ied)} do
 	if ((_ied getVariable "TOUR_IED_info" select 2 == "Remote Phone")&&({(_x iskindof "LandVehicle") && (_x distance _ied <= 15) && (side (driver _x) == _side)}count _near > 0)&&({((vehicle _x) distance _ied < 100)&&(captive _x == false)&&(alive _x)&&(lifestate _x != "incapacitated")} count TOUR_IED_Triggermen > 0) && ({((vehicle _x) distance _ied < 15)&&(alive _x)} count TOUR_IED_jammers < 1)) exitwith 
 	{
 		_ied execVM "scripts\TOUR_ied\bombDetonate.sqf";
+	};
+
+	_exp = (nearestObject [_ied, "#crater"]);
+	_crator = (nearestObject [_ied, "#explosion"]);
+	if ((!isNull _exp) && (!isNull _crator)) then 
+	{
+		if (_exp distance _ied < 0.5) then 
+		{
+			if (_crator distance _ied < 0.5) then 
+			{
+				_ied execVM "scripts\TOUR_ied\bombDetonate.sqf";
+			};
+		};
 	};
 
 	sleep 0.1;
