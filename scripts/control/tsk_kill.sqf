@@ -41,7 +41,7 @@ for "_i" from 2 to (2 + (ceil random 2)) do
 	_grp = [getMarkerPos _mkr, EAST, (configFile >> "CfgGroups" >> "EAST" >> "UK3CB_TKM_O" >> _type select 0 >> _type select 1)] call BIS_fnc_spawnGroup;
 	[_grp, (getMarkerPos _mkr) getpos [30, random 360], 100] call TOUR_fnc_rndPatrol;
 	{
-		_x call TOUR_fnc_skillAI;
+		[_x, TOUR_EnemySFs, TOUR_EnemySnipers] call TOUR_fnc_skillAI;
 		_men pushBack _x;
 	}forEach units _grp;
 };

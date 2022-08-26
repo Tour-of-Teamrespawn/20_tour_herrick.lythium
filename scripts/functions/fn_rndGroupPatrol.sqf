@@ -40,7 +40,7 @@ _type = _types call BIS_fnc_selectRandom;
 _grp = [_pos1, _side, (configFile >> "CfgGroups" >> "EAST" >> "UK3CB_TKM_O" >> _type select 0 >> _type select 1)] call BIS_fnc_spawnGroup;
 {
 	_x call Tour_fnc_garbageEH;
-	_x call TOUR_fnc_skillAI;
+	[_x, TOUR_EnemySFs, TOUR_EnemySnipers] call TOUR_fnc_skillAI;
 	_men pushBack _x;
 	_x setVariable ["TOUR_switchableSide", true, true];
 }forEach units _grp;

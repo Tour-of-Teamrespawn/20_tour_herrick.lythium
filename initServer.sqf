@@ -65,6 +65,10 @@ TOUR_EnemyInfMen = [
 	"UK3CB_TKM_O_GL"
 ];
 
+TOUR_EnemySFs = [];
+
+TOUR_EnemySnipers = ["UK3CB_TKM_O_MK", "UK3CB_TKM_O_SNI"];
+
 TOUR_EnemyInfGrp = 
 [
 	["infantry", "UK3CB_TKM_O_RIF_Sentry"],

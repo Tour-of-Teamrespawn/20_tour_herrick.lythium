@@ -95,7 +95,7 @@ if (count _this > 6) then
 		_warLord addBackpack "UK3CB_B_INVISIBLE";
 		for "_i" from 1 to 7 do {_warLord addMagazine "rhs_30Rnd_762x39mm_bakelite";};
 	};
-	_warLord call TOUR_fnc_skillAI;
+	[_warlord, TOUR_EnemySFs, TOUR_EnemySnipers] call TOUR_fnc_skillAI;
 	_warLord disableAI "move";
 	_warLord setVariable ["lambs_danger_disableAI", true];
 	_return pushback _warLord;
@@ -127,7 +127,7 @@ for "_i" from 1 to (_min + (ceil (random (_max - _min)))) do
 		for "_i" from 1 to 7 do {_unit addMagazine "rhs_30Rnd_762x39mm_bakelite";};
 	};
 	_unit call Tour_fnc_garbageEH;
-	_unit call TOUR_fnc_skillAI;
+	[_x, TOUR_EnemySFs, TOUR_EnemySnipers] call TOUR_fnc_skillAI;
 	_unit setVariable ["lambs_danger_disableAI", true];
 	_men pushbackUnique _unit;
 };

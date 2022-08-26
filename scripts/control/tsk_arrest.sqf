@@ -42,7 +42,7 @@ for "_i" from 1 to (ceil random 3) do
 	[_grp, (getMarkerPos _mkr) getpos [30, random 360], 100] call TOUR_fnc_rndPatrol;
 	{
 		_x call Tour_fnc_garbageEH;
-		_x call TOUR_fnc_skillAI;
+		[_x, TOUR_EnemySFs, TOUR_EnemySnipers] call TOUR_fnc_skillAI;
 		_men pushBack _x;
 	}forEach units _grp;
 };

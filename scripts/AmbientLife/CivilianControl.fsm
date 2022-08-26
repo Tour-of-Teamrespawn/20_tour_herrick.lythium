@@ -1,15 +1,15 @@
 /*%FSM<COMPILE "C:\Program Files (x86)\Steam\steamapps\common\Arma 3 Tools\FSMEditor\scriptedFSM.cfg, civilianControl">*/
 /*%FSM<HEAD>*/
 /*
-item0[] = {"Start",0,250,82.253479,-247.581390,172.253479,-197.581390,0.000000,"Start"};
+item0[] = {"Start",0,4346,243.726532,-246.953079,333.726532,-196.953079,0.000000,"Start"};
 item1[] = {"End_",1,250,-264.287537,-247.549606,-174.287537,-197.549652,0.000000,"End" \n ""};
-item2[] = {"unitReady",4,218,82.824799,-153.412231,172.824799,-103.412231,0.000000,"unitReady"};
+item2[] = {"unitReady",4,218,246.182770,-154.040527,336.182770,-104.040527,0.000000,"unitReady"};
 item3[] = {"_",4,218,-122.406982,-156.165649,-32.406982,-106.165649,0.000000,""};
 item4[] = {"",7,210,23.643768,-47.031647,31.643768,-39.031647,0.000000,""};
 item5[] = {"",7,210,23.918579,-133.654083,31.918579,-125.654083,0.000000,""};
-item6[] = {"_",2,250,83.957001,-67.432800,173.957016,-17.432800,0.000000,""};
+item6[] = {"_",2,250,247.710724,113.900772,337.710754,163.900772,0.000000,""};
 item7[] = {"",7,210,23.215088,-224.404068,31.215088,-216.404068,0.000000,""};
-item8[] = {"__1",4,4314,-121.214394,-246.486984,-31.214386,-196.486984,0.000000,""};
+item8[] = {"__1",4,218,-121.214394,-246.486984,-31.214386,-196.486984,0.000000,""};
 item9[] = {"__1",2,250,-122.346527,-66.635895,-32.346512,-16.635895,0.000000,""};
 item10[] = {"__2",4,218,-119.653503,24.645950,-29.653503,74.645950,0.000000,""};
 item11[] = {"__2",2,250,-120.718048,117.050171,-30.718033,167.050171,0.000000,""};
@@ -19,30 +19,35 @@ item14[] = {"__3",2,250,-121.803711,310.293335,-31.803696,360.293335,0.000000,""
 item15[] = {"",7,210,20.386932,333.783600,28.386932,341.783600,0.000000,""};
 item16[] = {"",7,210,24.769165,45.939240,32.769165,53.939240,0.000000,""};
 item17[] = {"",7,210,22.597839,235.925476,30.597839,243.925476,0.000000,""};
+item18[] = {"near_blufor",4,218,132.906708,-66.612640,222.906708,-16.612640,0.000000,"near blufor"};
+item19[] = {"__4",2,250,132.153900,21.911392,222.153931,71.911392,0.000000,""};
 link0[] = {0,2};
 link1[] = {0,7};
 link2[] = {2,6};
 link3[] = {3,9};
 link4[] = {4,5};
-link5[] = {5,2};
-link6[] = {5,3};
-link7[] = {5,7};
-link8[] = {6,4};
-link9[] = {7,8};
-link10[] = {8,1};
-link11[] = {9,4};
-link12[] = {9,10};
-link13[] = {10,11};
-link14[] = {11,12};
-link15[] = {11,13};
-link16[] = {12,16};
-link17[] = {13,14};
-link18[] = {14,15};
-link19[] = {15,17};
-link20[] = {16,4};
-link21[] = {17,12};
-globals[] = {0.000000,0,0,0,0,640,480,1,22,6316128,1,-464.114838,464.114197,454.634705,-341.728851,1077,924,1};
-window[] = {2,-1,-1,-1,-1,971,182,1622,182,3,1095};
+link5[] = {4,18};
+link6[] = {5,2};
+link7[] = {5,3};
+link8[] = {5,7};
+link9[] = {6,12};
+link10[] = {7,8};
+link11[] = {8,1};
+link12[] = {9,4};
+link13[] = {9,10};
+link14[] = {10,11};
+link15[] = {11,12};
+link16[] = {11,13};
+link17[] = {12,16};
+link18[] = {13,14};
+link19[] = {14,15};
+link20[] = {15,17};
+link21[] = {16,4};
+link22[] = {17,12};
+link23[] = {18,19};
+link24[] = {19,16};
+globals[] = {0.000000,0,0,0,0,640,480,1,25,6316128,1,-378.047180,440.734253,427.292877,-275.171417,1077,924,1};
+window[] = {2,-1,-1,-32000,-32000,815,26,1466,26,3,1095};
 *//*%FSM</HEAD>*/
 class FSM
 {
@@ -54,7 +59,7 @@ class FSM
                 {
                         name = "Start";
                         itemno = 0;
-                        init = /*%FSM<STATEINIT""">*/"private [""_startPos"", ""_unit"", ""_posArray"", ""_time"", ""_pos"", ""_sleepNeeded"", ""_time1"", ""_time2"", ""_type""];" \n
+                        init = /*%FSM<STATEINIT""">*/"private [""_stopped"",""_startPos"", ""_unit"", ""_posArray"", ""_time"", ""_pos"", ""_sleepNeeded"", ""_time1"", ""_time2"", ""_type"", ""_man""];" \n
                          "" \n
                          "_unit = _this select 0;" \n
                          "_posArray = _this select 1;" \n
@@ -64,7 +69,7 @@ class FSM
                          "_type = typeOf _unit;" \n
                          "_time1 = time + 60;" \n
                          "_time2 = time + 70;" \n
-                         "" \n
+                         "_stopped = false;" \n
                          "_unit removeEventHandler [""FiredNear"", 0];"/*%FSM</STATEINIT""">*/;
                         precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
                         class Links
@@ -105,7 +110,8 @@ class FSM
                                         precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
                                         condition=/*%FSM<CONDITION""">*/"(unitReady _unit && (isNil {_unit getVariable ""TDMC_civ_fNear""}))" \n
                                          "&&" \n
-                                         "" \n
+                                         "({((alive _x) && ((vehicle _x) distance _unit < 5))}count (playableUnits + switchableunits) == 0)" \n
+                                         "&&" \n
                                          "!(" \n
                                          "	(_pos distance _unit < 10)" \n
                                          "	&&" \n
@@ -141,7 +147,7 @@ class FSM
                          "	_grp = createGroup CIVILIAN;" \n
                          "	_unit = _grp createUnit [_type, _pos, [], 0, ""NONE""];" \n
                          "	_unit call Tour_fnc_garbageEH;" \n
-                         "	_unit call TOUR_fnc_skillAI;" \n
+                         "	[_unit] call TOUR_fnc_skillAI;" \n
                          "	[_unit, _posArray, _sleepNeeded] execFSM ""scripts\ambientLife\civilianControl.fsm"";"/*%FSM</STATEINIT""">*/;
                         precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
                         class Links
@@ -160,6 +166,7 @@ class FSM
                          "	(_this select 0) removeEventHandler [""FiredNear"", _thisEventHandler];" \n
                          "}];" \n
                          "" \n
+                         "_stopped = false;" \n
                          "_unit setSpeedMode ""LIMITED"";" \n
                          "_unit enableAi ""TARGET"";" \n
                          "_unit enableAi ""AUTOTARGET"";" \n
@@ -171,6 +178,31 @@ class FSM
                         precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
                         class Links
                         {
+                                /*%FSM<LINK "unitReady">*/
+                                class unitReady
+                                {
+                                        itemno = 2;
+                                        priority = 0.000000;
+                                        to="_";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"(unitReady _unit && (isNil {_unit getVariable ""TDMC_civ_fNear""}))" \n
+                                         "&&" \n
+                                         "({((alive _x) && ((vehicle _x) distance _unit < 5))}count (playableUnits + switchableunits) == 0)" \n
+                                         "&&" \n
+                                         "!(" \n
+                                         "	(_pos distance _unit < 10)" \n
+                                         "	&&" \n
+                                         "	(" \n
+                                         "	(((date select 3 == 4) && (date select 4 <= 30)) or (date select 3 < 4))" \n
+                                         "	or" \n
+                                         "	(((date select 3 == 19) && (date select 4 >= 30)) or (date select 3 > 19))" \n
+                                         "	)" \n
+                                         "	&&" \n
+                                         "	_sleepNeeded" \n
+                                         ")"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
                                 /*%FSM<LINK "_">*/
                                 class _
                                 {
@@ -211,27 +243,19 @@ class FSM
                                         action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
                                 };
                                 /*%FSM</LINK>*/
-                                /*%FSM<LINK "unitReady">*/
-                                class unitReady
+                                /*%FSM<LINK "near_blufor">*/
+                                class near_blufor
                                 {
-                                        itemno = 2;
+                                        itemno = 18;
                                         priority = 0.000000;
-                                        to="_";
+                                        to="__4";
                                         precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
-                                        condition=/*%FSM<CONDITION""">*/"(unitReady _unit && (isNil {_unit getVariable ""TDMC_civ_fNear""}))" \n
+                                        condition=/*%FSM<CONDITION""">*/"(isNil {_unit getVariable ""TDMC_civ_fNear""})" \n
                                          "&&" \n
-                                         "" \n
-                                         "!(" \n
-                                         "	(_pos distance _unit < 10)" \n
-                                         "	&&" \n
-                                         "	(" \n
-                                         "	(((date select 3 == 4) && (date select 4 <= 30)) or (date select 3 < 4))" \n
-                                         "	or" \n
-                                         "	(((date select 3 == 19) && (date select 4 >= 30)) or (date select 3 > 19))" \n
-                                         "	)" \n
-                                         "	&&" \n
-                                         "	_sleepNeeded" \n
-                                         ")"/*%FSM</CONDITION""">*/;
+                                         "({((alive _x) && ((vehicle _x) distance _unit < 5))}count (playableUnits + switchableunits) > 0)" \n
+                                         "&& " \n
+                                         "!(_stopped)" \n
+                                         ""/*%FSM</CONDITION""">*/;
                                         action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
                                 };
                                 /*%FSM</LINK>*/
@@ -250,7 +274,7 @@ class FSM
                          "{" \n
                          "	_unit setUnitPos ""DOWN"";" \n
                          "};" \n
-                         "" \n
+                         "_stopped = false;" \n
                          "_unit setBehaviour ""CARELESS"";" \n
                          "_unit disableAi ""MOVE"";" \n
                          "_unit disableAi ""TARGET"";" \n
@@ -278,6 +302,22 @@ class FSM
                         precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
                         class Links
                         {
+                                /*%FSM<LINK "near_blufor">*/
+                                class near_blufor
+                                {
+                                        itemno = 18;
+                                        priority = 0.000000;
+                                        to="__4";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"(isNil {_unit getVariable ""TDMC_civ_fNear""})" \n
+                                         "&&" \n
+                                         "({((alive _x) && ((vehicle _x) distance _unit < 5))}count (playableUnits + switchableunits) > 0)" \n
+                                         "&& " \n
+                                         "!(_stopped)" \n
+                                         ""/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
                                 /*%FSM<LINK "unitReady">*/
                                 class unitReady
                                 {
@@ -287,7 +327,8 @@ class FSM
                                         precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
                                         condition=/*%FSM<CONDITION""">*/"(unitReady _unit && (isNil {_unit getVariable ""TDMC_civ_fNear""}))" \n
                                          "&&" \n
-                                         "" \n
+                                         "({((alive _x) && ((vehicle _x) distance _unit < 5))}count (playableUnits + switchableunits) == 0)" \n
+                                         "&&" \n
                                          "!(" \n
                                          "	(_pos distance _unit < 10)" \n
                                          "	&&" \n
@@ -384,6 +425,22 @@ class FSM
                         precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
                         class Links
                         {
+                                /*%FSM<LINK "near_blufor">*/
+                                class near_blufor
+                                {
+                                        itemno = 18;
+                                        priority = 0.000000;
+                                        to="__4";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"(isNil {_unit getVariable ""TDMC_civ_fNear""})" \n
+                                         "&&" \n
+                                         "({((alive _x) && ((vehicle _x) distance _unit < 5))}count (playableUnits + switchableunits) > 0)" \n
+                                         "&& " \n
+                                         "!(_stopped)" \n
+                                         ""/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
                                 /*%FSM<LINK "unitReady">*/
                                 class unitReady
                                 {
@@ -393,7 +450,8 @@ class FSM
                                         precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
                                         condition=/*%FSM<CONDITION""">*/"(unitReady _unit && (isNil {_unit getVariable ""TDMC_civ_fNear""}))" \n
                                          "&&" \n
-                                         "" \n
+                                         "({((alive _x) && ((vehicle _x) distance _unit < 5))}count (playableUnits + switchableunits) == 0)" \n
+                                         "&&" \n
                                          "!(" \n
                                          "	(_pos distance _unit < 10)" \n
                                          "	&&" \n
@@ -475,6 +533,31 @@ class FSM
                         precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
                         class Links
                         {
+                                /*%FSM<LINK "unitReady">*/
+                                class unitReady
+                                {
+                                        itemno = 2;
+                                        priority = 0.000000;
+                                        to="_";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"(unitReady _unit && (isNil {_unit getVariable ""TDMC_civ_fNear""}))" \n
+                                         "&&" \n
+                                         "({((alive _x) && ((vehicle _x) distance _unit < 5))}count (playableUnits + switchableunits) == 0)" \n
+                                         "&&" \n
+                                         "!(" \n
+                                         "	(_pos distance _unit < 10)" \n
+                                         "	&&" \n
+                                         "	(" \n
+                                         "	(((date select 3 == 4) && (date select 4 <= 30)) or (date select 3 < 4))" \n
+                                         "	or" \n
+                                         "	(((date select 3 == 19) && (date select 4 >= 30)) or (date select 3 > 19))" \n
+                                         "	)" \n
+                                         "	&&" \n
+                                         "	_sleepNeeded" \n
+                                         ")"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
                                 /*%FSM<LINK "_">*/
                                 class _
                                 {
@@ -515,6 +598,43 @@ class FSM
                                         action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
                                 };
                                 /*%FSM</LINK>*/
+                                /*%FSM<LINK "near_blufor">*/
+                                class near_blufor
+                                {
+                                        itemno = 18;
+                                        priority = 0.000000;
+                                        to="__4";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"(isNil {_unit getVariable ""TDMC_civ_fNear""})" \n
+                                         "&&" \n
+                                         "({((alive _x) && ((vehicle _x) distance _unit < 5))}count (playableUnits + switchableunits) > 0)" \n
+                                         "&& " \n
+                                         "!(_stopped)" \n
+                                         ""/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "__4">*/
+                class __4
+                {
+                        name = "__4";
+                        itemno = 19;
+                        init = /*%FSM<STATEINIT""">*/"_unit doMove getpos _unit;" \n
+                         "_stopped = true;" \n
+                         "_man = objNull;" \n
+                         "{" \n
+                         "	if (_unit != _x) exitWith " \n
+                         "	{" \n
+                         "		_man = _x;" \n
+                         "	};" \n
+                         "}forEach (nearestObjects [player, [""man""], 10]);" \n
+                         "_unit doWatch _man;"/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
                                 /*%FSM<LINK "unitReady">*/
                                 class unitReady
                                 {
@@ -524,7 +644,8 @@ class FSM
                                         precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
                                         condition=/*%FSM<CONDITION""">*/"(unitReady _unit && (isNil {_unit getVariable ""TDMC_civ_fNear""}))" \n
                                          "&&" \n
-                                         "" \n
+                                         "({((alive _x) && ((vehicle _x) distance _unit < 5))}count (playableUnits + switchableunits) == 0)" \n
+                                         "&&" \n
                                          "!(" \n
                                          "	(_pos distance _unit < 10)" \n
                                          "	&&" \n
@@ -536,6 +657,62 @@ class FSM
                                          "	&&" \n
                                          "	_sleepNeeded" \n
                                          ")"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "_">*/
+                                class _
+                                {
+                                        itemno = 3;
+                                        priority = 0.000000;
+                                        to="__1";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"!isNil {_unit getVariable ""TDMC_civ_fNear""}" \n
+                                         "&&" \n
+                                         "((_unit getVariable ""TDMC_civ_fNear"") == 1)"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "__1">*/
+                                class __1
+                                {
+                                        itemno = 8;
+                                        priority = 0.000000;
+                                        to="End_";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"isNUll _unit || !alive _unit " \n
+                                         "OR" \n
+                                         "(" \n
+                                         "	((time > _time1) && (time < _time2) && (_unit distance _startPos < 10))" \n
+                                         "	&&" \n
+                                         "		!(" \n
+                                         "			(_pos distance _unit < 10)" \n
+                                         "			&&" \n
+                                         "			(" \n
+                                         "			(((date select 3 == 4) && (date select 4 <= 30)) or (date select 3 < 4))" \n
+                                         "			or" \n
+                                         "			(((date select 3 == 19) && (date select 4 >= 30)) or (date select 3 > 19))" \n
+                                         "			)" \n
+                                         "			&&" \n
+                                         "			_sleepNeeded" \n
+                                         "		)" \n
+                                         ")"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "near_blufor">*/
+                                class near_blufor
+                                {
+                                        itemno = 18;
+                                        priority = 0.000000;
+                                        to="__4";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"(isNil {_unit getVariable ""TDMC_civ_fNear""})" \n
+                                         "&&" \n
+                                         "({((alive _x) && ((vehicle _x) distance _unit < 5))}count (playableUnits + switchableunits) > 0)" \n
+                                         "&& " \n
+                                         "!(_stopped)" \n
+                                         ""/*%FSM</CONDITION""">*/;
                                         action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
                                 };
                                 /*%FSM</LINK>*/

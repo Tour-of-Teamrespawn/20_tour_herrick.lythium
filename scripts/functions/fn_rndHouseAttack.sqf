@@ -81,7 +81,7 @@ for "_i" from 1 to _number do
 	_unit setPos (_pos select 1);
 	_unit setUnitPos "UP";
 	_unit call Tour_fnc_garbageEH;
-	_unit call TOUR_fnc_skillAI;
+	[_unit, TOUR_EnemySFs, TOUR_EnemySnipers] call TOUR_fnc_skillAI;
 	_wp = _grp addWaypoint [_centrepos, 0];
 	_wp setWaypointType "MOVE";	
 	_wp = _grp addWaypoint [_centrepos, random 30];

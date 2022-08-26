@@ -291,9 +291,9 @@ class CfgSounds
 		sound[] = {"sounds\line13.ogg", 1, 1, 25};
 		titles[] = {};
 	};
-	class TOUR_snd_mission_talk
+	class TOUR_snd_mission_MRE
 	{
-		name = "TOUR_snd_mission_talk";
+		name = "TOUR_snd_mission_MRE";
 		sound[] = {"sounds\line14.ogg", 1, 1, 25};
 		titles[] = {};
 	};

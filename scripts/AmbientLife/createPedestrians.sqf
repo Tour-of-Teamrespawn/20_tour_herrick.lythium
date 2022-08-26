@@ -61,6 +61,6 @@ for "_i" from 1 to _max do
 	_civs = _civs + [_unit];
 	_civCountGlobalTotal = _civCountGlobalTotal + 1;
 	_unit call Tour_fnc_garbageEH;
-	_unit call TOUR_fnc_skillAI;
+	[_unit, TOUR_EnemySFs, TOUR_EnemySnipers] call TOUR_fnc_skillAI;
 	[_unit, _posArray, _sleepNeeded] execFSM "scripts\ambientLife\civilianControl.fsm";
 };

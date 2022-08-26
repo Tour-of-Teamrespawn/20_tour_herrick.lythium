@@ -1,3 +1,6 @@
+
+
+
 //Validate parameter count
 if ((count _this) < 3) exitWith {debugLog "Log: [taskPatrol] Function requires at least 3 parameters!"; false};
 
@@ -16,8 +19,6 @@ if ((typeName _grp) != (typeName grpNull)) exitWith {debugLog "Log: [taskPatrol]
 if ((typeName _pos) != (typeName [])) exitWith {debugLog "Log: [taskPatrol] Position (1) must be an Array!"; false};
 if ((typeName _maxDist) != (typeName 0)) exitWith {debugLog "Log: [taskPatrol] Maximum distance (2) must be a Number!"; false};
 if ((typeName _blacklist) != (typeName [])) exitWith {debugLog "Log: [taskPatrol] Blacklist (3) must be an Array!"; false};
-
-//_grp setBehaviour "SAFE"; // removed this to make units more active
 
 //Create a string of randomly placed waypoints.
 private ["_prevPos", "_newPos"];

@@ -59,6 +59,7 @@ while {true} do
 	}else 
 	{
 		sleep 10;
+		_time = time;
 	};
 	waitUntil {((missionNameSpace getVariable "TOUR_enemyChatter") != _status) or (time > _time)};
 };

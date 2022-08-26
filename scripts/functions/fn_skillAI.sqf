@@ -1,27 +1,39 @@
 /*
-	Skill Level settings function by Mr.Ben
+	Title: fn_skillAI
+	
+	Description: Sets the skill level of the unit passed to the function to Tour of Teamrespawn default values, including the option to improve stats with special forces and snipers
 	
 	Usage:
-	_this should be a man unit
-	_x call function;
-	alter the _sniper or _sf units as per mission class names for enemies
+	[_this, ["lowercase_specialforces_classname_1", "lowercase_specialforces_classname_2"], ["lowercase_sniper_classname_1", "lowercase_sniper_classname_1"]] call MYTAG_fn_skillAI;
+
+	Author: Mr.Ben
+	Version: 1.0
 */
 
-private ["_guy", "_skillgeneral", "_skillaccuracy", "_skills", "_skillArray"];
+private ["_sf", "_sniper", "_guy", "_skillgeneral", "_skillaccuracy", "_skills", "_skillArray"];
+params ["_guy", "_sf", "_sniper"];
 
-_guy = _this;
+if (count _this < 1) exitWith {hint "You need to pass parameters for fn_skillAI to work"}; 
+
+_guy = _this select 0;
+
+_sf = if (count _this < 2) then 
+{
+	[];
+}else
+{
+	_this select 1;
+};
+
+_sniper = if (count _this < 3) then 
+{
+	[];
+}else
+{
+	_this select 2;
+};
+
 _skillArray = [["aimingShake",0.3],["aimingSpeed",0.35],["commanding",0.85],["courage",0.5],["reloadSpeed",1],["spotDistance",0.60],["spotTime",0.65],["aimingAccuracy", 0.225],["general", 0.85]];
-
-_sf = 
-[
-
-];
-_sniper = 
-[
-	"uk3cb_tkm_o_mk",
-	"uk3cb_tkm_o_sni",
-	"uk3cb_tkm_o_spot"
-];
 
 if ((toLower (typeof _guy)) in _sf) then
 {

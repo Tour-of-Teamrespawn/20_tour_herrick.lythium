@@ -34,7 +34,7 @@ for "_i" from 0 to (_number -1) do
 	_grp = [_pos, _side, (configFile >> "CfgGroups" >> "EAST" >> "UK3CB_TKM_O" >> _type select 0 >> _type select 1)] call BIS_fnc_spawnGroup;
 	{
 		_x call Tour_fnc_garbageEH;
-		_x call TOUR_fnc_skillAI;
+		[_x, TOUR_EnemySFs, TOUR_EnemySnipers] call TOUR_fnc_skillAI;
 		_men pushBack _x;
 	}forEach units _grp;
 	_wp = _grp addWaypoint [_position, random 30];

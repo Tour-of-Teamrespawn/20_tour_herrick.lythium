@@ -64,7 +64,7 @@ if (_ied getVariable "TOUR_IED_bombActive" == true) then {
 
 		_unit setUnitPos "UP";
 		_unit call Tour_fnc_garbageEH;
-		_unit call TOUR_fnc_skillAI;
+		[_unit] call TOUR_fnc_skillAI;
 		[group _unit, getPos _ied, 100] spawn TOUR_fnc_rndpatrol;
 
 		TOUR_IED_Triggermen = TOUR_IED_Triggermen + [_unit];

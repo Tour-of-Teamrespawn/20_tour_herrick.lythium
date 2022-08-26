@@ -45,7 +45,7 @@ if (random 1 > 0.5) then
 		[_grp, (getPosATL (leader _grp))] call BIS_fnc_taskDefend;
 		{
 			_x call Tour_fnc_garbageEH;
-			_x call TOUR_fnc_skillAI;
+			[_x, TOUR_EnemySFs, TOUR_EnemySnipers] call TOUR_fnc_skillAI;
 			_men pushBack _x;
 		}forEach units _grp;
 	};
@@ -60,7 +60,7 @@ if (random 1 > 0.5) then
 		[_grp, (getMarkerPos _mkr) getpos [50, random 360], 100] call TOUR_fnc_rndPatrol;
 		{
 			_x call Tour_fnc_garbageEH;
-			_x call TOUR_fnc_skillAI;
+			[_x, TOUR_EnemySFs, TOUR_EnemySnipers] call TOUR_fnc_skillAI;
 			_men pushBack _x;
 		}forEach units _grp;
 	};

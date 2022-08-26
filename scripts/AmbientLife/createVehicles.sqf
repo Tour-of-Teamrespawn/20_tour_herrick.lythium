@@ -76,7 +76,7 @@ while {true} do
 		[_veh, _grp] call BIS_fnc_spawnCrew;
 		{
 			//_x call Tour_fnc_garbageEH;
-			_x call TOUR_fnc_skillAI;
+			[_x, TOUR_EnemyInfSF, TOUR_EnemyInfSniper] call TOUR_fnc_skillAI;
 		}forEach units _grp;
 		if (_rnd == 1) then 
 		{
