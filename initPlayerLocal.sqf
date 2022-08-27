@@ -97,12 +97,12 @@ _actionStaticRadioPickup = 	["Answer Radio","Answer Radio","",
 			
 [TOUR_cmdRadio, 0, ["ACE_MainActions"], _actionStaticRadioPickup ]spawn ace_interact_menu_fnc_addActionToObject;
 
-_actionAnswerPersonalRadio = 	["Reply To Command","Reply To Command","",
+_actionAnswerPersonalRadio = 	["Answer Radio","Answer Radio","",
 				{
 					player execVM "scripts\control\radioReply.sqf";
 				},
 				{
-					(missionNameSpace getVariable "TOUR_tskRadioState" == "calling")		
+					(missionNameSpace getVariable "TOUR_backpackRadioON") && (missionNameSpace getVariable "TOUR_tskRadioState" == "calling")		
 				}
 			] call ace_interact_menu_fnc_createAction;
 			
@@ -141,7 +141,7 @@ _actionAnswerPersonalRadio = 	["Internal Radio","Internal Radio","",
 					missionNameSpace setVariable ["TOUR_backpackRadioBroadcast", false, true];
 				},
 				{
-					(missionNameSpace getVariable "TOUR_backpackRadioBroadcast") && 
+					(missionNameSpace getVariable "TOUR_backpackRadioON") && (missionNameSpace getVariable "TOUR_backpackRadioBroadcast") && 
 					(
 						((toLower (backpack player)) in	["uk3cb_baf_b_bergen_mtp_radio_h_a","uk3cb_baf_b_bergen_mtp_radio_h_b","uk3cb_baf_b_bergen_mtp_radio_l_a","uk3cb_baf_b_bergen_mtp_radio_l_b"])
 					)	
@@ -155,7 +155,7 @@ _actionAnswerPersonalRadio = 	["Broadcast Radio","Broadcast Radio","",
 					missionNameSpace setVariable ["TOUR_backpackRadioBroadcast", true, true];
 				},
 				{
-					!(missionNameSpace getVariable "TOUR_backpackRadioBroadcast") && 
+					(missionNameSpace getVariable "TOUR_backpackRadioON") && !(missionNameSpace getVariable "TOUR_backpackRadioBroadcast") && 
 					(
 						((toLower (backpack player)) in	["uk3cb_baf_b_bergen_mtp_radio_h_a","uk3cb_baf_b_bergen_mtp_radio_h_b","uk3cb_baf_b_bergen_mtp_radio_l_a","uk3cb_baf_b_bergen_mtp_radio_l_b"])
 					)	

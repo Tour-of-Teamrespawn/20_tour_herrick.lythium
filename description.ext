@@ -6,8 +6,8 @@ class Header
 };
 
 author = "Mr.Ben [Tour]";
-briefingName = "20 [Tour] Herrick v0.16";
-//onLoadName = "20 [Tour] Herrick v0.16";
+briefingName = "30 [Tour] Herrick v0.16";
+//onLoadName = "30 [Tour] Herrick v0.16";
 loadScreen = "img\imgHerrick.paa";
 onLoadMissionTime = true;
 enableItemsDropping = 0;
