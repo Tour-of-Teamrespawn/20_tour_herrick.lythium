@@ -1,6 +1,6 @@
 private ["_array", "_arrayNew", "_grp", "_unit", "_grpPatrols", "_soldierPatrols", "_type", "_positions", "_men", "_pos", "_time", "_wps", "_type", "_time", "_time2", "_eventTimeInSeconds", "_delete"];
 
-TOUR_dangerEvents = ["PATROL", "RANDOM", "RANDOM", "RANDOM"];
+TOUR_dangerEvents = [ "RANDOM"];
 missionNameSpace setVariable ["TOUR_dangerEvent", "STOPPED", true];
 
 _man = ["TOUR_mkr_civArea1", RESISTANCE, ["UK3CB_TKC_C_CIV"], "TOUR_mkr_FOB"] call TOUR_fnc_rndSoldierPatrol;
@@ -115,6 +115,10 @@ while {true} do
 				{
 					missionNameSpace setVariable ["TOUR_dangerEvent", (TOUR_dangerEvents call BIS_fnc_selectRandom), true];
 				};
+			}else 
+			{
+				// IF NO MAIN EVENT IS RUNNING THEN PATROL CHECK 
+				missionNameSpace setVariable ["TOUR_dangerEvent", "PATROL", true];
 			};
 		};
 	};
@@ -149,10 +153,7 @@ while {true} do
 								TOUR_baseAttackComplete = true;
 							};
 			case "PATROL": 	{ 
-								120 call TOUR_fnc_enemyChatterIncrease;
-								sleep 30;
 								[]call TOUR_fnc_patrolSwitchSides;
-								sleep 120;
 							};
 			case "RANDOM": 	{
 								120 call TOUR_fnc_enemyChatterIncrease;

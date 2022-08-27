@@ -321,6 +321,12 @@ class CfgSounds
 		sound[] = {"sounds\line17.ogg", 1, 1, 25};
 		titles[] = {};
 	};
+	class TOUR_elderSpeak
+	{
+		name = "TOUR_elderSpeak";
+		sound[] = {"sounds\elder.ogg", 1, 1, 25};
+		titles[] = {};
+	};
 
 //TAL TALK 
 

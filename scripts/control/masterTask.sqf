@@ -17,7 +17,7 @@ execVM "scripts\control\toggleRadio.sqf";
 
 missionNameSpace setVariable ["TOUR_tskRadioState", "SILENT", true];
 execVM "scripts\control\radioChatterLoop.sqf";
-//sleep 60;
+sleep 120;
 
 while {TOUR_tskCount < TOUR_tskCountTarget} do 
 {

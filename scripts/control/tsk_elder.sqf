@@ -37,11 +37,8 @@ _men = _array select 1;
 		{
 			_action = 	["Talk To Elder","Talk To Elder","",
 						{
-							[] spawn 
-							{
-								sleep 5;
-								(_this select 0) setVariable ["TOUR_tskElder", true, true];	
-							};
+								(_this select 0) setVariable ["TOUR_tskElder", true, true];
+								[_this,{(_this select 0) say3d ["TOUR_elderSpeak", 30]; (_this select 0) setRandomLip true;sleep 13.5;(_this select 0) setRandomLip false;}] remoteExecCall ["spawn", 0, false];
 						},
 						{
 							isNil {((_this select 0) getVariable "TOUR_tskElder")}
@@ -49,7 +46,6 @@ _men = _array select 1;
 					] call ace_interact_menu_fnc_createAction;
 					
 			[(_this select 0), 0, ["ACE_MainActions"], _action ]spawn ace_interact_menu_fnc_addActionToObject;
-			hint "ran";
 		};
 	};
 }]remoteExecCall["spawn", 0, true];
@@ -105,6 +101,7 @@ while {(alive _elder) && (isNil {((_this select 0) getVariable "TOUR_tskElder")}
 
 if (alive _elder) then 
 {
+	sleep 15;
 	["TOUR_objElder", "SUCCEEDED"] call A2S_setTaskState;
 }else 
 {

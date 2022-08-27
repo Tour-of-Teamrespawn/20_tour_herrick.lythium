@@ -85,6 +85,8 @@ _action = 	["Give Food","Give Food","",
 
 waitUntil {!isNil {missionNameSpace getVariable "TOUR_backpackRadioON"}};
 waitUntil {!isNil {missionNameSpace getVariable "TOUR_backpackRadioBroadcast"}};
+waitUntil {!isNil {missionNameSpace getVariable "TOUR_backpackRadioRequest"}};
+
 
 _actionStaticRadioPickup = 	["Answer Radio","Answer Radio","",
 				{
@@ -163,46 +165,13 @@ _actionAnswerPersonalRadio = 	["Broadcast Radio","Broadcast Radio","",
 			] call ace_interact_menu_fnc_createAction;
 			
 [player, 1, ["ACE_SelfActions", "ACRE_Interact"], _actionAnswerPersonalRadio ]spawn ace_interact_menu_fnc_addActionToObject;
-/*
+
 TOUR_playerActions = 
 {
-	player addAction ["<t color=""#d16a02"">"+"TURN ON RADIO", {missionNameSpace setVariable ["TOUR_backpackRadioON", true, true];}, 0, 10, true, false, "", 
-	" !(missionNameSpace getVariable 'TOUR_backpackRadioON') && 
+	player addAction ["<t color=""#d16a02"">"+"Request Deployment", { missionNameSpace setVariable ["TOUR_backpackRadioRequest", true, true]; }, 0, 10, true, false, "", 
+	" !(missionNameSpace getVariable 'TOUR_backpackRadioRequest') && 
 		(
-			((toLower (backpack player)) in	[""uk3cb_baf_b_bergen_mtp_radio_h_a"",""uk3cb_baf_b_bergen_mtp_radio_h_b"",""uk3cb_baf_b_bergen_mtp_radio_l_a"",""uk3cb_baf_b_bergen_mtp_radio_l_b""])
-		)
-	"];
-
-	player addAction ["<t color=""#d16a02"">"+"TURN OFF RADIO", {missionNameSpace setVariable ["TOUR_backpackRadioON", false, true];}, 0, 10, true, false, "", 
-	" (missionNameSpace getVariable 'TOUR_backpackRadioON') && 
-		(
-			((toLower (backpack player)) in	[""uk3cb_baf_b_bergen_mtp_radio_h_a"",""uk3cb_baf_b_bergen_mtp_radio_h_b"",""uk3cb_baf_b_bergen_mtp_radio_l_a"",""uk3cb_baf_b_bergen_mtp_radio_l_b""])
-		)
-	"];
-
-	player addAction ["<t color=""#d16a02"">"+"RADIO BROADCAST ON", {missionNameSpace setVariable ["TOUR_backpackRadioBroadcast", true, true];}, 0, 10, true, false, "", 
-	" !(missionNameSpace getVariable 'TOUR_backpackRadioBroadcast') && 
-		(
-			((toLower (backpack player)) in	[""uk3cb_baf_b_bergen_mtp_radio_h_a"",""uk3cb_baf_b_bergen_mtp_radio_h_b"",""uk3cb_baf_b_bergen_mtp_radio_l_a"",""uk3cb_baf_b_bergen_mtp_radio_l_b""])
-		)
-	"];
-
-	player addAction ["<t color=""#d16a02"">"+"RADIO BROADCAST OFF", {missionNameSpace setVariable ["TOUR_backpackRadioBroadcast", false, true];}, 0, 10, true, false, "", 
-	" (missionNameSpace getVariable 'TOUR_backpackRadioBroadcast') && 
-		(
-			((toLower (backpack player)) in	[""uk3cb_baf_b_bergen_mtp_radio_h_a"",""uk3cb_baf_b_bergen_mtp_radio_h_b"",""uk3cb_baf_b_bergen_mtp_radio_l_a"",""uk3cb_baf_b_bergen_mtp_radio_l_b""])
-		)
-	"];
-
-	player addAction ["<t color=""#d16a02"">"+"REPLY", "scripts\control\radioReply.sqf", 0, 10, true, false, "", 
-	"(missionNameSpace getVariable 'TOUR_tskRadioState' == 'calling') && 
-		(
-			((player distance TOUR_laptop < 2) && (cursorTarget == TOUR_laptop))
-			or
-			(
-				(alive player) && (missionNameSpace getVariable 'TOUR_backpackRadioON') &&
-				((toLower (backpack player)) in	[""uk3cb_baf_b_bergen_mtp_radio_h_a"",""uk3cb_baf_b_bergen_mtp_radio_h_b"",""uk3cb_baf_b_bergen_mtp_radio_l_a"",""uk3cb_baf_b_bergen_mtp_radio_l_b""])
-			)
+			(alive player) && (canMove TOUR_chopper_1) (vehicle player == TOUR_chopper_1) && (TOUR_chopper_1 distance getMarkerPos ""respawn_west"" < 300)
 		)
 	"];
 };
@@ -213,7 +182,7 @@ player addEventHandler ["Respawn" ,
 {
 	[]call TOUR_playerActions;
 }];
-*/
+
 sleep 5;
 
 [player,"img\insigniaQLR"] call BIS_fnc_setUnitInsignia;
