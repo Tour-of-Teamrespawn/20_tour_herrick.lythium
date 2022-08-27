@@ -39,6 +39,7 @@ while {true} do
 		};
 		sleep 10;
 		missionNameSpace setVariable ["TOUR_tskRadioState", "SILENT", true];
+		missionNameSpace setVariable ["TOUR_backpackRadioRequest", false, true];
 		sleep 5;
 		_time = time;
 	}else 

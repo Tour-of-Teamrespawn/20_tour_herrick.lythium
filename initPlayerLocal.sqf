@@ -4,7 +4,7 @@ waitUntil {player == player};
 execVM "scripts\general\dust.sqf";
 
 {
-//	_x execVM "scripts\Virtual_arsenal\init.sqf";
+	_x execVM "scripts\Virtual_arsenal\init.sqf";
 }forEach [TOUR_AmmoBox_1];
 
 if (TOUR_introEnable) then 
@@ -171,7 +171,7 @@ TOUR_playerActions =
 	player addAction ["<t color=""#d16a02"">"+"Request Deployment", { missionNameSpace setVariable ["TOUR_backpackRadioRequest", true, true]; }, 0, 10, true, false, "", 
 	" !(missionNameSpace getVariable 'TOUR_backpackRadioRequest') && 
 		(
-			(alive player) && (canMove TOUR_chopper_1) (vehicle player == TOUR_chopper_1) && (TOUR_chopper_1 distance getMarkerPos ""respawn_west"" < 300)
+			(alive player) && (canMove TOUR_chopper_1) && (vehicle player == TOUR_chopper_1) && (TOUR_chopper_1 distance getMarkerPos ""respawn_west"" < 300)
 		)
 	"];
 };
