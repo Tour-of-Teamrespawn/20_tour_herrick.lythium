@@ -83,7 +83,6 @@ _action = 	["Give Food","Give Food","",
 
 ["UK3CB_TKC_C_CIV", 0, ["ACE_MainActions"], _action ]spawn ace_interact_menu_fnc_addActionToClass;
 
-
 waitUntil {!isNil {missionNameSpace getVariable "TOUR_backpackRadioON"}};
 waitUntil {!isNil {missionNameSpace getVariable "TOUR_backpackRadioBroadcast"}};
 
