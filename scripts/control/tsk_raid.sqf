@@ -55,43 +55,36 @@ _evidence = _items call BIS_fnc_selectRandom;
 _evidence setVariable ["TOUR_tskRaidIntel", true, true];
 
 {
-	[
-		[_x],
+	[ [_x], 
+	{
+		if (!isNull (_this select 0)) then 
 		{
-			[
-				_this select 0,
-				"Check Intel",
-				"\a3\ui_f\data\IGUI\Cfg\holdactions\holdAction_search_ca.paa",
-				"\a3\ui_f\data\IGUI\Cfg\holdactions\holdAction_search_ca.paa",
-				"cursorTarget == _target && _this distance _target < 2.5",
-				"cursorTarget == _target && _this distance _target < 2.5",
-				{},
-				{},
-				{
-					if (!isNil {(_this select 0) getVariable "TOUR_tskRaidIntel"}) then 
-					{
-						
-						hint (["hint", "This is good intel"] call TOUR_fnc_hint);
-					}else
-					{
-						hint (["hint", "This is not good intel"] call TOUR_fnc_hint);
-					};
-					deleteVehicle (_this select 0);
-				},
-				{},
-				[],
-				3,
-				6,
-				true,
-				false
-			] call BIS_fnc_holdActionAdd;
-		}
-	] remoteExecCall
+			_action = 	["Check Intel","Check Intel","",
+							{
+								if (!isNil {_target getVariable "TOUR_tskRaidIntel"}) then 
+								{
+									
+									hint (["hint", "This is good intel"] call TOUR_fnc_hint);
+									_type = typeOf _target;
+									player addItem _type;
+								}else
+								{
+									hint (["hint", "This is not good intel"] call TOUR_fnc_hint);
+								};
+								deleteVehicle _target;
+							},
+							{
+								true		
+							}
+						] call ace_interact_menu_fnc_createAction;
+			[_x, 0, ["ACE_MainActions"], _action ]spawn ace_interact_menu_fnc_addActionToObject;
+		};
+	}] remoteExecCall
 	[
 		"spawn",
 		0,
 		true
-	]
+	];
 }forEach _items;
 
 _side = if (random 1 > 0) then {RESISTANCE} else {EAST};
@@ -138,6 +131,8 @@ sleep 2;
 
 TOUR_taskLocations deleteAt (TOUR_taskLocations find _location);
 
+waitUntil {sleep 1; (({(alive _x) && (_location distance _x < 200)} count (playableUnits + switchableUnits)) == 0)};
+
 {
 	_man = _x;
 	if (!isNull _x) then 
@@ -150,6 +145,3 @@ TOUR_taskLocations deleteAt (TOUR_taskLocations find _location);
 	sleep 0.5;
 	if ({!isNull _x}count _men == 0) exitwith {};
 }forEach _men;
-
-
-//remove task?

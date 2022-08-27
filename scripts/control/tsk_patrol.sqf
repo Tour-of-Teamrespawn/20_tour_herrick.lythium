@@ -87,6 +87,8 @@ sleep 2;
 
 TOUR_taskLocations deleteAt (TOUR_taskLocations find _pos);
 
+waitUntil {sleep 1; (({(alive _x) && (_pos distance _x < 200)} count (playableUnits + switchableUnits)) == 0)};
+
 {
 	_man = _x;
 	if (!isNull _x) then 
