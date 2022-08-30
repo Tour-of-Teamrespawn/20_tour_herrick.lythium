@@ -11,6 +11,8 @@ execVM "scripts\control\setupObjectives.sqf";
 tour_garbagearray = [];
 tour_mission_units = [];
 
+execVM "scripts\control\garbageLoop.sqf";
+
 execVM "scripts\control\mastertask.sqf";
 
 _cp = ["TOUR_mkr_civArea1", 15, "TOUR_mkr_FOBArea"] execVM "scripts\ambientLife\createPedestrians.sqf";

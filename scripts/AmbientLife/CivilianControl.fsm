@@ -1,8 +1,8 @@
 /*%FSM<COMPILE "C:\Program Files (x86)\Steam\steamapps\common\Arma 3 Tools\FSMEditor\scriptedFSM.cfg, civilianControl">*/
 /*%FSM<HEAD>*/
 /*
-item0[] = {"Start",0,4346,243.726532,-246.953079,333.726532,-196.953079,0.000000,"Start"};
-item1[] = {"End_",1,250,-264.287537,-247.549606,-174.287537,-197.549652,0.000000,"End" \n ""};
+item0[] = {"Start",0,250,243.726532,-246.953079,333.726532,-196.953079,0.000000,"Start"};
+item1[] = {"End_",1,4346,-264.287537,-247.549606,-174.287537,-197.549652,0.000000,"End" \n ""};
 item2[] = {"unitReady",4,218,246.182770,-154.040527,336.182770,-104.040527,0.000000,"unitReady"};
 item3[] = {"_",4,218,-122.406982,-156.165649,-32.406982,-106.165649,0.000000,""};
 item4[] = {"",7,210,23.643768,-47.031647,31.643768,-39.031647,0.000000,""};
@@ -47,7 +47,7 @@ link22[] = {17,12};
 link23[] = {18,19};
 link24[] = {19,16};
 globals[] = {0.000000,0,0,0,0,640,480,1,25,6316128,1,-378.047180,440.734253,427.292877,-275.171417,1077,924,1};
-window[] = {2,-1,-1,-32000,-32000,815,26,1466,26,3,1095};
+window[] = {2,-1,-1,-1,-1,1049,260,1700,260,3,1095};
 *//*%FSM</HEAD>*/
 class FSM
 {
@@ -59,9 +59,10 @@ class FSM
                 {
                         name = "Start";
                         itemno = 0;
-                        init = /*%FSM<STATEINIT""">*/"private [""_stopped"",""_startPos"", ""_unit"", ""_posArray"", ""_time"", ""_pos"", ""_sleepNeeded"", ""_time1"", ""_time2"", ""_type"", ""_man""];" \n
+                        init = /*%FSM<STATEINIT""">*/"private [""_grp"", ""_stopped"", ""_startPos"", ""_unit"", ""_posArray"", ""_time"", ""_pos"", ""_sleepNeeded"", ""_time1"", ""_time2"", ""_type"", ""_man""];" \n
                          "" \n
                          "_unit = _this select 0;" \n
+                         "_grp = group _unit;" \n
                          "_posArray = _this select 1;" \n
                          "_sleepNeeded = _this select 2;" \n
                          "_pos = getpos _unit;" \n
@@ -140,6 +141,11 @@ class FSM
                          "	{" \n
                          "		deleteVehicle _unit;" \n
                          "	};" \n
+                         "};	" \n
+                         "" \n
+                         "if (!isNull _grp) then " \n
+                         "{" \n
+                         "	deleteGroup _grp;" \n
                          "};	" \n
                          "" \n
                          "" \n

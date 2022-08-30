@@ -23,7 +23,7 @@ if (str getMarkerPos "TOUR_mkr_tskkill" == "[0,0,0]") then
 
 TOUR_taskLocations pushBack _pos;
 
-["kill", 3] call TOUR_fnc_hqOrders;
+["kill", 6] call TOUR_fnc_hqOrders;
 
 _array = [getMarkerPos _mkr, 50, EAST, 5, 15, TOUR_EnemyInfMen, "uk3cb_tkm_o_war"] call TOUR_fnc_enemyHouse;
 _warlord = _array select 0;

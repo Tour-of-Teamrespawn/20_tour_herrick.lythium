@@ -1,8 +1,8 @@
 /*%FSM<COMPILE "C:\Program Files (x86)\Steam\steamapps\common\Arma 3 Tools\FSMEditor\scriptedFSM.cfg, civilianControl">*/
 /*%FSM<HEAD>*/
 /*
-item0[] = {"Start",0,250,82.253479,-247.581390,172.253479,-197.581390,0.000000,"Start"};
-item1[] = {"End_",1,4346,-264.287537,-247.549606,-174.287537,-197.549652,0.000000,"End" \n ""};
+item0[] = {"Start",0,4346,82.253479,-247.581390,172.253479,-197.581390,0.000000,"Start"};
+item1[] = {"End_",1,250,-264.287537,-247.549606,-174.287537,-197.549652,0.000000,"End" \n ""};
 item2[] = {"unitReady",4,218,82.824799,-153.412231,172.824799,-103.412231,0.000000,"unitReady"};
 item3[] = {"",7,210,23.643768,-47.031647,31.643768,-39.031647,0.000000,""};
 item4[] = {"",7,210,23.918579,-133.654083,31.918579,-125.654083,0.000000,""};
@@ -19,7 +19,7 @@ link6[] = {5,3};
 link7[] = {6,7};
 link8[] = {7,1};
 globals[] = {0.000000,0,0,0,0,640,480,1,22,6316128,1,-464.114838,464.114197,454.634705,-341.728851,1077,924,1};
-window[] = {2,-1,-1,-1,-1,997,208,1648,208,3,1095};
+window[] = {2,-1,-1,-1,-1,1049,260,1700,260,3,1095};
 *//*%FSM</HEAD>*/
 class FSM
 {
@@ -31,9 +31,10 @@ class FSM
                 {
                         name = "Start";
                         itemno = 0;
-                        init = /*%FSM<STATEINIT""">*/"private [""_startPos"", ""_unit"", ""_posArray"", ""_time"", ""_pos"", ""_time1"", ""_time2"", ""_mkr""];" \n
+                        init = /*%FSM<STATEINIT""">*/"private [""_grp"", ""_startPos"", ""_unit"", ""_posArray"", ""_time"", ""_pos"", ""_time1"", ""_time2"", ""_mkr""];" \n
                          "" \n
                          "_unit = _this select 0;" \n
+                         "_grp = group _unit;" \n
                          "_posArray = _this select 1;" \n
                          "_mkr = _this select 2;" \n
                          "_pos = getpos _unit;" \n
@@ -83,6 +84,11 @@ class FSM
                          "	{" \n
                          "		deleteVehicle _unit;" \n
                          "	};" \n
+                         "};	" \n
+                         "" \n
+                         "if (!isNull _grp) then " \n
+                         "{" \n
+                         "	deleteGroup _grp;" \n
                          "};	" \n
                          "" \n
                          "_man = [_mkr, RESISTANCE, [""UK3CB_TKC_C_CIV""], ""TOUR_mkr_FOB""] call TOUR_fnc_rndSoldierPatrol;"/*%FSM</STATEINIT""">*/;

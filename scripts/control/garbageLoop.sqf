@@ -1,8 +1,8 @@
 TOUR_garbagearray = [];
-private ["_arrayold", "_array", "_unit", "_time", "_grp"];
-
+private ["_arrayold", "_array", "_unit", "_time", "_grp", "_deleteGroups"];
 while {true} do
 {
+	_deleteGroups = [];
 	if (count TOUR_garbagearray > 0) then
 	{
 		{
@@ -23,7 +23,7 @@ while {true} do
 			{
 				if (_unit isKindOf "man") then
 				{
-					if ((_time + 300) < time) then
+					if ((_time + 900) < time) then
 					{
 						hideBody _unit;
 						sleep 5;
@@ -31,7 +31,7 @@ while {true} do
 					};
 				}else
 				{
-					if (((_time + 300 < time))&&({_x distance _unit < 500} count (playableunits + switchableUnits) == 0)) then
+					if (((_time + 1800 < time))&&({_x distance _unit < 500} count (playableunits + switchableUnits) == 0)) then
 					{
 						deleteVehicle _unit;
 					};
@@ -47,7 +47,18 @@ while {true} do
 				TOUR_garbagearray set [count TOUR_garbagearray, _x];
 			};
 		}forEach _arrayold;
-			
 	};
-	sleep 1;
+	{
+		if ({alive _x} count units _x == 0) then 
+		{
+			_deleteGroups pushBack _x;
+		};
+	}forEach allGroups;
+	sleep 5;
+	{
+		if (!isNull _x) then 
+		{
+			deleteGroup _x;
+		};
+	}forEach _deleteGroups;
 };
