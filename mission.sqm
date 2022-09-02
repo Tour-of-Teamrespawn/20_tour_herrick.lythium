@@ -16,10 +16,10 @@ class EditorData
 	};
 	class Camera
 	{
-		pos[]={9701.7188,149.89069,11343.995};
-		dir[]={-0.53595704,-0.22350495,-0.81413096};
-		up[]={-0.12289683,0.97470093,-0.1866831};
-		aside[]={-0.83526003,9.0003596e-008,0.54986715};
+		pos[]={9694.8057,151.78688,11322.1};
+		dir[]={-0.29612973,-0.19822839,0.93435526};
+		up[]={-0.059889935,0.98015678,0.18896572};
+		aside[]={0.95327395,-3.3440301e-008,0.30212575};
 	};
 };
 binarizationWanted=0;
@@ -2359,12 +2359,13 @@ class Mission
 				angles[]={6.2792339,5.8491893,6.2029452};
 			};
 			side="Empty";
+			flags=4;
 			class Attributes
 			{
 			};
 			id=527;
 			type="Land_BottlePlastic_V2_F";
-			atlOffset=0.75401306;
+			atlOffset=0.12492371;
 		};
 		class Item88
 		{
@@ -2375,13 +2376,14 @@ class Mission
 				angles[]={6.2798343,0,0.005113815};
 			};
 			side="Empty";
+			flags=4;
 			class Attributes
 			{
 				disableSimulation=1;
 			};
 			id=529;
 			type="Land_BottlePlastic_V2_F";
-			atlOffset=0.65925598;
+			atlOffset=0.0029296875;
 		};
 		class Item89
 		{
@@ -2392,13 +2394,14 @@ class Mission
 				angles[]={6.2798343,0,0.005113815};
 			};
 			side="Empty";
+			flags=4;
 			class Attributes
 			{
 				disableSimulation=1;
 			};
 			id=530;
 			type="Land_BottlePlastic_V2_F";
-			atlOffset=0.67254639;
+			atlOffset=0.016220093;
 		};
 		class Item90
 		{
@@ -2409,12 +2412,13 @@ class Mission
 				angles[]={6.256608,0,6.188684};
 			};
 			side="Empty";
+			flags=4;
 			class Attributes
 			{
 			};
 			id=531;
 			type="Land_BottlePlastic_V2_F";
-			atlOffset=2.3113098;
+			atlOffset=0.12368774;
 		};
 		class Item91
 		{
@@ -2429,7 +2433,7 @@ class Mission
 			};
 			id=532;
 			type="Land_BottlePlastic_V2_F";
-			atlOffset=0.66661072;
+			atlOffset=0.79924011;
 		};
 		class Item92
 		{
@@ -2768,6 +2772,7 @@ class Mission
 				angles[]={0.0084822997,5.8491917,6.2316456};
 			};
 			side="Empty";
+			flags=4;
 			class Attributes
 			{
 				disableSimulation=1;
@@ -2775,7 +2780,7 @@ class Mission
 			};
 			id=599;
 			type="Land_BottlePlastic_V2_F";
-			atlOffset=1.4400024;
+			atlOffset=0.090835571;
 		};
 		class Item107
 		{
@@ -2825,7 +2830,7 @@ class Mission
 			};
 			id=607;
 			type="Land_BottlePlastic_V2_F";
-			atlOffset=0.89509583;
+			atlOffset=1.0277557;
 		};
 		class Item110
 		{
@@ -2840,7 +2845,7 @@ class Mission
 			};
 			id=609;
 			type="Land_BottlePlastic_V2_F";
-			atlOffset=2.4349518;
+			atlOffset=2.5675812;
 		};
 		class Item111
 		{

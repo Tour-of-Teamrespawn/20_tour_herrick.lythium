@@ -64,7 +64,7 @@ if (isMultiplayer) then
 	TOUR_playTime = 1;
 
 	//Start Time
-	TOUR_StartTime = [2010,6,7,12,0];
+	TOUR_StartTime = [2013,6,7,12,00];
 
 	//Fog
 	TOUR_fogSettings = [0,0,0];

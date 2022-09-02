@@ -16,9 +16,9 @@ if ((_startHour + TOUR_playTime) >= 24) then
 
 _endMin = _startMin;
 
-[WEST, "TOUR_objBase", [format ["Guard <marker name=""TOUR_mkr_FOB"">FOB MIKIS</marker> and carry out orders from command for %1 %4, till %2:%3.", TOUR_playTime, _endHour, "00" , if (TOUR_playTime > 1) then {"hours"}else{"hours"}], "Guard FOB", "TOUR_mkr_FOB"], getMarkerPos "TOUR_mkr_FOB", "ASSIGNED", -1, true, "defend"] call BIS_fnc_taskCreate;
+[WEST, "TOUR_objBase", [format ["Guard <marker name=""TOUR_mkr_FOB"">FOB MIKIS</marker> and carry out orders from command for %1 %4, till %2:%3.", TOUR_playTime, _endHour, "00" , if (TOUR_playTime > 1) then {"hours"}else{"hours"}], "Guard FOB", "TOUR_mkr_FOB"],  objNull, "ASSIGNED", -1, true, "defend"] call BIS_fnc_taskCreate;
 
-[WEST, "TOUR_objCiv", [format ["Ensure there are no civilian casualties.", "asdf"], "Protect Civilians", "TOUR_mkr_FOB"], getMarkerPos "TOUR_mkr_FOB", "ASSIGNED", -1, true, ""] call BIS_fnc_taskCreate;
+[WEST, "TOUR_objCiv", [format ["Ensure there are no civilian casualties.", "asdf"], "Protect Civilians", "TOUR_mkr_FOB"],  objNull, "ASSIGNED", -1, true, ""] call BIS_fnc_taskCreate;
 
 "TOUR_objBase" call BIS_fnc_taskSetCurrent;
 
