@@ -42,6 +42,9 @@ clearMagazineCargoGlobal TOUR_decAmmo;
 clearMagazineCargoGlobal TOUR_decAmmo;
 clearitemCargoGlobal TOUR_decAmmo;
 
+TOUR_radio_1 setVariable ["TOUR_musicOn", "off", true];
+TOUR_radio_2 setVariable ["TOUR_musicOn", "off", true];
+
 TOUR_EnemyInfMen = [
 	"UK3CB_TKM_O_SL",
 	"UK3CB_TKM_O_TL",

@@ -29,11 +29,8 @@ TOUR_taskLocations pushBack _location;
 
 ["mre", 9.5] call TOUR_fnc_hqOrders;
 
-["TOUR_objMRE", {"Talk To Locals"}] call A2S_createSimpleTask;
-["TOUR_objMRE", {"Talk to the local population and hand out food rations to the around <marker name=""TOUR_mkr_tskMRE"">this area</marker>. Try to get at least 5 civilians in order to win over hearts and minds byt kind gestures."}, {"Talk To Locals"}, {"Talk To Locals"}] call A2S_setSimpleTaskDescription;
-"TOUR_objMRE" call A2S_taskCommit;
-sleep 1;
-"TOUR_objMRE" call A2S_taskHint;
+[WEST, "TOUR_objMRE", [format ["Talk to the local population and hand out food rations to the around <marker name=""TOUR_mkr_tskMRE"">this area</marker>. Try to get at least 5 civilians in order to win over hearts and minds with kind gestures.", "asdf"], "Hand Out Rations", "TOUR_mkr_tskMRE"], getMarkerPos "TOUR_mkr_tskMRE", "CREATED", -1, true, "meet"] call BIS_fnc_taskCreate;
+
 missionNameSpace setVariable ["TOUR_mreCount", 0, true];
 _rumbled = false;
 
@@ -55,17 +52,15 @@ while {true} do
 	sleep 1;
 };
 
-
-["TOUR_objMRE", "SUCCEEDED"] call A2S_setTaskState;
-"TOUR_objMRE" call A2S_taskCommit;
 sleep 2;
-"TOUR_objMRE" call A2S_taskHint;
+
+["TOUR_objMRE", "SUCCEEDED", true] call BIS_fnc_taskSetState;
 
 TOUR_tskCount = TOUR_tskCount + 1;
 
 sleep 60;
 
-"TOUR_objMRE" call A2S_removeSimpleTask;
+"TOUR_objMRE" call BIS_fnc_deleteTask;
 
 sleep 2;
 

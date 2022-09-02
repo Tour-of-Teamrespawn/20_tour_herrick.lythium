@@ -25,11 +25,7 @@ TOUR_taskLocations pushBack _pos;
 
 ["assault", 6] call TOUR_fnc_hqOrders;
 
-["TOUR_objAssault", {"Assault Compound"}] call A2S_createSimpleTask;
-["TOUR_objAssault", {"Assault the <marker name=""TOUR_mkr_tskAssault"">compound</marker> and eliminate all hostiles."}, {"Assault Compound"}, {"Assault Compound"}] call A2S_setSimpleTaskDescription;
-"TOUR_objAssault" call A2S_taskCommit;
-sleep 1;
-"TOUR_objAssault" call A2S_taskHint;
+[WEST, "TOUR_objAssault", [format ["Assault the <marker name=""TOUR_mkr_tskAssault"">compound</marker> and eliminate all hostiles.", "asdf"], "Assault Compound", "TOUR_mkr_tskAssault"], getMarkerPos "TOUR_mkr_tskAssault", "CREATED", -1, true, "attack"] call BIS_fnc_taskCreate;
 
 _men = [getMarkerPos _mkr, 50, EAST, 20, 40, TOUR_EnemyInfMen] call TOUR_fnc_enemyHouse;
 
@@ -51,14 +47,12 @@ waitUntil
 	(({(side _x == EAST) && (alive _x) && ((vehicle _x) distance _pos < 60)}count allunits == 0) && ({(alive _x) && ((vehicle _x) distance _pos < 50)}count (playableUnits + switchableunits) > 0))
 };
 
-["TOUR_objAssault", "SUCCEEDED"] call A2S_setTaskState;
-"TOUR_objAssault" call A2S_taskCommit;
 sleep 2;
-"TOUR_objAssault" call A2S_taskHint;
+["TOUR_objAssault", "SUCCEEDED", true] call BIS_fnc_taskSetState;
 
 sleep 60;
 
-"TOUR_objAssault" call A2S_removeSimpleTask;
+"TOUR_objAssault" call BIS_fnc_deleteTask;
 
 sleep 2;
 

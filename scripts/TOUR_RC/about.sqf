@@ -27,7 +27,7 @@ _update =
 		<br/>
 	Developer: Mr.Ben
 		<br/>
-	Version: 11
+	Version: 12
 		<br/>
 	Credits: Thanks to all other Tour members for testing and feedback.
 		<br/>

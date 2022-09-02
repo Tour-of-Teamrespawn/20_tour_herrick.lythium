@@ -29,11 +29,7 @@ _array = [getMarkerPos _mkr, 50, RESISTANCE, 5, 15, ["UK3CB_TKC_C_CIV"], "UK3CB_
 _warlord = _array select 0;
 _men = _array select 1;
 
-["TOUR_objArrest", {"Arrest Suspect"}] call A2S_createSimpleTask;
-call compile format ["[""TOUR_objArrest"", {""Arrest %1, a local chief suspected of affilations with the Taliban, located somewhere in <marker name=""""TOUR_mkr_tskArrest"""">these buildings</marker>. Once apprehended, return him to <marker name=""""respawn_west"""">KalaeNoowi airbase</marker> for processing.""}, {""Arrest Suspect""}, {""Arrest Suspect""}] call A2S_setSimpleTaskDescription;", name _warlord];
-"TOUR_objArrest" call A2S_taskCommit;
-sleep 1;
-"TOUR_objArrest" call A2S_taskHint;
+[WEST, "TOUR_objArrest", [format ["Arrest %1, a local chief suspected of affilations with the Taliban, located somewhere in <marker name=""TOUR_mkr_tskArrest"">these buildings</marker>. Once apprehended, return him to <marker name=""respawn_west"">KalaeNoowi airbase</marker> for processing", name _warlord], "Arrest Suspect", "respawn_west"], getMarkerPos "Arrest Suspect", "CREATED", -1, true, "danger"] call BIS_fnc_taskCreate;
 
 for "_i" from 1 to (ceil random 3) do
 {
@@ -78,20 +74,18 @@ while {(alive _warlord) && ((vehicle _warlord) distance (getMarkerPos "respawn_w
 	sleep 1;
 };
 
+sleep 2;
 if (alive _warLord) then 
 {
-	["TOUR_objArrest", "SUCCEEDED"] call A2S_setTaskState;
+	["TOUR_objArrest", "SUCCEEDED", true] call BIS_fnc_taskSetState;
 }else 
 {
-	["TOUR_objArrest", "FAILED"] call A2S_setTaskState;
+	["TOUR_objArrest", "FAILED", true] call BIS_fnc_taskSetState;
 };
-"TOUR_objArrest" call A2S_taskCommit;
-sleep 2;
-"TOUR_objArrest" call A2S_taskHint;
 
 sleep 60;
 
-"TOUR_objArrest" call A2S_removeSimpleTask;
+"TOUR_objArrest" call BIS_fnc_deleteTask;
 
 sleep 2;
 

@@ -4,7 +4,7 @@ TOUR_patrolNo = 0;
 
 TOUR_tskCountTarget = 1000;
 TOUR_tskCount = 0;
-TOUR_taskRepo = ["patrol", "patrol", "patrol", "raid", "assault", "arrest", "kill", "ied", "protect","mre","elder"];//
+TOUR_taskRepo = ["patrol", "patrol", "patrol"];//, "raid", "assault", "arrest", "kill", "ied", "protect","mre","elder"
 TOUR_tskAvailable = [];
 {
 	TOUR_tskAvailable pushBack _x;
@@ -17,7 +17,7 @@ execVM "scripts\control\toggleRadio.sqf";
 
 missionNameSpace setVariable ["TOUR_tskRadioState", "SILENT", true];
 execVM "scripts\control\radioChatterLoop.sqf";
-sleep 120;
+//sleep 120;
 
 while {TOUR_tskCount < TOUR_tskCountTarget} do 
 {
@@ -72,7 +72,7 @@ while {TOUR_tskCount < TOUR_tskCountTarget} do
 			_patrolActive = false;
 			for "_i" from 0 to 10 do
 			{
-				if ((format ["TOUR_objPatrol_%1", _i]) call A2S_taskExists) exitWith 
+				if ((format ["TOUR_objPatrol_%1", _i]) call BIS_fnc_taskExists) exitWith 
 				{
 					_patrolActive = true;
 				};

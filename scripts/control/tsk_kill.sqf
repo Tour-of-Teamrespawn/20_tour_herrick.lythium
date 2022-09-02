@@ -29,11 +29,7 @@ _array = [getMarkerPos _mkr, 50, EAST, 5, 15, TOUR_EnemyInfMen, "uk3cb_tkm_o_war
 _warlord = _array select 0;
 _men = _array select 1;
 
-["TOUR_objKill", {"Kill Taliban Leader"}] call A2S_createSimpleTask;
-call compile format ["[""TOUR_objKill"", {""A local Taliban leader is believed to be <marker name=""""TOUR_mkr_tskKill"""">in the local area</marker>. Take out %1 and confirm the kill by identifying his body.""}, {""Kill Taliban Leader""}, {""Kill Taliban Leader""}] call A2S_setSimpleTaskDescription;", name _warlord];
-"TOUR_objKill" call A2S_taskCommit;
-sleep 1;
-"TOUR_objKill" call A2S_taskHint;
+[WEST, "TOUR_objKill", [format ["A local Taliban leader is believed to be <marker name=""TOUR_mkr_tskKill"">in the local area</marker>. Take out %1 and confirm the kill by identifying his body.", name _warlord], "Kill Taliban Leader", "TOUR_mkr_tskkill"], getMarkerPos "TOUR_mkr_tskkill", "CREATED", -1, true, "kill"] call BIS_fnc_taskCreate;
 
 for "_i" from 2 to (2 + (ceil random 2)) do
 {
@@ -85,20 +81,17 @@ for "_i" from 2 to (2 + (ceil random 2)) do
 	true
 ];
 
-
 while {isNil {_warLord getVariable "TOUR_checked"}} do 
 {
 	sleep 2;
 };
 
-["TOUR_objKill", "SUCCEEDED"] call A2S_setTaskState;
-"TOUR_objKill" call A2S_taskCommit;
 sleep 2;
-"TOUR_objKill" call A2S_taskHint;
+["TOUR_objKill", "SUCCEEDED", true] call BIS_fnc_taskSetState;
 
 sleep 60;
 
-"TOUR_objKill" call A2S_removeSimpleTask;
+"TOUR_objKill" call BIS_fnc_deleteTask;
 
 sleep 2;
 

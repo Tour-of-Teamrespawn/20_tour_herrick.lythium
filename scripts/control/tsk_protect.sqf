@@ -29,11 +29,7 @@ TOUR_taskLocations pushBack _location;
 
 ["protect", 9.5] call TOUR_fnc_hqOrders;
 
-["TOUR_objProtect", {"Protect Workers"}] call A2S_createSimpleTask;
-["TOUR_objProtect", {"Protect the civilian workers building <marker name=""TOUR_mkr_tskProtect"">improved water services</marker> as part of the western alliance initiative of improving infastructure. Hold the position for around 15 minutes."}, {"Protect Workers"}, {"Protect Workers"}] call A2S_setSimpleTaskDescription;
-"TOUR_objProtect" call A2S_taskCommit;
-sleep 1;
-"TOUR_objProtect" call A2S_taskHint;
+[WEST, "TOUR_objProtect", [format ["Protect the civilian workers building <marker name=""TOUR_mkr_tskProtect"">improved water services</marker> as part of the western alliance initiative of improving infastructure. Hold the position for around 15 minutes.", "asdf"], "Protect Workers", "TOUR_mkr_tskProtect"], getMarkerPos "TOUR_mkr_tskProtect", "CREATED", -1, true, "defend"] call BIS_fnc_taskCreate;
 
 _well = "jbad_misc_well_c" createVehicle _location;
 
@@ -47,7 +43,7 @@ _unit1 = _grp createUnit ["UK3CB_TKC_C_WORKER", _location, [], 0, "NONE"];
 	_well = _this select 3;
 	_unit disableAI "move";
 	_unit disableAI "anim"; 
-	while {!(toLower ("TOUR_objProtect" call A2S_getTaskState) in ["succeeded", "failed"])} do 
+	while {!(toLower ("TOUR_objProtect" call BIS_fnc_taskState) in ["succeeded", "failed"])} do 
 	{
 		if (animationState _unit != _anim) then 
 		{
@@ -71,7 +67,7 @@ _unit2 = _grp createUnit ["UK3CB_TKC_C_WORKER", _location, [], 0, "NONE"];
 	_well = _this select 3;
 	_unit disableAI "move";
 	_unit disableAI "anim"; 
-	while {!(toLower ("TOUR_objProtect" call A2S_getTaskState) in ["succeeded", "failed"])} do 
+	while {!(toLower ("TOUR_objProtect" call BIS_fnc_taskState) in ["succeeded", "failed"])} do 
 	{
 		if (animationState _unit != _anim) then 
 		{
@@ -109,23 +105,20 @@ while {true} do
 	sleep 1;
 };
 
+sleep 2;
 if ({(alive _x)}count [_unit1, _unit2] < 2) then 
 {
-	["TOUR_objProtect", "FAILED"] call A2S_setTaskState;
-	"TOUR_objProtect" call A2S_taskCommit;
+	["TOUR_objProtect", "FAILED", true] call BIS_fnc_taskSetState;
 }else 
 {
-	["TOUR_objProtect", "SUCCEEDED"] call A2S_setTaskState;
-	"TOUR_objProtect" call A2S_taskCommit;
+	["TOUR_objProtect", "SUCCEEDED", true] call BIS_fnc_taskSetState;
 };
-sleep 2;
-"TOUR_objProtect" call A2S_taskHint;
 
 TOUR_tskCount = TOUR_tskCount + 1;
 
 sleep 60;
 
-"TOUR_objProtect" call A2S_removeSimpleTask;
+"TOUR_objProtect" call BIS_fnc_deleteTask;
 
 sleep 2;
 

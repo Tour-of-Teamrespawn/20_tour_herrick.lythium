@@ -42,11 +42,7 @@ TOUR_taskLocations pushBack _pos;
 
 ["ied", 3] call TOUR_fnc_hqOrders;
 
-["TOUR_objIED", {"Defuse IED"}] call A2S_createSimpleTask;
-["TOUR_objIED", {"Locate and defuse suspected IED in <marker name=""TOUR_mkr_tskIED"">this area</marker>."}, {"Defuse IED"}, {"Defuse IED"}] call A2S_setSimpleTaskDescription;
-"TOUR_objIED" call A2S_taskCommit;
-sleep 1;
-"TOUR_objIED" call A2S_taskHint;
+[WEST, "TOUR_objIED", [format ["Locate and defuse suspected IED in <marker name=""TOUR_mkr_tskIED"">this area</marker>.", "asdf"], "Defuse IED", "TOUR_mkr_tskIED"], getMarkerPos "TOUR_mkr_tskIED", "CREATED", -1, true, "mine"] call BIS_fnc_taskCreate;
 
 [_mkr, 1, 1, WEST] execVM "scripts\TOUR_IED\bombsCreateArea.sqf";
 
@@ -107,16 +103,14 @@ while {!isNull _ied} do
 
 _men = _men + _men2;
 
-["TOUR_objIED", "SUCCEEDED"] call A2S_setTaskState;
-"TOUR_objIED" call A2S_taskCommit;
 sleep 2;
-"TOUR_objIED" call A2S_taskHint;
+["TOUR_objIED", "SUCCEEDED", true] call BIS_fnc_taskSetState;
 
 TOUR_tskCount = TOUR_tskCount + 1;
 
 sleep 60;
 
-"TOUR_objIED" call A2S_removeSimpleTask;
+"TOUR_objIED" call BIS_fnc_deleteTask;
 
 sleep 2;
 

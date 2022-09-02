@@ -216,6 +216,10 @@ _ACE_common =
 	"ACE_epinephrine",
 	"ACE_morphine",
 	"ACE_tourniquet",
+	"ACE_bloodIV",
+	"ACE_bloodIV_500",
+	"ACE_bloodIV_250",
+	"ACE_atropine",
 
 	"ACE_IR_Strobe_Item",
 	"ACE_CableTie",

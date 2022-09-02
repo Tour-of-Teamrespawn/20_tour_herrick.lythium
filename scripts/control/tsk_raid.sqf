@@ -33,11 +33,7 @@ TOUR_taskLocations pushBack _location;
 
 ["raid", 7.5] call TOUR_fnc_hqOrders;
 
-["TOUR_objRaid", {"Acquire Intel"}] call A2S_createSimpleTask;
-["TOUR_objRaid", {"Raid <marker name=""TOUR_mkr_tskraid"">these buildings</marker> and search for intel on local Taliban within the area."}, {"Acquire Intel"}, {"Acquire Intel"}] call A2S_setSimpleTaskDescription;
-"TOUR_objRaid" call A2S_taskCommit;
-sleep 1;
-"TOUR_objRaid" call A2S_taskHint;
+[WEST, "TOUR_objRaid", [format ["Raid <marker name=""TOUR_mkr_tskraid"">these buildings</marker> and search for intel on local Taliban within the area.", "asdf"], "Acquire Intel", "TOUR_mkr_tskraid"], getMarkerPos "TOUR_mkr_tskraid", "CREATED", -1, true, "documents"] call BIS_fnc_taskCreate;
 
 _items = [];
 {
@@ -116,16 +112,14 @@ while {!isNull _evidence} do
 	sleep 1;
 };
 
-["TOUR_objRaid", "SUCCEEDED"] call A2S_setTaskState;
-"TOUR_objRaid" call A2S_taskCommit;
 sleep 2;
-"TOUR_objRaid" call A2S_taskHint;
+["TOUR_objRaid", "SUCCEEDED", true] call BIS_fnc_taskSetState;
 
 TOUR_tskCount = TOUR_tskCount + 1;
 
 sleep 60;
 
-"TOUR_objRaid" call A2S_removeSimpleTask;
+"TOUR_objRaid" call BIS_fnc_deleteTask;
 
 sleep 2;
 

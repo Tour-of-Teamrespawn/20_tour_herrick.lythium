@@ -1,4 +1,4 @@
-private ["_pos", "_mkr", "_men"];
+private ["_pos", "_mkr", "_men", "_taskName"];
 
 _time = time + 5;
 while {true} do 
@@ -28,11 +28,7 @@ TOUR_taskLocations pushBack _pos;
 
 ["patrol", 3] call TOUR_fnc_hqOrders;
 
-[_taskName, {"Patrol"}] call A2S_createSimpleTask;
-call compile format ["[""TOUR_objPatrol_%1"", {""Patrol and scout <marker name=""""TOUR_mkr_tskPatrol_%1"""">this area</marker>.""}, {""Patrol""}, {""Patrol""}] call A2S_setSimpleTaskDescription;", TOUR_patrolNo];
-_taskName call A2S_taskCommit;
-sleep 1;
-_taskName call A2S_taskHint;
+[WEST, _taskName, [format ["Patrol and scout <marker name=""TOUR_mkr_tskPatrol_%1"">this area</marker>.", TOUR_patrolNo], "Patrol", format ["TOUR_mkr_tskPatrol_%1", TOUR_patrolNo]], getMarkerPos (format ["TOUR_mkr_tskPatrol_%1", TOUR_patrolNo]), "CREATED", -1, true, "walk"] call BIS_fnc_taskCreate;
 
 _men = [];
 
@@ -72,16 +68,14 @@ waitUntil
 	({(alive _x) && ((vehicle _x) distance _pos < 50)}count (playableUnits + switchableunits) > 0)
 };
 
-[_taskName, "SUCCEEDED"] call A2S_setTaskState;
-_taskName call A2S_taskCommit;
 sleep 2;
-_taskName call A2S_taskHint;
+[_taskName, "SUCCEEDED", true] call BIS_fnc_taskSetState;
 
 TOUR_tskCount = TOUR_tskCount + 1;
 
 sleep 60;
 
-_taskName call A2S_removeSimpleTask;
+_taskName call BIS_fnc_deleteTask;
 
 sleep 2;
 

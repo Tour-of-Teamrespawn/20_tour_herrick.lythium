@@ -12,9 +12,7 @@ if (TOUR_introEnable) then
 	execVM "scripts\general\intro.sqf";
 };
 
-[] call A2S_tasksSync;
-
-#include "briefing.hpp";
+#include "hpp\briefing.hpp"
 
 [] execVM "scripts\TOUR_IED\init.sqf";
 
@@ -87,6 +85,77 @@ waitUntil {!isNil {missionNameSpace getVariable "TOUR_backpackRadioON"}};
 waitUntil {!isNil {missionNameSpace getVariable "TOUR_backpackRadioBroadcast"}};
 waitUntil {!isNil {missionNameSpace getVariable "TOUR_backpackRadioRequest"}};
 
+// RADIO 1 ACTIONS
+
+_actionMusicRadio1 = 	["Next Tune","Next Tune","",
+				{
+					[TOUR_Radio_1, "next"] execVM "scripts\general\music.sqf";
+				},
+				{
+					!isNil {(TOUR_Radio_1 getVariable "TOUR_soundSource")}
+				}
+			] call ace_interact_menu_fnc_createAction;
+			
+[TOUR_Radio_1, 0, ["ACE_MainActions"], _actionMusicRadio1 ]spawn ace_interact_menu_fnc_addActionToObject;
+
+_actionToggleRadio1 = 	["Turn On","Turn On","",
+				{
+					[TOUR_Radio_1, "on"] execVM "scripts\general\music.sqf";
+				},
+				{
+					isNil {(TOUR_Radio_1 getVariable "TOUR_soundSource")}	
+				}
+			] call ace_interact_menu_fnc_createAction;
+			
+[TOUR_Radio_1, 0, ["ACE_MainActions"], _actionToggleRadio1 ]spawn ace_interact_menu_fnc_addActionToObject;
+
+_actionToggleRadio1 = 	["Turn Off","Turn Off","",
+				{
+					[TOUR_Radio_1, "off"] execVM "scripts\general\music.sqf";
+				},
+				{
+					!isNil {(TOUR_Radio_1 getVariable "TOUR_soundSource")}	
+				}
+			] call ace_interact_menu_fnc_createAction;
+			
+[TOUR_Radio_1, 0, ["ACE_MainActions"], _actionToggleRadio1 ]spawn ace_interact_menu_fnc_addActionToObject;
+
+// RADIO 2 ACTIONS
+
+_actionMusicRadio2 = 	["Next Tune","Next Tune","",
+				{
+					[TOUR_Radio_2, "next"] execVM "scripts\general\music.sqf";
+				},
+				{
+					!isNil {(TOUR_Radio_2 getVariable "TOUR_soundSource")}
+				}
+			] call ace_interact_menu_fnc_createAction;
+			
+[TOUR_Radio_2, 0, ["ACE_MainActions"], _actionMusicRadio2 ]spawn ace_interact_menu_fnc_addActionToObject;
+
+_actionMusicRadio2 = 	["Turn On","Turn On","",
+				{
+					[TOUR_Radio_2, "on"] execVM "scripts\general\music.sqf";
+				},
+				{
+					isNil {(TOUR_Radio_2 getVariable "TOUR_soundSource")}	
+				}
+			] call ace_interact_menu_fnc_createAction;
+			
+[TOUR_Radio_2, 0, ["ACE_MainActions"], _actionMusicRadio2 ]spawn ace_interact_menu_fnc_addActionToObject;
+
+_actionMusicRadio2 = 	["Turn Off","Turn Off","",
+				{
+					[TOUR_Radio_2, "off"] execVM "scripts\general\music.sqf";
+				},
+				{
+					!isNil {(TOUR_Radio_2 getVariable "TOUR_soundSource")}	
+				}
+			] call ace_interact_menu_fnc_createAction;
+			
+[TOUR_Radio_2, 0, ["ACE_MainActions"], _actionMusicRadio2 ]spawn ace_interact_menu_fnc_addActionToObject;
+
+// COMMUNICATION ACTIONS - ANSWER
 
 _actionStaticRadioPickup = 	["Answer Radio","Answer Radio","",
 				{
@@ -110,6 +179,8 @@ _actionAnswerPersonalRadio = 	["Answer Radio","Answer Radio","",
 			
 [player, 1, ["ACE_SelfActions", "ACRE_Interact"], _actionAnswerPersonalRadio ]spawn ace_interact_menu_fnc_addActionToObject;
 
+// COMMUNICATION ACTIONS - ON
+
 _actionAnswerPersonalRadio = 	["Turn On Radio","Turn On Radio","",
 				{
 					missionNameSpace setVariable ["TOUR_backpackRadioON", true, true];
@@ -123,6 +194,8 @@ _actionAnswerPersonalRadio = 	["Turn On Radio","Turn On Radio","",
 			] call ace_interact_menu_fnc_createAction;
 			
 [player, 1, ["ACE_SelfActions", "ACRE_Interact"], _actionAnswerPersonalRadio ]spawn ace_interact_menu_fnc_addActionToObject;
+
+// COMMUNICATION ACTIONS - OFF
 
 _actionAnswerPersonalRadio = 	["Turn Off Radio","Turn Off Radio","",
 				{
@@ -138,6 +211,8 @@ _actionAnswerPersonalRadio = 	["Turn Off Radio","Turn Off Radio","",
 			
 [player, 1, ["ACE_SelfActions", "ACRE_Interact"], _actionAnswerPersonalRadio ]spawn ace_interact_menu_fnc_addActionToObject;
 
+// COMMUNICATION ACTIONS - INTERNAL
+
 _actionAnswerPersonalRadio = 	["Internal Radio","Internal Radio","",
 				{
 					missionNameSpace setVariable ["TOUR_backpackRadioBroadcast", false, true];
@@ -152,6 +227,8 @@ _actionAnswerPersonalRadio = 	["Internal Radio","Internal Radio","",
 			
 [player, 1, ["ACE_SelfActions", "ACRE_Interact"], _actionAnswerPersonalRadio ]spawn ace_interact_menu_fnc_addActionToObject;
 
+// COMMUNICATION ACTIONS - BROADCAST
+
 _actionAnswerPersonalRadio = 	["Broadcast Radio","Broadcast Radio","",
 				{
 					missionNameSpace setVariable ["TOUR_backpackRadioBroadcast", true, true];
@@ -165,6 +242,8 @@ _actionAnswerPersonalRadio = 	["Broadcast Radio","Broadcast Radio","",
 			] call ace_interact_menu_fnc_createAction;
 			
 [player, 1, ["ACE_SelfActions", "ACRE_Interact"], _actionAnswerPersonalRadio ]spawn ace_interact_menu_fnc_addActionToObject;
+
+// COMMUNICATION ACTIONS - DEPLOY
 
 TOUR_playerActions = 
 {

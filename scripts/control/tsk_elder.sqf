@@ -50,11 +50,7 @@ _men = _array select 1;
 	};
 }]remoteExecCall["spawn", 0, true];
 
-["TOUR_objElder", {"Village Elder"}] call A2S_createSimpleTask;
-call compile format ["[""TOUR_objElder"", {""Talk to %1, a village elder, located somewhere in <marker name=""""TOUR_mkr_tskElder"""">these buildings</marker>, and find out intel on the area.""}, {""Village Elder""}, {""Village Elder""}] call A2S_setSimpleTaskDescription;", name _elder];
-"TOUR_objElder" call A2S_taskCommit;
-sleep 1;
-"TOUR_objElder" call A2S_taskHint;
+[WEST, "TOUR_objElder", [format ["Talk to %1, a village elder, located somewhere in <marker name=""TOUR_mkr_tskElder"">these buildings</marker>, and find out intel on the area.", name _elder], "Contact Elder", "TOUR_mkr_tskElder"], getMarkerPos "TOUR_mkr_tskElder", "CREATED", -1, true, "talk"] call BIS_fnc_taskCreate;
 
 for "_i" from 1 to (ceil random 3) do
 {
@@ -102,18 +98,15 @@ while {(alive _elder) && (isNil {((_this select 0) getVariable "TOUR_tskElder")}
 if (alive _elder) then 
 {
 	sleep 15;
-	["TOUR_objElder", "SUCCEEDED"] call A2S_setTaskState;
+	["TOUR_objElder", "SUCCEEDED", true] call BIS_fnc_taskSetState;
 }else 
 {
-	["TOUR_objElder", "FAILED"] call A2S_setTaskState;
+	["TOUR_objElder", "FAILED", true] call BIS_fnc_taskSetState;
 };
-"TOUR_objElder" call A2S_taskCommit;
-sleep 2;
-"TOUR_objElder" call A2S_taskHint;
 
 sleep 60;
 
-"TOUR_objElder" call A2S_removeSimpleTask;
+"TOUR_objElder" call BIS_fnc_deleteTask;
 
 sleep 2;
 
