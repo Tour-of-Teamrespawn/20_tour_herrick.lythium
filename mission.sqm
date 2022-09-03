@@ -8,7 +8,7 @@ class EditorData
 	toggles=521;
 	class ItemIDProvider
 	{
-		nextID=1292;
+		nextID=1294;
 	};
 	class MarkerIDProvider
 	{
@@ -16,10 +16,10 @@ class EditorData
 	};
 	class Camera
 	{
-		pos[]={9694.8057,151.78688,11322.1};
-		dir[]={-0.29612973,-0.19822839,0.93435526};
-		up[]={-0.059889935,0.98015678,0.18896572};
-		aside[]={0.95327395,-3.3440301e-008,0.30212575};
+		pos[]={9679.9277,148.76862,11332.596};
+		dir[]={-0.07420595,-0.28073606,0.9569279};
+		up[]={-0.021705627,0.95978069,0.27990368};
+		aside[]={0.99701929,3.0681258e-007,0.077316932};
 	};
 };
 binarizationWanted=0;
@@ -618,7 +618,7 @@ class Mission
 	};
 	class Entities
 	{
-		items=279;
+		items=280;
 		class Item0
 		{
 			dataType="Logic";
@@ -4790,11 +4790,11 @@ class Mission
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={9659.5361,146.44841,11327.736};
+						position[]={9684.4014,143.21791,11341.738};
 						angles[]={0,3.6293075,0};
 					};
 					side="West";
-					flags=1;
+					flags=5;
 					class Attributes
 					{
 						init="this setGroupID [""Broadsword""]; [this,""QLR""] call BIS_fnc_setUnitInsignia;";
@@ -4805,7 +4805,7 @@ class Mission
 					};
 					id=808;
 					type="UK3CB_BAF_RO_MTP";
-					atlOffset=2.4696045;
+					atlOffset=1.5258789e-005;
 					class CustomAttributes
 					{
 						class Attribute0
@@ -9327,6 +9327,36 @@ class Mission
 			};
 			id=1291;
 			type="Land_CampingChair_V2_white_F";
+		};
+		class Item279
+		{
+			dataType="Group";
+			side="West";
+			class Entities
+			{
+				items=1;
+				class Item0
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={9737.7764,143.52739,11349.433};
+					};
+					side="West";
+					flags=7;
+					class Attributes
+					{
+					};
+					id=1293;
+					type="B_soldier_AA_F";
+					atlOffset=-3.0517578e-005;
+				};
+			};
+			class Attributes
+			{
+			};
+			id=1292;
+			atlOffset=-3.0517578e-005;
 		};
 	};
 };

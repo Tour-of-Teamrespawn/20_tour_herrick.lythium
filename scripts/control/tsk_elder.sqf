@@ -65,7 +65,7 @@ for "_i" from 1 to (ceil random 3) do
 };
 
 _rumbled = false;
-while {(alive _elder) && (isNil {((_this select 0) getVariable "TOUR_tskElder")})} do 
+while {(alive _elder) && (isNil {(_elder getVariable "TOUR_tskElder")})} do 
 {
 	if !(_rumbled) then 
 	{

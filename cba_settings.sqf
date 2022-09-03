@@ -6,9 +6,6 @@ acex_field_rations_hudType = 0;
 force acex_field_rations_hungerSatiated = 2;
 force acex_field_rations_terrainObjectActions = true;
 force acex_field_rations_thirstQuenched = 2;
-force acex_field_rations_timeWithoutFood = 2;
-force acex_field_rations_timeWithoutWater = 2;
+force acex_field_rations_timeWithoutFood = 6;
+force acex_field_rations_timeWithoutWater = 4;
 force acex_field_rations_waterSourceActions = 2;
-
-
-

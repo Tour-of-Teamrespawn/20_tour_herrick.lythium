@@ -22,7 +22,7 @@ _textHint = parseText format
 	%1
 	<br/>
 	<br/>
-	<t size='0.85' align='center' font='TahomaB' color='#D0D0D0' align='left' valign='top'>%2</t>
+	<t size='0.85' align='center' font='TahomaB' color='#D0D0D0' valign='center' valign='top'>%2</t>
 ",_headingText, _hintText];
 
 _textHint

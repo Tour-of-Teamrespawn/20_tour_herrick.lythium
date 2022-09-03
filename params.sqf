@@ -73,10 +73,10 @@ if (isMultiplayer) then
 	TOUR_weatherSettings = 0;
 
 	//Base Attack
-	TOUR_baseAttackProbability = 1;
+	TOUR_baseAttackProbability = 0;
 
 	//Random Attack
-	TOUR_randomEventProbability = 1;
+	TOUR_randomEventProbability = 100;
 };
 
 [TOUR_StartTime] remoteExec ["setDate"];

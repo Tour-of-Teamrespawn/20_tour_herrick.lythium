@@ -7,6 +7,9 @@ player createDiaryRecord
 		Mission Design: Mr.Ben and Zero 2022
 		<br />
 		<br />
+		Voice Acting: Dynamite Dark Angle and Zero
+		<br />
+		<br />
 		Thanks to all Tour members for testing and feedback.
 		<br /><br />
 		meow

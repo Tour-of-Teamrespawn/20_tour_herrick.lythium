@@ -30,7 +30,7 @@ waitUntil
 	({(side _x == EAST) && (alive _x) && (_x distance (getMarkerPos "TOUR_mkr_FOB") <20)} count allUnits > 0)
 	or
 	(
-		(date select 2 >= _endHour)
+		(date select 2 >= _endDay)
 		&&
 		(date select 3 >= _endHour)
 		&&
@@ -40,30 +40,30 @@ waitUntil
 
 if ("TOUR_objCiv" call BIS_fnc_taskState != "FAILED") then
 {
-	["TOUR_objCiv", "SUCCEEDED", false] call BIS_fnc_setTaskState;
+	["TOUR_objCiv", "SUCCEEDED", false] call BIS_fnc_TaskSetState;
 };
 
 if (TOUR_RC_WEST_DEAD) then 
 {
-	["TOUR_objBase", "FAILED", false] call BIS_fnc_setTaskState;
+	["TOUR_objBase", "FAILED", false] call BIS_fnc_TaskSetState;
 	sleep 7;
 	["kia", false, true, false] remoteExecCall ["BIS_fnc_endMission"];
 }else 
 {
 	if 	(
-			(date select 2 >= _endHour)
+			(date select 2 >= _endDay)
 			&&
 			(date select 3 >= _endHour)
 			&&
 			(date select 4 >= _endMin)
 		)then 
 	{
-		["TOUR_objBase", "SUCCEEDED", true] call BIS_fnc_setTaskState;
+		["TOUR_objBase", "SUCCEEDED", true] call BIS_fnc_TaskSetState;
 		sleep 7;
 		["complete", true, true, false] remoteExecCall ["BIS_fnc_endMission"];
 	}else 
 	{
-		["TOUR_objBase", "FAILED", false] call BIS_fnc_setTaskState;
+		["TOUR_objBase", "FAILED", false] call BIS_fnc_TaskSetState;
 		sleep 7;
 		["failed", false, true, false] remoteExecCall ["BIS_fnc_endMission"];
 	};

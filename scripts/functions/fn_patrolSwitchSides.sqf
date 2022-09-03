@@ -18,7 +18,7 @@ _men = [];
 	};
 }forEach allUnits;
 
-if ((count _men > 0)&&(random 120 > 119)) then 
+if ((count _men > 0)&&(random 300 > 299)) then 
 {
 	_array = selectRandom _men;
 	_unit = _array select 0;

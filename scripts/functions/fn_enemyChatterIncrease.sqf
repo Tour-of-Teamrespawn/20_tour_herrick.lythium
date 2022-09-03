@@ -8,3 +8,4 @@ sleep _sleepIncrease;
 missionNameSpace setVariable ["TOUR_enemyChatter", 3, true];
 sleep _sleepIncrease;
 missionNameSpace setVariable ["TOUR_enemyChatter", 4, true];
+sleep _sleepIncrease;

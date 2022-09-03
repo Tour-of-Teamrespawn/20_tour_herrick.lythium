@@ -1,4 +1,4 @@
-private ["_array", "_arrayNew", "_grp", "_unit", "_grpPatrols", "_soldierPatrols", "_type", "_positions", "_men", "_pos", "_time", "_wps", "_type", "_time", "_time2", "_eventTimeInSeconds", "_delete"];
+private ["_array", "_arrayNew", "_grp", "_unit", "_grpPatrols", "_soldierPatrols", "_type", "_positions", "_men", "_pos", "_time", "_wps", "_type", "_time", "_time2", "_eventGo", "_delete", "_minute", "_hour", "_date", "_day", "_addTime"];
 
 TOUR_dangerEvents = [ "RANDOM"];
 missionNameSpace setVariable ["TOUR_dangerEvent", "STOPPED", true];
@@ -21,7 +21,6 @@ if (random 100 <= TOUR_baseAttackProbability) then
 {
 	TOUR_baseAttack == true;
 };
-TOUR_baseAttack = true;
 
 _minutesPlay = TOUR_playTime * 60;
 _secondsPlay = _minutesPlay * 60;
@@ -66,16 +65,33 @@ if ((_startMin + _minutes) >= 60) then
 TOUR_baseAttackBuildStartTime = [TOUR_StartTime select 0, TOUR_StartTime select 1, _endDay, _endHour, _endMin];
 
 
-// MAP OUT TIMES FOR POSSIBLE RANDOM EVENTS EVERY HOUR AFTER AN EVENT
+// MAP OUT TIMES FOR POSSIBLE RANDOM EVENTS AFTER AN EVENT
 TOUR_randomEventTimes = [];
-for "_i" from 1 to 24 do 
+_date = date;
+
+for "_i" from 1 to 100 do 
 {
+	_addTime = (10 + (ceil random 10));
 	if (_i == 1) then 
 	{
-		_eventTimeInSeconds = (900 + (ceil random 900));
+		_addTime = (15 + (ceil random 15));
 	};
-	_eventTimeInSeconds = _eventTimeInSeconds + (600 + (ceil random 600));
-	TOUR_randomEventTimes pushBack _eventTimeInSeconds;
+	_minute = _date select 4;
+	_hour = _date select 3;
+	_day = _date select 2;
+	_minute = _minute + _addTime;
+	if (_minute >= 60) then 
+	{
+		_minute = _minute - 60;
+		_hour = _hour + 1;
+		if (_hour >= 24) then 
+		{
+			_hour = _hour - 24;
+			_day = _day + 1;
+		};
+	};
+	_date = [_date select 0, _date select 1, _day, _hour, _minute];	
+	TOUR_randomEventTimes pushBack _date;
 };
 
 while {true} do 
@@ -91,27 +107,45 @@ while {true} do
 			(date select 4 >= TOUR_baseAttackBuildStartTime select 4)
 			&&
 			(isNil "TOUR_baseAttackComplete")
+			&&
+			TOUR_baseAttack
 		) then 
 	{
 		missionNameSpace setVariable ["TOUR_dangerEvent", "BASE", true];
 	}else 
 	{
-		if (count TOUR_randomEventTimes > 0) then 
+		if (count TOUR_randomEventTimes >= 2) then 
 		{
-			_time = -1;
+			_eventGo = false;
 			_delete = [];
 			{
-				_delete pushBack _x;
-				if (_x > time) then 
+				if 	(
+						(_x select 2 >= date select 2)
+						&&
+						(_x select 3 >= date select 3)
+						&&
+						(_x select 4 >= date select 4)
+					) then 
 				{
-					_time = _x;
+					//mark for deletion if the time is the same or greater than the event time.
+					_delete pushBack _x;
+				};
+				if 	(			
+						(_x select 2 == date select 2)
+						&&
+						(_x select 3 == date select 3)
+						&&
+						(_x select 4 == date select 4)
+					) then 
+				{
+					//enable event if within a couple of minutes of the event time
+					_eventGo = true;
 				};
 			}forEach TOUR_randomEventTimes;
-
-			if (time > _time) then 
+			TOUR_randomEventTimes = _delete;
+			if (_eventGo) then 
 			{
-				TOUR_randomEventTimes = TOUR_randomEventTimes - _delete;
-				if (random 100 >= TOUR_randomEventProbability) then 
+				if (random 100 <= TOUR_randomEventProbability) then 
 				{
 					missionNameSpace setVariable ["TOUR_dangerEvent", (TOUR_dangerEvents call BIS_fnc_selectRandom), true];
 				};
@@ -134,8 +168,7 @@ while {true} do
 		switch (missionNameSpace getVariable "TOUR_dangerEvent") do 
 		{
 			case "BASE":	{
-								30 call TOUR_fnc_enemyChatterIncrease;
-								sleep 30;
+								120 call TOUR_fnc_enemyChatterIncrease;
 
 								_men =  [_pos, TOUR_EnemyInfGrp, EAST, TOUR_enemyGrpSpawns, 8, 800, 300, "TOUR_mkr_FOB"] call TOUR_fnc_rndGroupAttack;
 								while {count _men < 75} do 
@@ -157,7 +190,6 @@ while {true} do
 							};
 			case "RANDOM": 	{
 								120 call TOUR_fnc_enemyChatterIncrease;
-								sleep 30;
 								{
 									if ((alive _x) && (_pos distance _x > 100)) then 
 									{
@@ -179,7 +211,7 @@ while {true} do
 							};
 			default {};
 		};
-		missionNameSpace setVariable ["TOUR_dangerEvent", "BASE", true];
+		missionNameSpace setVariable ["TOUR_dangerEvent", "STOPPED", true];
 		missionNameSpace setVariable ["TOUR_enemyChatter", 1, true];
 	};
 	sleep 1;

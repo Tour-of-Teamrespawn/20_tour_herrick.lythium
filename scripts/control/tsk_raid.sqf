@@ -55,7 +55,7 @@ _evidence setVariable ["TOUR_tskRaidIntel", true, true];
 	{
 		if (!isNull (_this select 0)) then 
 		{
-			_action = 	["Check Intel","Check Intel","",
+			_action = 	["Examine Intel","Examine Intel","",
 							{
 								if (!isNil {_target getVariable "TOUR_tskRaidIntel"}) then 
 								{
@@ -73,7 +73,7 @@ _evidence setVariable ["TOUR_tskRaidIntel", true, true];
 								true		
 							}
 						] call ace_interact_menu_fnc_createAction;
-			[_x, 0, ["ACE_MainActions"], _action ]spawn ace_interact_menu_fnc_addActionToObject;
+			[(_this select 0), 0, ["ACE_MainActions"], _action ]spawn ace_interact_menu_fnc_addActionToObject;
 		};
 	}] remoteExecCall
 	[

@@ -72,27 +72,24 @@ while {true} do
 					};
 				};
 			};
-
-		if ((missionNameSpace getVariable "TOUR_enemyChatter") == 1) then 
-		{
-			_time = time + 80;
-		};
-		if ((missionNameSpace getVariable "TOUR_enemyChatter") == 2) then 
-		{
-			_time = time + 60;
-		};
-		if ((missionNameSpace getVariable "TOUR_enemyChatter") == 3) then 
-		{
-			_time = time + 20;
-		};
-		if ((missionNameSpace getVariable "TOUR_enemyChatter") == 4) then 
-		{
-			_time = time + 5;
-		};
-		sleep 9;
-		missionNameSpace setVariable ["TOUR_tskRadioState", "SILENT", true];
-		sleep 5;
-		_time = _time + 10;
+			sleep 10;
+			missionNameSpace setVariable ["TOUR_tskRadioState", "SILENT", true];
+			if ((missionNameSpace getVariable "TOUR_enemyChatter") == 1) then 
+			{
+				_time = time + 90;
+			};
+			if ((missionNameSpace getVariable "TOUR_enemyChatter") == 2) then 
+			{
+				_time = time + 60;
+			};
+			if ((missionNameSpace getVariable "TOUR_enemyChatter") == 3) then 
+			{
+				_time = time + 30;
+			};
+			if ((missionNameSpace getVariable "TOUR_enemyChatter") == 4) then 
+			{
+				_time = time + 10;
+			};
 		}else 
 		{
 			sleep 10;
