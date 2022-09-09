@@ -20,6 +20,8 @@ TOUR_campfire_1 execVM "scripts\general\flicker.sqf";
 
 execVM "scripts\general\playerActions.sqf";
 
+execVM "scripts\general\radioChannelSetup.sqf";
+
 sleep 5;
 
 [player,"QLR"] call BIS_fnc_setUnitInsignia;
