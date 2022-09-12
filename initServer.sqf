@@ -8,6 +8,26 @@ SIDELOGIC setFriend [WEST, 1]; SIDELOGIC setFriend [EAST, 1]; SIDELOGIC setFrien
 
 execVM "scripts\control\setupObjectives.sqf";
 
+ [ 
+	"UK3CB_TKC_C_Gaz24", 
+	"UK3CB_TKC_C_Hatchback", 
+	"UK3CB_TKC_C_S1203", 
+	"UK3CB_TKC_C_Hilux_Civ_Open", 
+	"UK3CB_TKC_C_Hilux_Civ_closed", 
+	"UK3CB_TKC_C_Kamaz_Open", 
+	"UK3CB_TKC_C_Lada_Taxi", 
+	"UK3CB_TKC_C_Lada", 
+	"UK3CB_TKC_C_Sedan", 
+	"UK3CB_TKC_C_V3S_Closed", 
+	"UK3CB_TKC_C_Ural_Recovery", 
+	"UK3CB_TKC_C_Skoda", 
+	"UK3CB_TKC_C_pickup", 
+	"UK3CB_TKC_C_ikarus", 
+	"UK3CB_TKC_C_Datsun_Civ_Closed", 
+	"UK3CB_TKC_C_Datsun_Civ_open", 
+	"UK3CB_TKC_C_yava" 
+ ]execVM "scripts\ambientlife\ambientStaticVehicles.sqf";
+
 tour_garbagearray = [];
 tour_mission_units = [];
 

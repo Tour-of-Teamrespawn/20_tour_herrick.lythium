@@ -8,22 +8,22 @@ class EditorData
 	toggles=521;
 	class ItemIDProvider
 	{
-		nextID=1294;
+		nextID=1440;
 	};
 	class MarkerIDProvider
 	{
-		nextID=17;
+		nextID=18;
 	};
 	class Camera
 	{
-		pos[]={9679.9277,148.76862,11332.596};
-		dir[]={-0.07420595,-0.28073606,0.9569279};
-		up[]={-0.021705627,0.95978069,0.27990368};
-		aside[]={0.99701929,3.0681258e-007,0.077316932};
+		pos[]={9479.8125,208.24609,11656.35};
+		dir[]={0.97016948,-0.24178627,-0.017627941};
+		up[]={0.24174638,0.97032946,-0.0043925219};
+		aside[]={-0.018166963,0,-0.99983495};
 	};
 };
 binarizationWanted=0;
-sourceName="30_tour_herrick";
+sourceName="29_tour_herrick";
 addons[]=
 {
 	"A3_Modules_F",
@@ -112,13 +112,14 @@ addons[]=
 	"A3_Weapons_F_Orange",
 	"A3_Misc_F_Helpers",
 	"A3_Structures_F_Items_Documents",
-	"A3_Structures_F_Items_Gadgets"
+	"A3_Structures_F_Items_Gadgets",
+	"UK3CB_Factions_TKC_C"
 };
 class AddonsMetaData
 {
 	class List
 	{
-		items=65;
+		items=66;
 		class Item0
 		{
 			className="A3_Modules_F";
@@ -550,6 +551,13 @@ class AddonsMetaData
 			author="Bohemia Interactive";
 			url="https://www.arma3.com";
 		};
+		class Item65
+		{
+			className="UK3CB_Factions_TKC";
+			name="3CB Factions - TKC";
+			author="3 Commando Brigade";
+			url="www.3commandobrigade.com";
+		};
 	};
 };
 dlcs[]=
@@ -618,7 +626,7 @@ class Mission
 	};
 	class Entities
 	{
-		items=280;
+		items=387;
 		class Item0
 		{
 			dataType="Logic";
@@ -3018,19 +3026,18 @@ class Mission
 		class Item123
 		{
 			dataType="Marker";
-			position[]={9682.9414,133.37801,11405.904};
+			position[]={9682.9414,133.37793,11405.904};
 			name="TOUR_mkr_AO";
 			markerType="ELLIPSE";
 			type="";
 			colorName="ColorRed";
-			alpha=0;
 			fillName="Border";
 			a=1200;
 			b=1200;
 			angle=212.94684;
 			drawBorder=1;
 			id=631;
-			atlOffset=-13.663925;
+			atlOffset=-13.664001;
 		};
 		class Item124
 		{
@@ -9330,33 +9337,3743 @@ class Mission
 		};
 		class Item279
 		{
-			dataType="Group";
-			side="West";
-			class Entities
+			dataType="Object";
+			class PositionInfo
 			{
-				items=1;
-				class Item0
-				{
-					dataType="Object";
-					class PositionInfo
-					{
-						position[]={9737.7764,143.52739,11349.433};
-					};
-					side="West";
-					flags=7;
-					class Attributes
-					{
-					};
-					id=1293;
-					type="B_soldier_AA_F";
-					atlOffset=-3.0517578e-005;
-				};
+				position[]={9847.0811,150.43687,11404.118};
+				angles[]={6.2819457,3.6172125,0.092921324};
 			};
+			side="Empty";
+			flags=4;
 			class Attributes
 			{
+				name="TOUR_Ambient_Car_1";
 			};
-			id=1292;
+			id=1309;
+			type="UK3CB_TKC_C_Ikarus";
+			atlOffset=-0.010070801;
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="ammoBox";
+					expression="[_this,_value] call bis_fnc_initAmmoBox;";
+					class Value
+					{
+						class data
+						{
+							singleType="STRING";
+							value="[[[[""FirstAidKit""],[1]],[[],[]],[[],[]],[[],[]]],false]";
+						};
+					};
+				};
+				nAttributes=1;
+			};
+		};
+		class Item280
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={9894.6162,147.97034,11332.466};
+				angles[]={6.2207232,3.965853,6.282495};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+				name="TOUR_Ambient_Car_2";
+			};
+			id=1310;
+			type="UK3CB_TKC_C_Ikarus";
+			atlOffset=-0.0061798096;
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="ammoBox";
+					expression="[_this,_value] call bis_fnc_initAmmoBox;";
+					class Value
+					{
+						class data
+						{
+							singleType="STRING";
+							value="[[[[""FirstAidKit""],[1]],[[],[]],[[],[]],[[],[]]],false]";
+						};
+					};
+				};
+				nAttributes=1;
+			};
+		};
+		class Item281
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={9942.1504,147.5285,11279.167};
+				angles[]={6.1909385,3.965853,6.2811723};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+				name="TOUR_Ambient_Car_3";
+			};
+			id=1311;
+			type="UK3CB_TKC_C_Ikarus";
+			atlOffset=-0.0021820068;
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="ammoBox";
+					expression="[_this,_value] call bis_fnc_initAmmoBox;";
+					class Value
+					{
+						class data
+						{
+							singleType="STRING";
+							value="[[[[""FirstAidKit""],[1]],[[],[]],[[],[]],[[],[]]],false]";
+						};
+					};
+				};
+				nAttributes=1;
+			};
+		};
+		class Item282
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={9902.2705,144.5621,11247.982};
+				angles[]={6.2667861,5.4787526,6.2585907};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+				name="TOUR_Ambient_Car_4";
+			};
+			id=1313;
+			type="UK3CB_TKC_C_Ikarus";
+			atlOffset=-0.0030670166;
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="ammoBox";
+					expression="[_this,_value] call bis_fnc_initAmmoBox;";
+					class Value
+					{
+						class data
+						{
+							singleType="STRING";
+							value="[[[[""FirstAidKit""],[1]],[[],[]],[[],[]],[[],[]]],false]";
+						};
+					};
+				};
+				nAttributes=1;
+			};
+		};
+		class Item283
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={9980.0156,140.91539,11173.972};
+				angles[]={6.2638874,0.86909688,6.2598901};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+				name="TOUR_Ambient_Car_5";
+			};
+			id=1314;
+			type="UK3CB_TKC_C_Ikarus";
+			atlOffset=-1.5258789e-005;
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="ammoBox";
+					expression="[_this,_value] call bis_fnc_initAmmoBox;";
+					class Value
+					{
+						class data
+						{
+							singleType="STRING";
+							value="[[[[""FirstAidKit""],[1]],[[],[]],[[],[]],[[],[]]],false]";
+						};
+					};
+				};
+				nAttributes=1;
+			};
+		};
+		class Item284
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={9885.6885,150.43701,11381.527};
+				angles[]={6.2697911,3.5668609,6.2666736};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+				name="TOUR_Ambient_Car_6";
+			};
+			id=1315;
+			type="UK3CB_TKC_C_Ikarus";
+			atlOffset=1.5258789e-005;
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="ammoBox";
+					expression="[_this,_value] call bis_fnc_initAmmoBox;";
+					class Value
+					{
+						class data
+						{
+							singleType="STRING";
+							value="[[[[""FirstAidKit""],[1]],[[],[]],[[],[]],[[],[]]],false]";
+						};
+					};
+				};
+				nAttributes=1;
+			};
+		};
+		class Item285
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={9824.4053,154.3058,11506.336};
+				angles[]={6.2794189,6.1579576,6.2564158};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+				name="TOUR_Ambient_Car_7";
+			};
+			id=1316;
+			type="UK3CB_TKC_C_Ikarus";
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="ammoBox";
+					expression="[_this,_value] call bis_fnc_initAmmoBox;";
+					class Value
+					{
+						class data
+						{
+							singleType="STRING";
+							value="[[[[""FirstAidKit""],[1]],[[],[]],[[],[]],[[],[]]],false]";
+						};
+					};
+				};
+				nAttributes=1;
+			};
+		};
+		class Item286
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={9646.6328,151.32448,11472.21};
+				angles[]={6.260756,5.3332133,6.2760177};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+				name="TOUR_Ambient_Car_8";
+			};
+			id=1317;
+			type="UK3CB_TKC_C_Ikarus";
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="ammoBox";
+					expression="[_this,_value] call bis_fnc_initAmmoBox;";
+					class Value
+					{
+						class data
+						{
+							singleType="STRING";
+							value="[[[[""FirstAidKit""],[1]],[[],[]],[[],[]],[[],[]]],false]";
+						};
+					};
+				};
+				nAttributes=1;
+			};
+		};
+		class Item287
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={9461.7285,154.53372,11490.625};
+				angles[]={6.2793565,3.965853,6.2772756};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+				name="TOUR_Ambient_Car_9";
+			};
+			id=1318;
+			type="UK3CB_TKC_C_Ikarus";
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="ammoBox";
+					expression="[_this,_value] call bis_fnc_initAmmoBox;";
+					class Value
+					{
+						class data
+						{
+							singleType="STRING";
+							value="[[[[""FirstAidKit""],[1]],[[],[]],[[],[]],[[],[]]],false]";
+						};
+					};
+				};
+				nAttributes=1;
+			};
+		};
+		class Item288
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={9465.1084,157.47443,11561.548};
+				angles[]={6.2135496,1.6771892,6.2603531};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+				name="TOUR_Ambient_Car_10";
+			};
+			id=1319;
+			type="UK3CB_TKC_C_Ikarus";
+			atlOffset=4.5776367e-005;
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="ammoBox";
+					expression="[_this,_value] call bis_fnc_initAmmoBox;";
+					class Value
+					{
+						class data
+						{
+							singleType="STRING";
+							value="[[[[""FirstAidKit""],[1]],[[],[]],[[],[]],[[],[]]],false]";
+						};
+					};
+				};
+				nAttributes=1;
+			};
+		};
+		class Item289
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={9536.0928,157.04338,11522.447};
+				angles[]={6.2818484,2.2881236,6.2815661};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+				name="TOUR_Ambient_Car_11";
+			};
+			id=1321;
+			type="UK3CB_TKC_C_Ikarus";
+			atlOffset=-0.041244507;
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="ammoBox";
+					expression="[_this,_value] call bis_fnc_initAmmoBox;";
+					class Value
+					{
+						class data
+						{
+							singleType="STRING";
+							value="[[[[""FirstAidKit""],[1]],[[],[]],[[],[]],[[],[]]],false]";
+						};
+					};
+				};
+				nAttributes=1;
+			};
+		};
+		class Item290
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={9463.7334,154.77232,11506.722};
+				angles[]={6.2161841,1.8091667,0.068137601};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+				name="TOUR_Ambient_Car_12";
+			};
+			id=1322;
+			type="UK3CB_TKC_C_Ikarus";
+			atlOffset=-0.0001373291;
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="ammoBox";
+					expression="[_this,_value] call bis_fnc_initAmmoBox;";
+					class Value
+					{
+						class data
+						{
+							singleType="STRING";
+							value="[[[[""FirstAidKit""],[1]],[[],[]],[[],[]],[[],[]]],false]";
+						};
+					};
+				};
+				nAttributes=1;
+			};
+		};
+		class Item291
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={9495.9854,163.50363,11714.084};
+				angles[]={6.1273069,5.6223612,6.2500939};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+				name="TOUR_Ambient_Car_13";
+			};
+			id=1323;
+			type="UK3CB_TKC_C_Ikarus";
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="ammoBox";
+					expression="[_this,_value] call bis_fnc_initAmmoBox;";
+					class Value
+					{
+						class data
+						{
+							singleType="STRING";
+							value="[[[[""FirstAidKit""],[1]],[[],[]],[[],[]],[[],[]]],false]";
+						};
+					};
+				};
+				nAttributes=1;
+			};
+		};
+		class Item292
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={9511.2783,164.09166,11727.845};
+				angles[]={6.1719885,2.1270621,6.269186};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+				name="TOUR_Ambient_Car_14";
+			};
+			id=1324;
+			type="UK3CB_TKC_C_Ikarus";
+			atlOffset=-0.013244629;
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="ammoBox";
+					expression="[_this,_value] call bis_fnc_initAmmoBox;";
+					class Value
+					{
+						class data
+						{
+							singleType="STRING";
+							value="[[[[""FirstAidKit""],[1]],[[],[]],[[],[]],[[],[]]],false]";
+						};
+					};
+				};
+				nAttributes=1;
+			};
+		};
+		class Item293
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={9515.5986,163.86768,11732.792};
+				angles[]={6.2519073,5.3559976,6.1795492};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+				name="TOUR_Ambient_Car_15";
+			};
+			id=1325;
+			type="UK3CB_TKC_C_Ikarus";
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="ammoBox";
+					expression="[_this,_value] call bis_fnc_initAmmoBox;";
+					class Value
+					{
+						class data
+						{
+							singleType="STRING";
+							value="[[[[""FirstAidKit""],[1]],[[],[]],[[],[]],[[],[]]],false]";
+						};
+					};
+				};
+				nAttributes=1;
+			};
+		};
+		class Item294
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={9520.1045,163.83189,11736.593};
+				angles[]={6.204875,2.3409495,0.0075407624};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+				name="TOUR_Ambient_Car_16";
+			};
+			id=1327;
+			type="UK3CB_TKC_C_Ikarus";
+			atlOffset=-0.0038146973;
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="ammoBox";
+					expression="[_this,_value] call bis_fnc_initAmmoBox;";
+					class Value
+					{
+						class data
+						{
+							singleType="STRING";
+							value="[[[[""FirstAidKit""],[1]],[[],[]],[[],[]],[[],[]]],false]";
+						};
+					};
+				};
+				nAttributes=1;
+			};
+		};
+		class Item295
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={9623.6338,163.17017,11744.213};
+				angles[]={0.01573161,0.62636167,6.2377319};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+				name="TOUR_Ambient_Car_17";
+			};
+			id=1328;
+			type="UK3CB_TKC_C_Ikarus";
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="ammoBox";
+					expression="[_this,_value] call bis_fnc_initAmmoBox;";
+					class Value
+					{
+						class data
+						{
+							singleType="STRING";
+							value="[[[[""FirstAidKit""],[1]],[[],[]],[[],[]],[[],[]]],false]";
+						};
+					};
+				};
+				nAttributes=1;
+			};
+		};
+		class Item296
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={9669.4932,162.82295,11755.112};
+				angles[]={6.2786179,5.3490005,6.2789712};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+				name="TOUR_Ambient_Car_18";
+			};
+			id=1329;
+			type="UK3CB_TKC_C_Ikarus";
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="ammoBox";
+					expression="[_this,_value] call bis_fnc_initAmmoBox;";
+					class Value
+					{
+						class data
+						{
+							singleType="STRING";
+							value="[[[[""FirstAidKit""],[1]],[[],[]],[[],[]],[[],[]]],false]";
+						};
+					};
+				};
+				nAttributes=1;
+			};
+		};
+		class Item297
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={9686.9912,162.31447,11790.904};
+				angles[]={-0,1.9835865,6.2716513};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+				name="TOUR_Ambient_Car_19";
+			};
+			id=1330;
+			type="UK3CB_TKC_C_Ikarus";
 			atlOffset=-3.0517578e-005;
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="ammoBox";
+					expression="[_this,_value] call bis_fnc_initAmmoBox;";
+					class Value
+					{
+						class data
+						{
+							singleType="STRING";
+							value="[[[[""FirstAidKit""],[1]],[[],[]],[[],[]],[[],[]]],false]";
+						};
+					};
+				};
+				nAttributes=1;
+			};
+		};
+		class Item298
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={9684.5596,162.45439,11827.601};
+				angles[]={6.2754421,0.38864881,6.2793875};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+				name="TOUR_Ambient_Car_20";
+			};
+			id=1331;
+			type="UK3CB_TKC_C_Ikarus";
+			atlOffset=-0.00032043457;
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="ammoBox";
+					expression="[_this,_value] call bis_fnc_initAmmoBox;";
+					class Value
+					{
+						class data
+						{
+							singleType="STRING";
+							value="[[[[""FirstAidKit""],[1]],[[],[]],[[],[]],[[],[]]],false]";
+						};
+					};
+				};
+				nAttributes=1;
+			};
+		};
+		class Item299
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={9490.8066,165.19228,11767.646};
+				angles[]={6.2306104,5.6223612,0};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+				name="TOUR_Ambient_Car_21";
+			};
+			id=1332;
+			type="UK3CB_TKC_C_Ikarus";
+			atlOffset=-0.00010681152;
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="ammoBox";
+					expression="[_this,_value] call bis_fnc_initAmmoBox;";
+					class Value
+					{
+						class data
+						{
+							singleType="STRING";
+							value="[[[[""FirstAidKit""],[1]],[[],[]],[[],[]],[[],[]]],false]";
+						};
+					};
+				};
+				nAttributes=1;
+			};
+		};
+		class Item300
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={9414.3301,163.84172,11661.406};
+				angles[]={-0,2.2772934,-0};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+				name="TOUR_Ambient_Car_22";
+			};
+			id=1333;
+			type="UK3CB_TKC_C_Ikarus";
+			atlOffset=1.5258789e-005;
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="ammoBox";
+					expression="[_this,_value] call bis_fnc_initAmmoBox;";
+					class Value
+					{
+						class data
+						{
+							singleType="STRING";
+							value="[[[[""FirstAidKit""],[1]],[[],[]],[[],[]],[[],[]]],false]";
+						};
+					};
+				};
+				nAttributes=1;
+			};
+		};
+		class Item301
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={9430.2305,164.05655,11674.776};
+				angles[]={6.2565207,3.9257815,6.2413211};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+				name="TOUR_Ambient_Car_23";
+			};
+			id=1334;
+			type="UK3CB_TKC_C_Ikarus";
+			atlOffset=-6.1035156e-005;
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="ammoBox";
+					expression="[_this,_value] call bis_fnc_initAmmoBox;";
+					class Value
+					{
+						class data
+						{
+							singleType="STRING";
+							value="[[[[""FirstAidKit""],[1]],[[],[]],[[],[]],[[],[]]],false]";
+						};
+					};
+				};
+				nAttributes=1;
+			};
+		};
+		class Item302
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={9578.3262,166.39987,11890.628};
+				angles[]={-0,0.32672513,6.2789288};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+				name="TOUR_Ambient_Car_24";
+			};
+			id=1335;
+			type="UK3CB_TKC_C_Ikarus";
+			atlOffset=-0.00019836426;
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="ammoBox";
+					expression="[_this,_value] call bis_fnc_initAmmoBox;";
+					class Value
+					{
+						class data
+						{
+							singleType="STRING";
+							value="[[[[""FirstAidKit""],[1]],[[],[]],[[],[]],[[],[]]],false]";
+						};
+					};
+				};
+				nAttributes=1;
+			};
+		};
+		class Item303
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={9667.6582,162.45587,11958.763};
+				angles[]={0,5.2538061,-0};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+				name="TOUR_Ambient_Car_25";
+			};
+			id=1336;
+			type="UK3CB_TKC_C_Ikarus";
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="ammoBox";
+					expression="[_this,_value] call bis_fnc_initAmmoBox;";
+					class Value
+					{
+						class data
+						{
+							singleType="STRING";
+							value="[[[[""FirstAidKit""],[1]],[[],[]],[[],[]],[[],[]]],false]";
+						};
+					};
+				};
+				nAttributes=1;
+			};
+		};
+		class Item304
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={9504.9473,167.92885,12028.955};
+				angles[]={6.2823396,0.41949889,-0};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+				name="TOUR_Ambient_Car_26";
+			};
+			id=1337;
+			type="UK3CB_TKC_C_Ikarus";
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="ammoBox";
+					expression="[_this,_value] call bis_fnc_initAmmoBox;";
+					class Value
+					{
+						class data
+						{
+							singleType="STRING";
+							value="[[[[""FirstAidKit""],[1]],[[],[]],[[],[]],[[],[]]],false]";
+						};
+					};
+				};
+				nAttributes=1;
+			};
+		};
+		class Item305
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={9514.8223,167.92345,12024.35};
+				angles[]={6.2823396,3.440388,-0};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+				name="TOUR_Ambient_Car_27";
+			};
+			id=1338;
+			type="UK3CB_TKC_C_Ikarus";
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="ammoBox";
+					expression="[_this,_value] call bis_fnc_initAmmoBox;";
+					class Value
+					{
+						class data
+						{
+							singleType="STRING";
+							value="[[[[""FirstAidKit""],[1]],[[],[]],[[],[]],[[],[]]],false]";
+						};
+					};
+				};
+				nAttributes=1;
+			};
+		};
+		class Item306
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={9520.4434,167.91966,12021.777};
+				angles[]={6.2820406,0.49946162,6.2819896};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+				name="TOUR_Ambient_Car_28";
+			};
+			id=1339;
+			type="UK3CB_TKC_C_Ikarus";
+			atlOffset=1.5258789e-005;
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="ammoBox";
+					expression="[_this,_value] call bis_fnc_initAmmoBox;";
+					class Value
+					{
+						class data
+						{
+							singleType="STRING";
+							value="[[[[""FirstAidKit""],[1]],[[],[]],[[],[]],[[],[]]],false]";
+						};
+					};
+				};
+				nAttributes=1;
+			};
+		};
+		class Item307
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={9525.2842,167.90314,12018.79};
+				angles[]={6.276093,0.46548799,6.2819896};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+				name="TOUR_Ambient_Car_29";
+			};
+			id=1340;
+			type="UK3CB_TKC_C_Ikarus";
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="ammoBox";
+					expression="[_this,_value] call bis_fnc_initAmmoBox;";
+					class Value
+					{
+						class data
+						{
+							singleType="STRING";
+							value="[[[[""FirstAidKit""],[1]],[[],[]],[[],[]],[[],[]]],false]";
+						};
+					};
+				};
+				nAttributes=1;
+			};
+		};
+		class Item308
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={9384.4404,179.45941,12285.631};
+				angles[]={6.2816415,4.5762119,0.0025371844};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+				name="TOUR_Ambient_Car_30";
+			};
+			id=1341;
+			type="UK3CB_TKC_C_Ikarus";
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="ammoBox";
+					expression="[_this,_value] call bis_fnc_initAmmoBox;";
+					class Value
+					{
+						class data
+						{
+							singleType="STRING";
+							value="[[[[""FirstAidKit""],[1]],[[],[]],[[],[]],[[],[]]],false]";
+						};
+					};
+				};
+				nAttributes=1;
+			};
+		};
+		class Item309
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={9293.9238,161.18475,11657.037};
+				angles[]={6.2800589,4.65769,0.0021283689};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+				name="TOUR_Ambient_Car_31";
+			};
+			id=1342;
+			type="UK3CB_TKC_C_Ikarus";
+			atlOffset=-0.00062561035;
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="ammoBox";
+					expression="[_this,_value] call bis_fnc_initAmmoBox;";
+					class Value
+					{
+						class data
+						{
+							singleType="STRING";
+							value="[[[[""FirstAidKit""],[1]],[[],[]],[[],[]],[[],[]]],false]";
+						};
+					};
+				};
+				nAttributes=1;
+			};
+		};
+		class Item310
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={9274.9316,157.41266,11547.871};
+				angles[]={6.2533255,0.29286546,6.2825875};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+				name="TOUR_Ambient_Car_32";
+			};
+			id=1343;
+			type="UK3CB_TKC_C_Ikarus";
+			atlOffset=1.5258789e-005;
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="ammoBox";
+					expression="[_this,_value] call bis_fnc_initAmmoBox;";
+					class Value
+					{
+						class data
+						{
+							singleType="STRING";
+							value="[[[[""FirstAidKit""],[1]],[[],[]],[[],[]],[[],[]]],false]";
+						};
+					};
+				};
+				nAttributes=1;
+			};
+		};
+		class Item311
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={9270.498,157.42659,11548.825};
+				angles[]={6.2278981,3.4772558,0.024881434};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+				name="TOUR_Ambient_Car_33";
+			};
+			id=1344;
+			type="UK3CB_TKC_C_Ikarus";
+			atlOffset=-0.0025024414;
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="ammoBox";
+					expression="[_this,_value] call bis_fnc_initAmmoBox;";
+					class Value
+					{
+						class data
+						{
+							singleType="STRING";
+							value="[[[[""FirstAidKit""],[1]],[[],[]],[[],[]],[[],[]]],false]";
+						};
+					};
+				};
+				nAttributes=1;
+			};
+		};
+		class Item312
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={9264.5469,157.16302,11551.198};
+				angles[]={6.2066641,0.092788965,0.076478712};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+				name="TOUR_Ambient_Car_34";
+			};
+			id=1345;
+			type="UK3CB_TKC_C_Ikarus";
+			atlOffset=-3.0517578e-005;
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="ammoBox";
+					expression="[_this,_value] call bis_fnc_initAmmoBox;";
+					class Value
+					{
+						class data
+						{
+							singleType="STRING";
+							value="[[[[""FirstAidKit""],[1]],[[],[]],[[],[]],[[],[]]],false]";
+						};
+					};
+				};
+				nAttributes=1;
+			};
+		};
+		class Item313
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={9250.3096,156.49113,11518.946};
+				angles[]={6.2670903,5.6223612,6.282495};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+				name="TOUR_Ambient_Car_35";
+			};
+			id=1346;
+			type="UK3CB_TKC_C_Ikarus";
+			atlOffset=-0.00025939941;
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="ammoBox";
+					expression="[_this,_value] call bis_fnc_initAmmoBox;";
+					class Value
+					{
+						class data
+						{
+							singleType="STRING";
+							value="[[[[""FirstAidKit""],[1]],[[],[]],[[],[]],[[],[]]],false]";
+						};
+					};
+				};
+				nAttributes=1;
+			};
+		};
+		class Item314
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={9343.7949,154.62918,11458.208};
+				angles[]={0.00069053395,4.2256789,0.0079411613};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+				name="TOUR_Ambient_Car_36";
+			};
+			id=1348;
+			type="UK3CB_TKC_C_Ikarus";
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="ammoBox";
+					expression="[_this,_value] call bis_fnc_initAmmoBox;";
+					class Value
+					{
+						class data
+						{
+							singleType="STRING";
+							value="[[[[""FirstAidKit""],[1]],[[],[]],[[],[]],[[],[]]],false]";
+						};
+					};
+				};
+				nAttributes=1;
+			};
+		};
+		class Item315
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={9665.9189,157.37186,11548.825};
+				angles[]={6.2732925,0.79904938,6.2819405};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+				name="TOUR_Ambient_Car_37";
+			};
+			id=1349;
+			type="UK3CB_TKC_C_Ikarus";
+			atlOffset=1.5258789e-005;
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="ammoBox";
+					expression="[_this,_value] call bis_fnc_initAmmoBox;";
+					class Value
+					{
+						class data
+						{
+							singleType="STRING";
+							value="[[[[""FirstAidKit""],[1]],[[],[]],[[],[]],[[],[]]],false]";
+						};
+					};
+				};
+				nAttributes=1;
+			};
+		};
+		class Item316
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={9908.4131,147.48221,11289.704};
+				angles[]={6.1921082,0.96421313,0.075370729};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+				name="TOUR_Ambient_Car_38";
+			};
+			id=1350;
+			type="UK3CB_TKC_C_Ikarus";
+			atlOffset=-0.012863159;
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="ammoBox";
+					expression="[_this,_value] call bis_fnc_initAmmoBox;";
+					class Value
+					{
+						class data
+						{
+							singleType="STRING";
+							value="[[[[""FirstAidKit""],[1]],[[],[]],[[],[]],[[],[]]],false]";
+						};
+					};
+				};
+				nAttributes=1;
+			};
+		};
+		class Item317
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={10018.589,146.60419,11283.763};
+				angles[]={-0,3.8678048,-0};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+				name="TOUR_Ambient_Car_39";
+			};
+			id=1351;
+			type="UK3CB_TKC_C_Ikarus";
+			atlOffset=-0.0062866211;
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="ammoBox";
+					expression="[_this,_value] call bis_fnc_initAmmoBox;";
+					class Value
+					{
+						class data
+						{
+							singleType="STRING";
+							value="[[[[""FirstAidKit""],[1]],[[],[]],[[],[]],[[],[]]],false]";
+						};
+					};
+				};
+				nAttributes=1;
+			};
+		};
+		class Item318
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={10192.203,143.16849,11236.766};
+				angles[]={6.267046,3.8831103,-0};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+				name="TOUR_Ambient_Car_40";
+			};
+			id=1352;
+			type="UK3CB_TKC_C_Ikarus";
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="ammoBox";
+					expression="[_this,_value] call bis_fnc_initAmmoBox;";
+					class Value
+					{
+						class data
+						{
+							singleType="STRING";
+							value="[[[[""FirstAidKit""],[1]],[[],[]],[[],[]],[[],[]]],false]";
+						};
+					};
+				};
+				nAttributes=1;
+			};
+		};
+		class Item319
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={10154.189,139.27945,11124.748};
+				angles[]={6.247201,4.1556797,6.2526755};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+				name="TOUR_Ambient_Car_41";
+			};
+			id=1354;
+			type="UK3CB_TKC_C_Ikarus";
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="ammoBox";
+					expression="[_this,_value] call bis_fnc_initAmmoBox;";
+					class Value
+					{
+						class data
+						{
+							singleType="STRING";
+							value="[[[[""FirstAidKit""],[1]],[[],[]],[[],[]],[[],[]]],false]";
+						};
+					};
+				};
+				nAttributes=1;
+			};
+		};
+		class Item320
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={10244.364,133.50264,11001.441};
+				angles[]={6.2242537,4.7853971,0};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+				name="TOUR_Ambient_Car_42";
+			};
+			id=1355;
+			type="UK3CB_TKC_C_Ikarus";
+			atlOffset=3.0517578e-005;
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="ammoBox";
+					expression="[_this,_value] call bis_fnc_initAmmoBox;";
+					class Value
+					{
+						class data
+						{
+							singleType="STRING";
+							value="[[[[""FirstAidKit""],[1]],[[],[]],[[],[]],[[],[]]],false]";
+						};
+					};
+				};
+				nAttributes=1;
+			};
+		};
+		class Item321
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={10424.909,127.42195,10828.415};
+				angles[]={-0,5.6223612,6.278873};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+				name="TOUR_Ambient_Car_43";
+			};
+			id=1356;
+			type="UK3CB_TKC_C_Ikarus";
+			atlOffset=-1.5258789e-005;
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="ammoBox";
+					expression="[_this,_value] call bis_fnc_initAmmoBox;";
+					class Value
+					{
+						class data
+						{
+							singleType="STRING";
+							value="[[[[""FirstAidKit""],[1]],[[],[]],[[],[]],[[],[]]],false]";
+						};
+					};
+				};
+				nAttributes=1;
+			};
+		};
+		class Item322
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={10426.062,127.41132,10819.255};
+				angles[]={6.2821498,5.192214,6.2800975};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+				name="TOUR_Ambient_Car_44";
+			};
+			id=1357;
+			type="UK3CB_TKC_C_Ikarus";
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="ammoBox";
+					expression="[_this,_value] call bis_fnc_initAmmoBox;";
+					class Value
+					{
+						class data
+						{
+							singleType="STRING";
+							value="[[[[""FirstAidKit""],[1]],[[],[]],[[],[]],[[],[]]],false]";
+						};
+					};
+				};
+				nAttributes=1;
+			};
+		};
+		class Item323
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={10478.785,130.02843,10957.936};
+				angles[]={0.0092645185,5.6724048,6.2676101};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+				name="TOUR_Ambient_Car_45";
+			};
+			id=1358;
+			type="UK3CB_TKC_C_Ikarus";
+			atlOffset=-6.1035156e-005;
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="ammoBox";
+					expression="[_this,_value] call bis_fnc_initAmmoBox;";
+					class Value
+					{
+						class data
+						{
+							singleType="STRING";
+							value="[[[[""FirstAidKit""],[1]],[[],[]],[[],[]],[[],[]]],false]";
+						};
+					};
+				};
+				nAttributes=1;
+			};
+		};
+		class Item324
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={10465.658,130.3541,10950.453};
+				angles[]={0.0053711003,4.1072154,6.2747283};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+				name="TOUR_Ambient_Car_46";
+			};
+			id=1359;
+			type="UK3CB_TKC_C_Ikarus";
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="ammoBox";
+					expression="[_this,_value] call bis_fnc_initAmmoBox;";
+					class Value
+					{
+						class data
+						{
+							singleType="STRING";
+							value="[[[[""FirstAidKit""],[1]],[[],[]],[[],[]],[[],[]]],false]";
+						};
+					};
+				};
+				nAttributes=1;
+			};
+		};
+		class Item325
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={10594.703,125.23476,10919.236};
+				angles[]={6.2512736,4.0386095,6.2784014};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+				name="TOUR_Ambient_Car_47";
+			};
+			id=1360;
+			type="UK3CB_TKC_C_Ikarus";
+			atlOffset=-0.006652832;
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="ammoBox";
+					expression="[_this,_value] call bis_fnc_initAmmoBox;";
+					class Value
+					{
+						class data
+						{
+							singleType="STRING";
+							value="[[[[""FirstAidKit""],[1]],[[],[]],[[],[]],[[],[]]],false]";
+						};
+					};
+				};
+				nAttributes=1;
+			};
+		};
+		class Item326
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={10493.823,127.21595,10870.888};
+				angles[]={6.2797155,1.2782582,6.2209449};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+				name="TOUR_Ambient_Car_48";
+			};
+			id=1364;
+			type="UK3CB_TKC_C_Ikarus";
+			atlOffset=7.6293945e-005;
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="ammoBox";
+					expression="[_this,_value] call bis_fnc_initAmmoBox;";
+					class Value
+					{
+						class data
+						{
+							singleType="STRING";
+							value="[[[[""FirstAidKit""],[1]],[[],[]],[[],[]],[[],[]]],false]";
+						};
+					};
+				};
+				nAttributes=1;
+			};
+		};
+		class Item327
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={10371.69,126.33849,10791.315};
+				angles[]={6.2823396,5.8487639,0.0014648439};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+				name="TOUR_Ambient_Car_49";
+			};
+			id=1366;
+			type="UK3CB_TKC_C_Ikarus";
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="ammoBox";
+					expression="[_this,_value] call bis_fnc_initAmmoBox;";
+					class Value
+					{
+						class data
+						{
+							singleType="STRING";
+							value="[[[[""FirstAidKit""],[1]],[[],[]],[[],[]],[[],[]]],false]";
+						};
+					};
+				};
+				nAttributes=1;
+			};
+		};
+		class Item328
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={10376.524,126.34691,10793.901};
+				angles[]={0.001381068,2.4806046,6.2824135};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+				name="TOUR_Ambient_Car_50";
+			};
+			id=1368;
+			type="UK3CB_TKC_C_Ikarus";
+			atlOffset=7.6293945e-006;
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="ammoBox";
+					expression="[_this,_value] call bis_fnc_initAmmoBox;";
+					class Value
+					{
+						class data
+						{
+							singleType="STRING";
+							value="[[[[""FirstAidKit""],[1]],[[],[]],[[],[]],[[],[]]],false]";
+						};
+					};
+				};
+				nAttributes=1;
+			};
+		};
+		class Item329
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={10361.29,126.3375,10786.736};
+				angles[]={6.2819896,5.9054074,0.00034526698};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+				name="TOUR_Ambient_Car_51";
+			};
+			id=1369;
+			type="UK3CB_TKC_C_Ikarus";
+			atlOffset=7.6293945e-006;
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="ammoBox";
+					expression="[_this,_value] call bis_fnc_initAmmoBox;";
+					class Value
+					{
+						class data
+						{
+							singleType="STRING";
+							value="[[[[""FirstAidKit""],[1]],[[],[]],[[],[]],[[],[]]],false]";
+						};
+					};
+				};
+				nAttributes=1;
+			};
+		};
+		class Item330
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={10391.09,124.57788,10669.93};
+				angles[]={6.2430086,5.6752334,0.1261799};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+				name="TOUR_Ambient_Car_52";
+			};
+			id=1370;
+			type="UK3CB_TKC_C_Ikarus";
+			atlOffset=-0.0014343262;
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="ammoBox";
+					expression="[_this,_value] call bis_fnc_initAmmoBox;";
+					class Value
+					{
+						class data
+						{
+							singleType="STRING";
+							value="[[[[""FirstAidKit""],[1]],[[],[]],[[],[]],[[],[]]],false]";
+						};
+					};
+				};
+				nAttributes=1;
+			};
+		};
+		class Item331
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={10396.23,124.25943,10633.872};
+				angles[]={6.2415109,4.2145338,6.2696891};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+				name="TOUR_Ambient_Car_53";
+			};
+			id=1371;
+			type="UK3CB_TKC_C_Ikarus";
+			atlOffset=-2.2888184e-005;
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="ammoBox";
+					expression="[_this,_value] call bis_fnc_initAmmoBox;";
+					class Value
+					{
+						class data
+						{
+							singleType="STRING";
+							value="[[[[""FirstAidKit""],[1]],[[],[]],[[],[]],[[],[]]],false]";
+						};
+					};
+				};
+				nAttributes=1;
+			};
+		};
+		class Item332
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={10451.145,122.60534,10610.473};
+				angles[]={6.2491984,1.1491314,6.2600341};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+				name="TOUR_Ambient_Car_54";
+			};
+			id=1372;
+			type="UK3CB_TKC_C_Ikarus";
+			atlOffset=-0.00012969971;
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="ammoBox";
+					expression="[_this,_value] call bis_fnc_initAmmoBox;";
+					class Value
+					{
+						class data
+						{
+							singleType="STRING";
+							value="[[[[""FirstAidKit""],[1]],[[],[]],[[],[]],[[],[]]],false]";
+						};
+					};
+				};
+				nAttributes=1;
+			};
+		};
+		class Item333
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={10505.417,121.03398,10509.575};
+				angles[]={6.2695746,1.1678597,0.0045017344};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+				name="TOUR_Ambient_Car_55";
+			};
+			id=1373;
+			type="UK3CB_TKC_C_Ikarus";
+			atlOffset=0.10995483;
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="ammoBox";
+					expression="[_this,_value] call bis_fnc_initAmmoBox;";
+					class Value
+					{
+						class data
+						{
+							singleType="STRING";
+							value="[[[[""FirstAidKit""],[1]],[[],[]],[[],[]],[[],[]]],false]";
+						};
+					};
+				};
+				nAttributes=1;
+			};
+		};
+		class Item334
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={10482.738,120.9865,10545.447};
+				angles[]={6.278182,5.8487639,0.0097717652};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+				name="TOUR_Ambient_Car_56";
+			};
+			id=1374;
+			type="UK3CB_TKC_C_Ikarus";
+			atlOffset=-7.6293945e-006;
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="ammoBox";
+					expression="[_this,_value] call bis_fnc_initAmmoBox;";
+					class Value
+					{
+						class data
+						{
+							singleType="STRING";
+							value="[[[[""FirstAidKit""],[1]],[[],[]],[[],[]],[[],[]]],false]";
+						};
+					};
+				};
+				nAttributes=1;
+			};
+		};
+		class Item335
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={10450.323,122.04005,10594.104};
+				angles[]={6.2462029,5.8487639,0.0080009829};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+				name="TOUR_Ambient_Car_57";
+			};
+			id=1375;
+			type="UK3CB_TKC_C_Ikarus";
+			atlOffset=7.6293945e-006;
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="ammoBox";
+					expression="[_this,_value] call bis_fnc_initAmmoBox;";
+					class Value
+					{
+						class data
+						{
+							singleType="STRING";
+							value="[[[[""FirstAidKit""],[1]],[[],[]],[[],[]],[[],[]]],false]";
+						};
+					};
+				};
+				nAttributes=1;
+			};
+		};
+		class Item336
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={10408.272,123.09557,10612.28};
+				angles[]={6.2381153,5.8487639,6.2684879};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+				name="TOUR_Ambient_Car_58";
+			};
+			id=1376;
+			type="UK3CB_TKC_C_Ikarus";
+			atlOffset=-5.3405762e-005;
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="ammoBox";
+					expression="[_this,_value] call bis_fnc_initAmmoBox;";
+					class Value
+					{
+						class data
+						{
+							singleType="STRING";
+							value="[[[[""FirstAidKit""],[1]],[[],[]],[[],[]],[[],[]]],false]";
+						};
+					};
+				};
+				nAttributes=1;
+			};
+		};
+		class Item337
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={10056.33,139.41319,11117.974};
+				angles[]={6.1447754,2.4867587,0.090750322};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+				name="TOUR_Ambient_Car_59";
+			};
+			id=1377;
+			type="UK3CB_TKC_C_Ikarus";
+			atlOffset=-0.00025939941;
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="ammoBox";
+					expression="[_this,_value] call bis_fnc_initAmmoBox;";
+					class Value
+					{
+						class data
+						{
+							singleType="STRING";
+							value="[[[[""FirstAidKit""],[1]],[[],[]],[[],[]],[[],[]]],false]";
+						};
+					};
+				};
+				nAttributes=1;
+			};
+		};
+		class Item338
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={10208.84,143.59393,11243.233};
+				angles[]={0,2.5235209,0};
+			};
+			side="Empty";
+			class Attributes
+			{
+				name="TOUR_Ambient_Car_60";
+			};
+			id=1378;
+			type="UK3CB_TKC_C_Ikarus";
+			atlOffset=0.45385742;
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="ammoBox";
+					expression="[_this,_value] call bis_fnc_initAmmoBox;";
+					class Value
+					{
+						class data
+						{
+							singleType="STRING";
+							value="[[[[""FirstAidKit""],[1]],[[],[]],[[],[]],[[],[]]],false]";
+						};
+					};
+				};
+				nAttributes=1;
+			};
+		};
+		class Item339
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={10053.016,146.50273,11297.88};
+				angles[]={6.2487192,0.69888246,6.2583666};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+				name="TOUR_Ambient_Car_61";
+			};
+			id=1379;
+			type="UK3CB_TKC_C_Ikarus";
+			atlOffset=0.22003174;
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="ammoBox";
+					expression="[_this,_value] call bis_fnc_initAmmoBox;";
+					class Value
+					{
+						class data
+						{
+							singleType="STRING";
+							value="[[[[""FirstAidKit""],[1]],[[],[]],[[],[]],[[],[]]],false]";
+						};
+					};
+				};
+				nAttributes=1;
+			};
+		};
+		class Item340
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={9915.624,149.43961,11382.34};
+				angles[]={6.2438288,0.78116339,6.2053857};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+				name="TOUR_Ambient_Car_62";
+			};
+			id=1381;
+			type="UK3CB_TKC_C_Ikarus";
+			atlOffset=-3.0517578e-005;
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="ammoBox";
+					expression="[_this,_value] call bis_fnc_initAmmoBox;";
+					class Value
+					{
+						class data
+						{
+							singleType="STRING";
+							value="[[[[""FirstAidKit""],[1]],[[],[]],[[],[]],[[],[]]],false]";
+						};
+					};
+				};
+				nAttributes=1;
+			};
+		};
+		class Item341
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={9709.8447,149.69537,11461.81};
+				angles[]={6.2192378,5.6350164,0.040120576};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+				name="TOUR_Ambient_Car_63";
+			};
+			id=1382;
+			type="UK3CB_TKC_C_Ikarus";
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="ammoBox";
+					expression="[_this,_value] call bis_fnc_initAmmoBox;";
+					class Value
+					{
+						class data
+						{
+							singleType="STRING";
+							value="[[[[""FirstAidKit""],[1]],[[],[]],[[],[]],[[],[]]],false]";
+						};
+					};
+				};
+				nAttributes=1;
+			};
+		};
+		class Item342
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={9688.5918,149.45039,11460.855};
+				angles[]={6.2446661,4.0147133,6.2812018};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+				name="TOUR_Ambient_Car_64";
+			};
+			id=1383;
+			type="UK3CB_TKC_C_Ikarus";
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="ammoBox";
+					expression="[_this,_value] call bis_fnc_initAmmoBox;";
+					class Value
+					{
+						class data
+						{
+							singleType="STRING";
+							value="[[[[""FirstAidKit""],[1]],[[],[]],[[],[]],[[],[]]],false]";
+						};
+					};
+				};
+				nAttributes=1;
+			};
+		};
+		class Item343
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={9554.4014,154.19469,11480.815};
+				angles[]={0,5.516223,6.2810292};
+			};
+			side="Empty";
+			class Attributes
+			{
+				name="TOUR_Ambient_Car_65";
+			};
+			id=1384;
+			type="UK3CB_TKC_C_Ikarus";
+			atlOffset=0.27644348;
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="ammoBox";
+					expression="[_this,_value] call bis_fnc_initAmmoBox;";
+					class Value
+					{
+						class data
+						{
+							singleType="STRING";
+							value="[[[[""FirstAidKit""],[1]],[[],[]],[[],[]],[[],[]]],false]";
+						};
+					};
+				};
+				nAttributes=1;
+			};
+		};
+		class Item344
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={9297.1211,158.34061,11593.701};
+				angles[]={6.2506261,2.2463548,6.2232919};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+				name="TOUR_Ambient_Car_66";
+			};
+			id=1385;
+			type="UK3CB_TKC_C_Ikarus";
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="ammoBox";
+					expression="[_this,_value] call bis_fnc_initAmmoBox;";
+					class Value
+					{
+						class data
+						{
+							singleType="STRING";
+							value="[[[[""FirstAidKit""],[1]],[[],[]],[[],[]],[[],[]]],false]";
+						};
+					};
+				};
+				nAttributes=1;
+			};
+		};
+		class Item345
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={9290.0566,157.94862,11583.486};
+				angles[]={6.2749062,5.0037251,0.00059801998};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+				name="TOUR_Ambient_Car_67";
+			};
+			id=1386;
+			type="UK3CB_TKC_C_Ikarus";
+			atlOffset=1.5258789e-005;
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="ammoBox";
+					expression="[_this,_value] call bis_fnc_initAmmoBox;";
+					class Value
+					{
+						class data
+						{
+							singleType="STRING";
+							value="[[[[""FirstAidKit""],[1]],[[],[]],[[],[]],[[],[]]],false]";
+						};
+					};
+				};
+				nAttributes=1;
+			};
+		};
+		class Item346
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={9312.5244,158.13518,11572.289};
+				angles[]={6.2689371,3.6337461,6.2715278};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+				name="TOUR_Ambient_Car_68";
+			};
+			id=1387;
+			type="UK3CB_TKC_C_Ikarus";
+			atlOffset=-0.00038146973;
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="ammoBox";
+					expression="[_this,_value] call bis_fnc_initAmmoBox;";
+					class Value
+					{
+						class data
+						{
+							singleType="STRING";
+							value="[[[[""FirstAidKit""],[1]],[[],[]],[[],[]],[[],[]]],false]";
+						};
+					};
+				};
+				nAttributes=1;
+			};
+		};
+		class Item347
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={9336.332,163.68196,11652.104};
+				angles[]={0.0073404931,6.2302227,0.013242335};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+				name="TOUR_Ambient_Car_69";
+			};
+			id=1389;
+			type="UK3CB_TKC_C_Ikarus";
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="ammoBox";
+					expression="[_this,_value] call bis_fnc_initAmmoBox;";
+					class Value
+					{
+						class data
+						{
+							singleType="STRING";
+							value="[[[[""FirstAidKit""],[1]],[[],[]],[[],[]],[[],[]]],false]";
+						};
+					};
+				};
+				nAttributes=1;
+			};
+		};
+		class Item348
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={9403.1426,163.82422,11631.233};
+				angles[]={6.2828403,0.63366878,6.278439};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+				name="TOUR_Ambient_Car_70";
+			};
+			id=1390;
+			type="UK3CB_TKC_C_Ikarus";
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="ammoBox";
+					expression="[_this,_value] call bis_fnc_initAmmoBox;";
+					class Value
+					{
+						class data
+						{
+							singleType="STRING";
+							value="[[[[""FirstAidKit""],[1]],[[],[]],[[],[]],[[],[]]],false]";
+						};
+					};
+				};
+				nAttributes=1;
+			};
+		};
+		class Item349
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={9585.4756,163.5423,11748.329};
+				angles[]={6.2824135,2.3022859,0.00059801998};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+				name="TOUR_Ambient_Car_71";
+			};
+			id=1391;
+			type="UK3CB_TKC_C_Ikarus";
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="ammoBox";
+					expression="[_this,_value] call bis_fnc_initAmmoBox;";
+					class Value
+					{
+						class data
+						{
+							singleType="STRING";
+							value="[[[[""FirstAidKit""],[1]],[[],[]],[[],[]],[[],[]]],false]";
+						};
+					};
+				};
+				nAttributes=1;
+			};
+		};
+		class Item350
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={9412.6211,166.53027,11790.903};
+				angles[]={6.2696362,2.1204023,0.001504984};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+				name="TOUR_Ambient_Car_72";
+			};
+			id=1392;
+			type="UK3CB_TKC_C_Ikarus";
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="ammoBox";
+					expression="[_this,_value] call bis_fnc_initAmmoBox;";
+					class Value
+					{
+						class data
+						{
+							singleType="STRING";
+							value="[[[[""FirstAidKit""],[1]],[[],[]],[[],[]],[[],[]]],false]";
+						};
+					};
+				};
+				nAttributes=1;
+			};
+		};
+		class Item351
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={9450.79,151.00296,11431.02};
+				angles[]={6.2805562,0.58183843,6.2126617};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+				name="TOUR_Ambient_Car_73";
+			};
+			id=1393;
+			type="UK3CB_TKC_C_Ikarus";
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="ammoBox";
+					expression="[_this,_value] call bis_fnc_initAmmoBox;";
+					class Value
+					{
+						class data
+						{
+							singleType="STRING";
+							value="[[[[""FirstAidKit""],[1]],[[],[]],[[],[]],[[],[]]],false]";
+						};
+					};
+				};
+				nAttributes=1;
+			};
+		};
+		class Item352
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={9529.9307,142.2271,11346.095};
+				angles[]={6.2409878,0.45200324,0.0051211426};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+				name="TOUR_Ambient_Car_74";
+			};
+			id=1394;
+			type="UK3CB_TKC_C_Ikarus";
+			atlOffset=-0.0002746582;
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="ammoBox";
+					expression="[_this,_value] call bis_fnc_initAmmoBox;";
+					class Value
+					{
+						class data
+						{
+							singleType="STRING";
+							value="[[[[""FirstAidKit""],[1]],[[],[]],[[],[]],[[],[]]],false]";
+						};
+					};
+				};
+				nAttributes=1;
+			};
+		};
+		class Item353
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={9916.4551,152.1134,11505.704};
+				angles[]={6.2722616,2.3150644,6.2781348};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+				name="TOUR_Ambient_Car_75";
+			};
+			id=1395;
+			type="UK3CB_TKC_C_Ikarus";
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="ammoBox";
+					expression="[_this,_value] call bis_fnc_initAmmoBox;";
+					class Value
+					{
+						class data
+						{
+							singleType="STRING";
+							value="[[[[""FirstAidKit""],[1]],[[],[]],[[],[]],[[],[]]],false]";
+						};
+					};
+				};
+				nAttributes=1;
+			};
+		};
+		class Item354
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={9918.6426,152.29909,11536.063};
+				angles[]={6.2774186,0.44962502,6.2767816};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+				name="TOUR_Ambient_Car_76";
+			};
+			id=1396;
+			type="UK3CB_TKC_C_Ikarus";
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="ammoBox";
+					expression="[_this,_value] call bis_fnc_initAmmoBox;";
+					class Value
+					{
+						class data
+						{
+							singleType="STRING";
+							value="[[[[""FirstAidKit""],[1]],[[],[]],[[],[]],[[],[]]],false]";
+						};
+					};
+				};
+				nAttributes=1;
+			};
+		};
+		class Item355
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={9975.7158,108.90372,10780.729};
+				angles[]={0.12705171,2.5140138,6.1810846};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+				name="TOUR_Ambient_Car_77";
+			};
+			id=1397;
+			type="UK3CB_TKC_C_Ikarus";
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="ammoBox";
+					expression="[_this,_value] call bis_fnc_initAmmoBox;";
+					class Value
+					{
+						class data
+						{
+							singleType="STRING";
+							value="[[[[""FirstAidKit""],[1]],[[],[]],[[],[]],[[],[]]],false]";
+						};
+					};
+				};
+				nAttributes=1;
+			};
+		};
+		class Item356
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={9996.8262,108.89085,10726.159};
+				angles[]={6.2668953,4.2230043,6.2798028};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+				name="TOUR_Ambient_Car_78";
+			};
+			id=1398;
+			type="UK3CB_TKC_C_Ikarus";
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="ammoBox";
+					expression="[_this,_value] call bis_fnc_initAmmoBox;";
+					class Value
+					{
+						class data
+						{
+							singleType="STRING";
+							value="[[[[""FirstAidKit""],[1]],[[],[]],[[],[]],[[],[]]],false]";
+						};
+					};
+				};
+				nAttributes=1;
+			};
+		};
+		class Item357
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={10057.982,99.966766,10469.925};
+				angles[]={-0,2.5065207,6.2503257};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+				name="TOUR_Ambient_Car_79";
+			};
+			id=1399;
+			type="UK3CB_TKC_C_Ikarus";
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="ammoBox";
+					expression="[_this,_value] call bis_fnc_initAmmoBox;";
+					class Value
+					{
+						class data
+						{
+							singleType="STRING";
+							value="[[[[""FirstAidKit""],[1]],[[],[]],[[],[]],[[],[]]],false]";
+						};
+					};
+				};
+				nAttributes=1;
+			};
+		};
+		class Item358
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={10031.808,101.17722,10433.201};
+				angles[]={0.073095515,5.8487639,6.0985808};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+				name="TOUR_Ambient_Car_80";
+			};
+			id=1401;
+			type="UK3CB_TKC_C_Ikarus";
+			atlOffset=-0.031700134;
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="ammoBox";
+					expression="[_this,_value] call bis_fnc_initAmmoBox;";
+					class Value
+					{
+						class data
+						{
+							singleType="STRING";
+							value="[[[[""FirstAidKit""],[1]],[[],[]],[[],[]],[[],[]]],false]";
+						};
+					};
+				};
+				nAttributes=1;
+			};
+		};
+		class Item359
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={9754.4033,129.71736,10453.702};
+				angles[]={0.028196799,5.1226778,6.2828403};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+				name="TOUR_Ambient_Car_81";
+			};
+			id=1402;
+			type="UK3CB_TKC_C_Ikarus";
+			atlOffset=-0.00012969971;
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="ammoBox";
+					expression="[_this,_value] call bis_fnc_initAmmoBox;";
+					class Value
+					{
+						class data
+						{
+							singleType="STRING";
+							value="[[[[""FirstAidKit""],[1]],[[],[]],[[],[]],[[],[]]],false]";
+						};
+					};
+				};
+				nAttributes=1;
+			};
+		};
+		class Item360
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={9696.2363,130.89539,10516.13};
+				angles[]={0.23184624,2.266221,6.0442433};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+				name="TOUR_Ambient_Car_82";
+			};
+			id=1403;
+			type="UK3CB_TKC_C_Ikarus";
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="ammoBox";
+					expression="[_this,_value] call bis_fnc_initAmmoBox;";
+					class Value
+					{
+						class data
+						{
+							singleType="STRING";
+							value="[[[[""FirstAidKit""],[1]],[[],[]],[[],[]],[[],[]]],false]";
+						};
+					};
+				};
+				nAttributes=1;
+			};
+		};
+		class Item361
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={9806.126,125.81659,10720.614};
+				angles[]={6.2634745,5.4546266,0.047216412};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+				name="TOUR_Ambient_Car_83";
+			};
+			id=1404;
+			type="UK3CB_TKC_C_Ikarus";
+			atlOffset=-0.00032043457;
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="ammoBox";
+					expression="[_this,_value] call bis_fnc_initAmmoBox;";
+					class Value
+					{
+						class data
+						{
+							singleType="STRING";
+							value="[[[[""FirstAidKit""],[1]],[[],[]],[[],[]],[[],[]]],false]";
+						};
+					};
+				};
+				nAttributes=1;
+			};
+		};
+		class Item362
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={9721.8262,136.74583,10819.591};
+				angles[]={6.2761178,5.7555251,6.2813263};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+				name="TOUR_Ambient_Car_84";
+			};
+			id=1405;
+			type="UK3CB_TKC_C_Ikarus";
+			atlOffset=1.5258789e-005;
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="ammoBox";
+					expression="[_this,_value] call bis_fnc_initAmmoBox;";
+					class Value
+					{
+						class data
+						{
+							singleType="STRING";
+							value="[[[[""FirstAidKit""],[1]],[[],[]],[[],[]],[[],[]]],false]";
+						};
+					};
+				};
+				nAttributes=1;
+			};
+		};
+		class Item363
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={9703.4443,136.80142,10839.456};
+				angles[]={-0,5.4209738,6.2776399};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+				name="TOUR_Ambient_Car_85";
+			};
+			id=1406;
+			type="UK3CB_TKC_C_Ikarus";
+			atlOffset=-0.022445679;
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="ammoBox";
+					expression="[_this,_value] call bis_fnc_initAmmoBox;";
+					class Value
+					{
+						class data
+						{
+							singleType="STRING";
+							value="[[[[""FirstAidKit""],[1]],[[],[]],[[],[]],[[],[]]],false]";
+						};
+					};
+				};
+				nAttributes=1;
+			};
+		};
+		class Item364
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={9589.6963,133.16026,10848.681};
+				angles[]={0.024705922,5.477263,-0};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+				name="TOUR_Ambient_Car_86";
+			};
+			id=1407;
+			type="UK3CB_TKC_C_Ikarus";
+			atlOffset=-0.00021362305;
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="ammoBox";
+					expression="[_this,_value] call bis_fnc_initAmmoBox;";
+					class Value
+					{
+						class data
+						{
+							singleType="STRING";
+							value="[[[[""FirstAidKit""],[1]],[[],[]],[[],[]],[[],[]]],false]";
+						};
+					};
+				};
+				nAttributes=1;
+			};
+		};
+		class Item365
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={9593.2021,133.12198,10853.495};
+				angles[]={0.001381068,5.3696766,-0};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+				name="TOUR_Ambient_Car_87";
+			};
+			id=1409;
+			type="UK3CB_TKC_C_Ikarus";
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="ammoBox";
+					expression="[_this,_value] call bis_fnc_initAmmoBox;";
+					class Value
+					{
+						class data
+						{
+							singleType="STRING";
+							value="[[[[""FirstAidKit""],[1]],[[],[]],[[],[]],[[],[]]],false]";
+						};
+					};
+				};
+				nAttributes=1;
+			};
+		};
+		class Item366
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={9590.5811,132.52832,10883.375};
+				angles[]={0,6.0062065,0};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+				name="TOUR_Ambient_Car_88";
+			};
+			id=1410;
+			type="UK3CB_TKC_C_Ikarus";
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="ammoBox";
+					expression="[_this,_value] call bis_fnc_initAmmoBox;";
+					class Value
+					{
+						class data
+						{
+							singleType="STRING";
+							value="[[[[""FirstAidKit""],[1]],[[],[]],[[],[]],[[],[]]],false]";
+						};
+					};
+				};
+				nAttributes=1;
+			};
+		};
+		class Item367
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={9235.8682,142.59579,10790.099};
+				angles[]={6.2046881,6.2572513,6.1117806};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+				name="TOUR_Ambient_Car_89";
+			};
+			id=1411;
+			type="UK3CB_TKC_C_Ikarus";
+			atlOffset=-0.0071105957;
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="ammoBox";
+					expression="[_this,_value] call bis_fnc_initAmmoBox;";
+					class Value
+					{
+						class data
+						{
+							singleType="STRING";
+							value="[[[[""FirstAidKit""],[1]],[[],[]],[[],[]],[[],[]]],false]";
+						};
+					};
+				};
+				nAttributes=1;
+			};
+		};
+		class Item368
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={9254.8545,141.21559,10744.338};
+				angles[]={6.2733774,4.4516373,6.2818046};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+				name="TOUR_Ambient_Car_90";
+			};
+			id=1413;
+			type="UK3CB_TKC_C_Ikarus";
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="ammoBox";
+					expression="[_this,_value] call bis_fnc_initAmmoBox;";
+					class Value
+					{
+						class data
+						{
+							singleType="STRING";
+							value="[[[[""FirstAidKit""],[1]],[[],[]],[[],[]],[[],[]]],false]";
+						};
+					};
+				};
+				nAttributes=1;
+			};
+		};
+		class Item369
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={9126.6846,144.69989,10775.862};
+				angles[]={6.269979,4.4722729,6.2282333};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+				name="TOUR_Ambient_Car_91";
+			};
+			id=1414;
+			type="UK3CB_TKC_C_Ikarus";
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="ammoBox";
+					expression="[_this,_value] call bis_fnc_initAmmoBox;";
+					class Value
+					{
+						class data
+						{
+							singleType="STRING";
+							value="[[[[""FirstAidKit""],[1]],[[],[]],[[],[]],[[],[]]],false]";
+						};
+					};
+				};
+				nAttributes=1;
+			};
+		};
+		class Item370
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={8981.5908,142.4567,10698.982};
+				angles[]={6.2560468,4.7611632,6.2815661};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+				name="TOUR_Ambient_Car_92";
+			};
+			id=1415;
+			type="UK3CB_TKC_C_Ikarus";
+			atlOffset=1.5258789e-005;
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="ammoBox";
+					expression="[_this,_value] call bis_fnc_initAmmoBox;";
+					class Value
+					{
+						class data
+						{
+							singleType="STRING";
+							value="[[[[""FirstAidKit""],[1]],[[],[]],[[],[]],[[],[]]],false]";
+						};
+					};
+				};
+				nAttributes=1;
+			};
+		};
+		class Item371
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={8941.6816,148.09135,10798.306};
+				angles[]={6.276237,6.0158224,6.2679467};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+				name="TOUR_Ambient_Car_93";
+			};
+			id=1417;
+			type="UK3CB_TKC_C_Ikarus";
+			atlOffset=1.5258789e-005;
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="ammoBox";
+					expression="[_this,_value] call bis_fnc_initAmmoBox;";
+					class Value
+					{
+						class data
+						{
+							singleType="STRING";
+							value="[[[[""FirstAidKit""],[1]],[[],[]],[[],[]],[[],[]]],false]";
+						};
+					};
+				};
+				nAttributes=1;
+			};
+		};
+		class Item372
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={8864.4297,151.2103,10898.846};
+				angles[]={-0,1.6329969,0};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+				name="TOUR_Ambient_Car_94";
+			};
+			id=1418;
+			type="UK3CB_TKC_C_Ikarus";
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="ammoBox";
+					expression="[_this,_value] call bis_fnc_initAmmoBox;";
+					class Value
+					{
+						class data
+						{
+							singleType="STRING";
+							value="[[[[""FirstAidKit""],[1]],[[],[]],[[],[]],[[],[]]],false]";
+						};
+					};
+				};
+				nAttributes=1;
+			};
+		};
+		class Item373
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={8853.7861,151.74394,10932.245};
+				angles[]={6.2539997,1.5050126,0.02703106};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+				name="TOUR_Ambient_Car_95";
+			};
+			id=1419;
+			type="UK3CB_TKC_C_Ikarus";
+			atlOffset=1.5258789e-005;
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="ammoBox";
+					expression="[_this,_value] call bis_fnc_initAmmoBox;";
+					class Value
+					{
+						class data
+						{
+							singleType="STRING";
+							value="[[[[""FirstAidKit""],[1]],[[],[]],[[],[]],[[],[]]],false]";
+						};
+					};
+				};
+				nAttributes=1;
+			};
+		};
+		class Item374
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={8866.8994,152.92365,10991.067};
+				angles[]={6.2828403,0.60694462,6.2792792};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+				name="TOUR_Ambient_Car_96";
+			};
+			id=1421;
+			type="UK3CB_TKC_C_Ikarus";
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="ammoBox";
+					expression="[_this,_value] call bis_fnc_initAmmoBox;";
+					class Value
+					{
+						class data
+						{
+							singleType="STRING";
+							value="[[[[""FirstAidKit""],[1]],[[],[]],[[],[]],[[],[]]],false]";
+						};
+					};
+				};
+				nAttributes=1;
+			};
+		};
+		class Item375
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={8839.5508,153.02846,10996.239};
+				angles[]={6.2822719,3.5688453,0.012667196};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+				name="TOUR_Ambient_Car_97";
+			};
+			id=1422;
+			type="UK3CB_TKC_C_Ikarus";
+			atlOffset=-0.00028991699;
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="ammoBox";
+					expression="[_this,_value] call bis_fnc_initAmmoBox;";
+					class Value
+					{
+						class data
+						{
+							singleType="STRING";
+							value="[[[[""FirstAidKit""],[1]],[[],[]],[[],[]],[[],[]]],false]";
+						};
+					};
+				};
+				nAttributes=1;
+			};
+		};
+		class Item376
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={8932.0625,151.33893,10888.094};
+				angles[]={-0,5.2022848,0.02417914};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+				name="TOUR_Ambient_Car_98";
+			};
+			id=1423;
+			type="UK3CB_TKC_C_Ikarus";
+			atlOffset=-0.00010681152;
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="ammoBox";
+					expression="[_this,_value] call bis_fnc_initAmmoBox;";
+					class Value
+					{
+						class data
+						{
+							singleType="STRING";
+							value="[[[[""FirstAidKit""],[1]],[[],[]],[[],[]],[[],[]]],false]";
+						};
+					};
+				};
+				nAttributes=1;
+			};
+		};
+		class Item377
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={8954.0586,152.49559,10930.951};
+				angles[]={6.212101,1.7752137,0.010625076};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+				name="TOUR_Ambient_Car_99";
+			};
+			id=1424;
+			type="UK3CB_TKC_C_Ikarus";
+			atlOffset=-4.5776367e-005;
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="ammoBox";
+					expression="[_this,_value] call bis_fnc_initAmmoBox;";
+					class Value
+					{
+						class data
+						{
+							singleType="STRING";
+							value="[[[[""FirstAidKit""],[1]],[[],[]],[[],[]],[[],[]]],false]";
+						};
+					};
+				};
+				nAttributes=1;
+			};
+		};
+		class Item378
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={8876.6182,142.85764,11138.328};
+				angles[]={6.2400446,0.29579306,6.2585206};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+				name="TOUR_Ambient_Car_100";
+			};
+			id=1426;
+			type="UK3CB_TKC_C_Ikarus";
+			atlOffset=1.5258789e-005;
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="ammoBox";
+					expression="[_this,_value] call bis_fnc_initAmmoBox;";
+					class Value
+					{
+						class data
+						{
+							singleType="STRING";
+							value="[[[[""FirstAidKit""],[1]],[[],[]],[[],[]],[[],[]]],false]";
+						};
+					};
+				};
+				nAttributes=1;
+			};
+		};
+		class Item379
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={8892.2656,141.95598,11128.631};
+				angles[]={6.0935087,5.477263,6.2611852};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+				name="TOUR_Ambient_Car_101";
+			};
+			id=1427;
+			type="UK3CB_TKC_C_Ikarus";
+			atlOffset=-0.075531006;
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="ammoBox";
+					expression="[_this,_value] call bis_fnc_initAmmoBox;";
+					class Value
+					{
+						class data
+						{
+							singleType="STRING";
+							value="[[[[""FirstAidKit""],[1]],[[],[]],[[],[]],[[],[]]],false]";
+						};
+					};
+				};
+				nAttributes=1;
+			};
+		};
+		class Item380
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={8898.9785,142.59726,11136.278};
+				angles[]={6.2037706,5.477263,6.2815294};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+				name="TOUR_Ambient_Car_102";
+			};
+			id=1428;
+			type="UK3CB_TKC_C_Ikarus";
+			atlOffset=-9.1552734e-005;
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="ammoBox";
+					expression="[_this,_value] call bis_fnc_initAmmoBox;";
+					class Value
+					{
+						class data
+						{
+							singleType="STRING";
+							value="[[[[""FirstAidKit""],[1]],[[],[]],[[],[]],[[],[]]],false]";
+						};
+					};
+				};
+				nAttributes=1;
+			};
+		};
+		class Item381
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={8888.0557,160.45811,11845.462};
+				angles[]={0.013097504,5.0542073,6.261991};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+				name="TOUR_Ambient_Car_103";
+			};
+			id=1430;
+			type="UK3CB_TKC_C_Ikarus";
+			atlOffset=-0.012435913;
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="ammoBox";
+					expression="[_this,_value] call bis_fnc_initAmmoBox;";
+					class Value
+					{
+						class data
+						{
+							singleType="STRING";
+							value="[[[[""FirstAidKit""],[1]],[[],[]],[[],[]],[[],[]]],false]";
+						};
+					};
+				};
+				nAttributes=1;
+			};
+		};
+		class Item382
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={8952.9209,142.51886,11370.208};
+				angles[]={6.2534013,4.036478,6.2233229};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+				name="TOUR_Ambient_Car_104";
+			};
+			id=1431;
+			type="UK3CB_TKC_C_Ikarus";
+			atlOffset=1.5258789e-005;
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="ammoBox";
+					expression="[_this,_value] call bis_fnc_initAmmoBox;";
+					class Value
+					{
+						class data
+						{
+							singleType="STRING";
+							value="[[[[""FirstAidKit""],[1]],[[],[]],[[],[]],[[],[]]],false]";
+						};
+					};
+				};
+				nAttributes=1;
+			};
+		};
+		class Item383
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={9814.4102,146.62221,11360.811};
+				angles[]={-0,0.72151887,0.0057463958};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+				name="TOUR_Ambient_Car_105";
+			};
+			id=1433;
+			type="UK3CB_TKC_C_Ikarus";
+			atlOffset=1.5258789e-005;
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="ammoBox";
+					expression="[_this,_value] call bis_fnc_initAmmoBox;";
+					class Value
+					{
+						class data
+						{
+							singleType="STRING";
+							value="[[[[""FirstAidKit""],[1]],[[],[]],[[],[]],[[],[]]],false]";
+						};
+					};
+				};
+				nAttributes=1;
+			};
+		};
+		class Item384
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={9861.5313,139.18059,11252.626};
+				angles[]={6.2396688,1.344339,0.088013925};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+				name="TOUR_Ambient_Car_106";
+			};
+			id=1434;
+			type="UK3CB_TKC_C_Ikarus";
+			atlOffset=-0.0038452148;
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="ammoBox";
+					expression="[_this,_value] call bis_fnc_initAmmoBox;";
+					class Value
+					{
+						class data
+						{
+							singleType="STRING";
+							value="[[[[""FirstAidKit""],[1]],[[],[]],[[],[]],[[],[]]],false]";
+						};
+					};
+				};
+				nAttributes=1;
+			};
+		};
+		class Item385
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={9925.043,147.18567,11270.455};
+				angles[]={6.2293825,0.50636625,0.017804097};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+				name="TOUR_Ambient_Car_107";
+			};
+			id=1438;
+			type="UK3CB_TKC_C_Ikarus";
+			atlOffset=-0.00053405762;
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="ammoBox";
+					expression="[_this,_value] call bis_fnc_initAmmoBox;";
+					class Value
+					{
+						class data
+						{
+							singleType="STRING";
+							value="[[[[""FirstAidKit""],[1]],[[],[]],[[],[]],[[],[]]],false]";
+						};
+					};
+				};
+				nAttributes=1;
+			};
+		};
+		class Item386
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={9969.3193,145.013,11244.04};
+				angles[]={6.2462029,3.4950356,0.0030099689};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+				name="TOUR_Ambient_Car_108";
+			};
+			id=1439;
+			type="UK3CB_TKC_C_Ikarus";
+			atlOffset=-1.5258789e-005;
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="ammoBox";
+					expression="[_this,_value] call bis_fnc_initAmmoBox;";
+					class Value
+					{
+						class data
+						{
+							singleType="STRING";
+							value="[[[[""FirstAidKit""],[1]],[[],[]],[[],[]],[[],[]]],false]";
+						};
+					};
+				};
+				nAttributes=1;
+			};
 		};
 	};
 };
