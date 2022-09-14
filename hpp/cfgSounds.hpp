@@ -117,12 +117,25 @@ class CfgSounds
 		sound[] = {"sounds\line17.ogg", 1, 1, 25};
 		titles[] = {};
 	};
-	class TOUR_radioManSpeak
+	class TOUR_snd_end
 	{
-		name = "TOUR_radioManSpeak";
-		sound[] = {"sounds\line17.ogg", 1, 1, 25};
+		name = "TOUR_snd_end";
+		sound[] = {"sounds\line18.ogg", 1, 1, 25};
 		titles[] = {};
 	};
+	class TOUR_snd_transport
+	{
+		name = "TOUR_snd_transport";
+		sound[] = {"sounds\line19.ogg", 1, 1, 25};
+		titles[] = {};
+	};
+	class TOUR_snd_mission_heal
+	{
+		name = "TOUR_snd_mission_heal";
+		sound[] = {"sounds\line20.ogg", 1, 1, 25};
+		titles[] = {};
+	};
+
 	class TOUR_elderSpeak
 	{
 		name = "TOUR_elderSpeak";

@@ -22,7 +22,8 @@ _textToHint = parseText format
 	Base Assault Time = %4 - %6
 	<br/>
 	<br/>
-", (missionNameSpace getVariable "TOUR_dangerEvent"), (missionNameSpace getVariable "TOUR_enemyChatter"), TOUR_randomEventTimes select 0, TOUR_baseAttackBuildStartTime, date, if (TOUR_baseAttack) then {"Enabled"}else{"Disabled"}];
+	Mission End Ready = %7
+", (missionNameSpace getVariable "TOUR_dangerEvent"), (missionNameSpace getVariable "TOUR_enemyChatter"), TOUR_randomEventTimes select 0, TOUR_baseAttackBuildStartTime, date, if (TOUR_baseAttack) then {"Enabled"}else{"Disabled"}, !(isNil {missionNamespace getVariable "TOUR_tourComplete"})];
 
 [_textToHint]remoteExeccall["hint", _player, false];
 

@@ -24,18 +24,25 @@ _endMin = _startMin;
 
 waitUntil 
 {
-	sleep 2;
-	TOUR_RC_WEST_DEAD
-	or
-	({(side _x == EAST) && (alive _x) && (_x distance (getMarkerPos "TOUR_mkr_FOB") <20)} count allUnits > 0)
-	or
+	if 
 	(
 		(date select 2 >= _endDay)
 		&&
 		(date select 3 >= _endHour)
 		&&
 		(date select 4 >= _endMin)
-	)	
+		&& 
+		(isNil {missionNamespace getVariable "TOUR_tourComplete"})
+	) then 
+	{
+		missionNameSpace setVariable ["TOUR_tourComplete", true, true];
+	};
+	sleep 2;
+	TOUR_RC_WEST_DEAD
+	or
+	({(side _x == EAST) && (alive _x) && (_x distance (getMarkerPos "TOUR_mkr_FOB") <20)} count allUnits > 0)
+	or 
+	!(isNil {missionNamespace getVariable "TOUR_tourCompleteAnswered"})
 };
 
 if ("TOUR_objCiv" call BIS_fnc_taskState != "FAILED") then
@@ -51,11 +58,7 @@ if (TOUR_RC_WEST_DEAD) then
 }else 
 {
 	if 	(
-			(date select 2 >= _endDay)
-			&&
-			(date select 3 >= _endHour)
-			&&
-			(date select 4 >= _endMin)
+			!(isNil {missionNamespace getVariable "TOUR_tourCompleteAnswered"})
 		)then 
 	{
 		["TOUR_objBase", "SUCCEEDED", true] call BIS_fnc_TaskSetState;

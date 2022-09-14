@@ -65,7 +65,7 @@ while {true} do
 			_vehicle_end = getMarkerPos (format ["TOUR_mkr_carSpawn_%1_%2", _rnd, _stp]);
 		};
 
-		_veh = createVehicle [_enemy_array call BIS_fnc_selectRandom, _vehicle_spawn, [], 0, "CAN_COLLIDE"];
+		_veh = createVehicle [_enemy_array call BIS_fnc_selectRandom, _vehicle_spawn, [], 0, "NONE"];
 		_veh setDir ([_vehicle_spawn, _vehicle_end] call BIS_fnc_dirTo);
 		_veh setPosATL _vehicle_spawn;
 		_veh setVelocity [0,0,-1];

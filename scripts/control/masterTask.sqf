@@ -21,9 +21,15 @@ sleep 120;
 
 while {TOUR_tskCount < TOUR_tskCountTarget} do 
 {
-	waitUntil {!(missionNameSpace getVariable "TOUR_tskRadioState" == "enemy")};
+	waitUntil {(missionNameSpace getVariable "TOUR_tskRadioState" == "silent")};
 	missionNameSpace setVariable ["TOUR_tskRadioState", "calling", true];
-	_waitTime = time + 120;
+	_waitTime = if (isNil {missionNamespace getVariable "TOUR_tourComplete"}) then 
+	{
+		time + 120;
+	}else 
+	{
+		time + 99999;
+	};
 	_time = time - 1;
 	while {true} do 
 	{
@@ -70,29 +76,35 @@ while {TOUR_tskCount < TOUR_tskCountTarget} do
 		{
 			TOUR_tskAccept = nil;
 			_patrolActive = false;
-			for "_i" from 0 to 10 do
+			if (isNil {missionNamespace getVariable "TOUR_tourComplete"}) then 
 			{
-				if ((format ["TOUR_objPatrol_%1", _i]) call BIS_fnc_taskExists) exitWith 
+				for "_i" from 0 to 10 do
 				{
-					_patrolActive = true;
-				};
-			};
-			if (_patrolActive) then 
-			{
-				_weights = [];
-				{
-					if (_x == "patrol") then 
+					if ((format ["TOUR_objPatrol_%1", _i]) call BIS_fnc_taskExists) exitWith 
 					{
-						_weights pushBack 0.001;
-					}else 
-					{
-						_weights pushBack 1;
+						_patrolActive = true;
 					};
-				}forEach TOUR_tskAvailable;
-				_task = TOUR_tskAvailable selectRandomWeighted _weights;
+				};
+				if (_patrolActive) then 
+				{
+					_weights = [];
+					{
+						if (_x == "patrol") then 
+						{
+							_weights pushBack 0.001;
+						}else 
+						{
+							_weights pushBack 1;
+						};
+					}forEach TOUR_tskAvailable;
+					_task = TOUR_tskAvailable selectRandomWeighted _weights;
+				}else 
+				{
+					_task = selectRandom TOUR_tskAvailable;
+				};
 			}else 
 			{
-				_task = selectRandom TOUR_tskAvailable;
+				_task = "complete";
 			};
 			execVM format ["scripts\control\tsk_%1.sqf", _task];
 			waitUntil {!isNil "TOUR_tskAccept"};
@@ -114,5 +126,12 @@ while {TOUR_tskCount < TOUR_tskCountTarget} do
 		} forEach TOUR_taskRepo;
 		TOUR_patrolNo = 0;
 	};
-	sleep 900;
+
+	if !(isNil {missionNamespace getVariable "TOUR_tourComplete"}) then 
+	{
+		sleep 10;
+	}else 
+	{
+		sleep 900;
+	};
 };

@@ -13,7 +13,7 @@ while {true} do
 	{
 		missionNameSpace setVariable ["TOUR_tskRadioState", "REQUEST", true];
 
-		_sound = "TOUR_radio_Req";
+		_sound = "TOUR_snd_transport";
 		[[_sound],{TOUR_cmdRadio say3d [_this select 0, 50];}] remoteExecCall ["BIS_fnc_spawn", 0, false];
 		if (missionNameSpace getVariable "TOUR_backpackRadioON") then
 		{

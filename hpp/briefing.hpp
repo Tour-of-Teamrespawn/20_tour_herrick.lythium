@@ -33,14 +33,17 @@ player createDiaryRecord
 		<br/>
 		You can utilise all or some of your forces in completing tasks. But remember a key task is to guard the main base. If enemy go inside you will fail the mission.
 		<br/>
-		<br/>		
+		<br/>
+		On completion of the allotted time to hold the FOB, answer the radio to command to complete the mission.
+		<br/>
+		<br/>	
 		Local civilians and mitilia's are friendly in general. Do not kill them, otherwise you will fail the protec civilian task. Only shoot at hostile threats. But be warned. Friendly militia can soon change sides.
 		<br/>
 		<br/>
 		When equiped with a radioman backpack you can access the support menu to use artillery and air support. The chinook can be used to transport prisoners or players to and from the airbase for medical treatment.
 		<br/>
 		<br/>
-		If you are respawned, you will do back at the <marker name='respawn_west'>medical facility</marker>. Get inside the chopper and use the action REQUEST DEPLOYMENT. This will generate a radio message to the signaller and comms room. Wait patiently till they move the chopper into the AO. You can repeat this request occationally.	
+		If you are respawned, you will end up back at the <marker name='respawn_west'>medical facility</marker>. Get inside the chopper and use the action REQUEST DEPLOYMENT. This will generate a radio message to the signaller and comms room. Wait patiently till they move the chopper into the AO. You can repeat this request occationally.	
         "
 ]];
 

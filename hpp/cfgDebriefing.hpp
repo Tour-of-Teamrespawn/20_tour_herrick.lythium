@@ -4,7 +4,7 @@ class CfgDebriefing
 	{
 		title = "Mission Success";
 		subtitle = "FOB Secure";
-		description = "You successfully held the FOB.";
+		description = "You successfully held the FOB and controlled the area of operations for the allotted time.";
 		pictureBackground = "img\ukflag.paa";
 		picture = "img\insigniaQLR2.paa";
 		pictureColor[] = {};
