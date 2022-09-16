@@ -9,19 +9,16 @@ PARAMS:
 
 TOUR_IED_failhint = {hint "There are too many possible IED's, for possible postions"};
 
-waituntil {!isnil "BIS_fnc_init"};
-if (!isDedicated) then
-{
-	if (isNil "TOUR_IED_scriptran") then
-	{
-		//execFSM "scripts\TOUR_IED\TOUR_IED_MAIN.fsm";
-		TOUR_IED_scriptran = true;
-		_fn_ied = execVM "scripts\TOUR_IED\functions\functions_init.sqf";
-		waitUntil {scriptDone _fn_ied};
-	};
-};
-
 if (!isServer) exitwith {};
+
+waituntil {!isnil "BIS_fnc_init"};
+if (isNil "TOUR_IED_scriptran") then
+{
+	//execFSM "scripts\TOUR_IED\TOUR_IED_MAIN.fsm";
+	TOUR_IED_scriptran = true;
+	_fn_ied = execVM "scripts\TOUR_IED\functions\functions_init.sqf";
+	waitUntil {scriptDone _fn_ied};
+};
 
 if (isNil "TOUR_IED_Triggermen") then
 {

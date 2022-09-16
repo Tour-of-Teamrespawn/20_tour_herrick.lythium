@@ -40,7 +40,6 @@ _injured setUnconscious true;
 [WEST, "TOUR_objHeal", [format ["Find the injured man, located somewhere in <marker name=""TOUR_mkr_tskHeal"">these buildings</marker>. Get him medical attention ASAP.", name _injured], "Provide Medical Aid", "TOUR_mkr_tskHeal"], getMarkerPos "TOUR_mkr_tskHeal", "CREATED", -1, true, "heal"] call BIS_fnc_taskCreate;
 
 _damaged = false;
-player setpos getpos _injured;
 _injured setDamage 0;
 _time = time + (random 100 + 200);
 while {(alive _injured)&&(lifeState _injured == "INCAPACITATED")} do 

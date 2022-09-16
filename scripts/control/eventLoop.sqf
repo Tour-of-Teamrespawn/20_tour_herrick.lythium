@@ -169,20 +169,22 @@ while {true} do
 		{
 			case "BASE":	{
 								120 call TOUR_fnc_enemyChatterIncrease;
-
-								_men =  [_pos, TOUR_EnemyInfGrp, EAST, TOUR_enemyGrpSpawns, 8, 800, 300, "TOUR_mkr_FOB"] call TOUR_fnc_rndGroupAttack;
-								while {count _men < 75} do 
+								if (isNil {missionNamespace getVariable "TOUR_tourComplete"}) then 
 								{
-									_menAdd =  [_pos, TOUR_EnemyInfGrp, EAST, TOUR_enemyGrpSpawns, 1, 800, 300, "TOUR_mkr_FOB"] call TOUR_fnc_rndGroupAttack;
-									_men = _menAdd + _men;
+									_men =  [_pos, TOUR_EnemyInfGrp, EAST, TOUR_enemyGrpSpawns, 8, 800, 300, "TOUR_mkr_FOB"] call TOUR_fnc_rndGroupAttack;
+									while {count _men < 75} do 
+									{
+										_menAdd =  [_pos, TOUR_EnemyInfGrp, EAST, TOUR_enemyGrpSpawns, 1, 800, 300, "TOUR_mkr_FOB"] call TOUR_fnc_rndGroupAttack;
+										_men = _menAdd + _men;
+									};
+									sleep 60;
+									_men2 = [getMarkerPos "TOUR_mkr_FOB", 20, EAST, 50, 300, TOUR_EnemyInfMen, "TOUR_mkr_FOB"] call TOUR_fnc_rndhouseAttack;
+									waitUntil {sleep 1; count _men2 < 7};
+									_men3 = [getMarkerPos "TOUR_mkr_FOB", 20, EAST, 50, 300, TOUR_EnemyInfMen, "TOUR_mkr_FOB"] call TOUR_fnc_rndhouseAttack;
+									waitUntil {sleep 1; count _men3 < 7};
+									_men4 = [getMarkerPos "TOUR_mkr_FOB", 20, EAST, 50, 300, TOUR_EnemyInfMen, "TOUR_mkr_FOB"] call TOUR_fnc_rndhouseAttack;
+									sleep 120;
 								};
-								sleep 60;
-								_men2 = [getMarkerPos "TOUR_mkr_FOB", 20, EAST, 50, 300, TOUR_EnemyInfMen, "TOUR_mkr_FOB"] call TOUR_fnc_rndhouseAttack;
-								waitUntil {sleep 1; count _men2 < 7};
-								_men3 = [getMarkerPos "TOUR_mkr_FOB", 20, EAST, 50, 300, TOUR_EnemyInfMen, "TOUR_mkr_FOB"] call TOUR_fnc_rndhouseAttack;
-								waitUntil {sleep 1; count _men3 < 7};
-								_men4 = [getMarkerPos "TOUR_mkr_FOB", 20, EAST, 50, 300, TOUR_EnemyInfMen, "TOUR_mkr_FOB"] call TOUR_fnc_rndhouseAttack;
-								sleep 120;
 								TOUR_baseAttackComplete = true;
 							};
 			case "PATROL": 	{ 
@@ -195,19 +197,24 @@ while {true} do
 									{
 										_positions pushBack (getPos _x);
 									};
-								}forEach playableUnits + switchableUNits;
-
-								if (count _positions > 0) then 
+								}forEach playableUnits + switchableUnits;
+								if (isNil {missionNamespace getVariable "TOUR_tourComplete"}) then 
 								{
-									_pos = _positions call BIS_fnc_selectRandom;
+									if (count _positions > 0) then 
+									{
+										_pos = _positions call BIS_fnc_selectRandom;
+									};
+						
+									_men = [_pos, (10 + (floor random 6)), EAST, 50, 150, TOUR_EnemyInfMen, "TOUR_mkr_FOB"] call TOUR_fnc_rndhouseAttack; 
+									if (count _men == 0) then 
+									{
+										_men = [_pos, TOUR_EnemyInfGrp, "EAST", TOUR_enemyGrpSpawns, (ceil random 2), 500, 200, "TOUR_mkr_FOB"] call TOUR_fnc_rndGroupAttack;
+									};
+									if (isNil {missionNamespace getVariable "TOUR_tourComplete"}) then 
+									{
+										sleep 120;
+									};
 								};
-					
-								_men = [_pos, (10 + (floor random 6)), EAST, 50, 150, TOUR_EnemyInfMen, "TOUR_mkr_FOB"] call TOUR_fnc_rndhouseAttack; 
-								if (count _men == 0) then 
-								{
-									_men = [_pos, TOUR_EnemyInfGrp, "EAST", TOUR_enemyGrpSpawns, (ceil random 2), 500, 200, "TOUR_mkr_FOB"] call TOUR_fnc_rndGroupAttack;
-								};
-								sleep 120;
 							};
 			default {};
 		};

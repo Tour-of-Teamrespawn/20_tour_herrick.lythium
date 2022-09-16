@@ -10,19 +10,16 @@ PARAMS:
 
 private ["_ied", "_ieds", "_iedsNew", "_size", "_marker", "_bombCountMin", "_bombCountMax", "_fmodule", "_side", "_bombPosCount", "_bombtype", "_road"];
 
-waituntil {!isnil "BIS_fnc_init"};
-if (!isDedicated) then
-{
-	if (isNil "TOUR_IED_scriptran") then
-	{
-		//execFSM "scripts\TOUR_IED\TOUR_IED_MAIN.fsm";
-		TOUR_IED_scriptran = true;
-		_fn_ied = execVM "scripts\TOUR_IED\functions\functions_init.sqf";
-		waitUntil {scriptDone _fn_ied};
-	};
-};
-
 if (!isServer) exitwith {};
+
+waituntil {!isnil "BIS_fnc_init"};
+if (isNil "TOUR_IED_scriptran") then
+{
+	//execFSM "scripts\TOUR_IED\TOUR_IED_MAIN.fsm";
+	TOUR_IED_scriptran = true;
+	_fn_ied = execVM "scripts\TOUR_IED\functions\functions_init.sqf";
+	waitUntil {scriptDone _fn_ied};
+};
 
 if (isNil "TOUR_IED_Triggermen") then
 {

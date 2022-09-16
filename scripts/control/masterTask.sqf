@@ -17,11 +17,11 @@ execVM "scripts\control\toggleRadio.sqf";
 
 missionNameSpace setVariable ["TOUR_tskRadioState", "SILENT", true];
 execVM "scripts\control\radioChatterLoop.sqf";
-sleep 120;
+sleep 10;
 
 while {TOUR_tskCount < TOUR_tskCountTarget} do 
 {
-	waitUntil {(missionNameSpace getVariable "TOUR_tskRadioState" == "silent")};
+	waitUntil {(missionNameSpace getVariable "TOUR_tskRadioState" == "SILENT")};
 	missionNameSpace setVariable ["TOUR_tskRadioState", "calling", true];
 	_waitTime = if (isNil {missionNamespace getVariable "TOUR_tourComplete"}) then 
 	{
@@ -30,6 +30,7 @@ while {TOUR_tskCount < TOUR_tskCountTarget} do
 	{
 		time + 99999;
 	};
+	sleep 1;
 	_time = time - 1;
 	while {true} do 
 	{
@@ -116,6 +117,7 @@ while {TOUR_tskCount < TOUR_tskCountTarget} do
 		sleep 30;
 		missionNameSpace setVariable ["TOUR_tskRadioState", "silent", true];
 	};
+
 	waitUntil {(count TOUR_tskAvailable > 0 && count TOUR_taskLocations < 3) or (count TOUR_tskAvailable == 0 && count TOUR_taskLocations == 0)};
 
 	if (count TOUR_tskAvailable == 0) then 
@@ -127,11 +129,12 @@ while {TOUR_tskCount < TOUR_tskCountTarget} do
 		TOUR_patrolNo = 0;
 	};
 
-	if !(isNil {missionNamespace getVariable "TOUR_tourComplete"}) then 
+	_waitTime = if !(isNil {missionNamespace getVariable "TOUR_tourComplete"}) then 
 	{
-		sleep 10;
+		10;
 	}else 
 	{
-		sleep 900;
+		900;
 	};
+	waitUntil {(time > _waitTime) or (!isNil {missionNamespace getVariable "TOUR_tourComplete"})};
 };
