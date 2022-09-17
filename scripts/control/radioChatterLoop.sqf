@@ -5,7 +5,7 @@ missionNameSpace setVariable ["TOUR_backpackRadioRequest", false, true];
 waitUntil {!isNil {missionNameSpace getVariable "TOUR_tskRadioState"}};
 waitUntil {!isNil {missionNameSpace getVariable "TOUR_backpackRadioBroadcast"}};
 waitUntil {!isNil {missionNameSpace getVariable "TOUR_backpackRadioRequest"}};
-
+sleep 60;
 while {true} do 
 {
 	_status = (missionNameSpace getVariable "TOUR_enemyChatter");

@@ -13,6 +13,9 @@ _textToHint = parseText format
 	Enemy Chatter Level = %2
 	<br/>
 	<br/>
+	Radio State = %7
+	<br/>
+	<br/>
 	Current Time = %5
 	<br/>
 	<br/>
@@ -22,8 +25,8 @@ _textToHint = parseText format
 	Base Assault Time = %4 - %6
 	<br/>
 	<br/>
-	Mission End Ready = %7
-", (missionNameSpace getVariable "TOUR_dangerEvent"), (missionNameSpace getVariable "TOUR_enemyChatter"), TOUR_randomEventTimes select 0, TOUR_baseAttackBuildStartTime, date, if (TOUR_baseAttack) then {"Enabled"}else{"Disabled"}, !(isNil {missionNamespace getVariable "TOUR_tourComplete"})];
+	Mission End Ready = %8
+", (missionNameSpace getVariable "TOUR_dangerEvent"), (missionNameSpace getVariable "TOUR_enemyChatter"), TOUR_randomEventTimes select 0, TOUR_baseAttackBuildStartTime, date, if (TOUR_baseAttack) then {"Enabled"}else{"Disabled"}, (missionNameSpace getVariable "TOUR_tskRadioState"), !(isNil {missionNamespace getVariable "TOUR_tourComplete"})];
 
 [_textToHint]remoteExeccall["hint", _player, false];
 

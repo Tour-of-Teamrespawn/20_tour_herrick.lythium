@@ -19,7 +19,7 @@ TOUR_baseAttack = false;
 
 if (random 100 <= TOUR_baseAttackProbability) then 
 {
-	TOUR_baseAttack == true;
+	TOUR_baseAttack = true;
 };
 
 _minutesPlay = TOUR_playTime * 60;
