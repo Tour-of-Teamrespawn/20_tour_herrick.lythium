@@ -131,10 +131,10 @@ while {TOUR_tskCount < TOUR_tskCountTarget} do
 
 	_waitTime = if !(isNil {missionNamespace getVariable "TOUR_tourComplete"}) then 
 	{
-		10;
+		time + 10;
 	}else 
 	{
-		900;
+		time + 900;
 	};
 	waitUntil {(time > _waitTime) or (!isNil {missionNamespace getVariable "TOUR_tourComplete"})};
 };

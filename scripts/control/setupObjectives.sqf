@@ -40,7 +40,7 @@ waitUntil
 	sleep 2;
 	TOUR_RC_WEST_DEAD
 	or
-	({(side _x == EAST) && (alive _x) && (_x distance (getMarkerPos "TOUR_mkr_FOB") <20)} count allUnits > 0)
+	(({(side _x == EAST) && (alive _x) && (_x distance (getMarkerPos "TOUR_mkr_FOB") <20)} count allUnits) > ({(side _x == EAST) && (alive _x) && (_x distance (getMarkerPos "TOUR_mkr_FOB") <20)} count (playableUnits + switchableUnits)))
 	or 
 	!(isNil {missionNamespace getVariable "TOUR_tourCompleteAnswered"})
 };

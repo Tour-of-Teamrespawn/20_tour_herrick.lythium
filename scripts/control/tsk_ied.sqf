@@ -40,7 +40,7 @@ if (str getMarkerPos "TOUR_mkr_tskIED" == "[0,0,0]") then
 
 TOUR_taskLocations pushBack _pos;
 
-["ied", 3] call TOUR_fnc_hqOrders;
+["ied", 7] call TOUR_fnc_hqOrders;
 
 [WEST, "TOUR_objIED", [format ["Locate and defuse suspected IED in <marker name=""TOUR_mkr_tskIED"">this area</marker>.", "asdf"], "Defuse IED", "TOUR_mkr_tskIED"], getMarkerPos "TOUR_mkr_tskIED", "CREATED", -1, true, "mine"] call BIS_fnc_taskCreate;
 
