@@ -16,10 +16,10 @@ class EditorData
 	};
 	class Camera
 	{
-		pos[]={10056.268,172.0201,11147.824};
-		dir[]={-0.64471054,-0.27501577,0.71328408};
-		up[]={-0.18442951,0.96142858,0.20404606};
-		aside[]={0.74189252,-1.9818253e-007,0.67056906};
+		pos[]={10973.213,175.50925,9748.8887};
+		dir[]={-0.55817544,-0.099561729,0.8238039};
+		up[]={-0.055883598,0.99500364,0.082478754};
+		aside[]={0.82793301,-2.6443013e-007,0.56097269};
 	};
 };
 binarizationWanted=0;
@@ -581,7 +581,7 @@ class ScenarioData
 };
 class CustomAttributes
 {
-	class Category1
+	class Category0
 	{
 		name="Scenario";
 		class Attribute0
@@ -2367,13 +2367,12 @@ class Mission
 				angles[]={6.2792339,5.8491893,6.2029452};
 			};
 			side="Empty";
-			flags=4;
 			class Attributes
 			{
 			};
 			id=527;
 			type="Land_BottlePlastic_V2_F";
-			atlOffset=0.12492371;
+			atlOffset=0.75401306;
 		};
 		class Item88
 		{
@@ -2384,14 +2383,13 @@ class Mission
 				angles[]={6.2798343,0,0.005113815};
 			};
 			side="Empty";
-			flags=4;
 			class Attributes
 			{
 				disableSimulation=1;
 			};
 			id=529;
 			type="Land_BottlePlastic_V2_F";
-			atlOffset=0.0029296875;
+			atlOffset=0.65925598;
 		};
 		class Item89
 		{
@@ -2402,14 +2400,13 @@ class Mission
 				angles[]={6.2798343,0,0.005113815};
 			};
 			side="Empty";
-			flags=4;
 			class Attributes
 			{
 				disableSimulation=1;
 			};
 			id=530;
 			type="Land_BottlePlastic_V2_F";
-			atlOffset=0.016220093;
+			atlOffset=0.67254639;
 		};
 		class Item90
 		{
@@ -2420,13 +2417,12 @@ class Mission
 				angles[]={6.256608,0,6.188684};
 			};
 			side="Empty";
-			flags=4;
 			class Attributes
 			{
 			};
 			id=531;
 			type="Land_BottlePlastic_V2_F";
-			atlOffset=0.12368774;
+			atlOffset=2.3113098;
 		};
 		class Item91
 		{
@@ -2442,7 +2438,7 @@ class Mission
 			};
 			id=532;
 			type="Land_BottlePlastic_V2_F";
-			atlOffset=0.80433655;
+			atlOffset=0.67170715;
 		};
 		class Item92
 		{
@@ -2781,7 +2777,6 @@ class Mission
 				angles[]={0.0084822997,5.8491917,6.2316456};
 			};
 			side="Empty";
-			flags=4;
 			class Attributes
 			{
 				disableSimulation=1;
@@ -2789,7 +2784,7 @@ class Mission
 			};
 			id=599;
 			type="Land_BottlePlastic_V2_F";
-			atlOffset=0.090835571;
+			atlOffset=1.4400024;
 		};
 		class Item107
 		{
@@ -2839,7 +2834,7 @@ class Mission
 			};
 			id=607;
 			type="Land_BottlePlastic_V2_F";
-			atlOffset=1.0277557;
+			atlOffset=0.89509583;
 		};
 		class Item110
 		{
@@ -2854,7 +2849,7 @@ class Mission
 			};
 			id=609;
 			type="Land_BottlePlastic_V2_F";
-			atlOffset=2.5675812;
+			atlOffset=2.4349518;
 		};
 		class Item111
 		{
@@ -3027,7 +3022,7 @@ class Mission
 		class Item123
 		{
 			dataType="Marker";
-			position[]={9682.9414,133.37793,11405.904};
+			position[]={9682.9414,133.37801,11405.904};
 			name="TOUR_mkr_AO";
 			markerType="ELLIPSE";
 			type="";
@@ -3035,10 +3030,10 @@ class Mission
 			fillName="Border";
 			a=1200;
 			b=1200;
-			angle=212.94684;
+			angle=212.94699;
 			drawBorder=1;
 			id=631;
-			atlOffset=-13.664001;
+			atlOffset=-13.663925;
 		};
 		class Item124
 		{
