@@ -102,6 +102,7 @@ while {!isNull _evidence} do
 						{
 							_grp = createGroup EAST;
 							_x joinAsSilent [_grp, count units _grp];
+							_x setVariable ["TOUR_enemySide", true];
 						};
 					}forEach _men;
 					_rumbled = true;

@@ -99,6 +99,7 @@ if (count _this > 6) then
 	_warLord disableAI "move";
 	_warLord setVariable ["lambs_danger_disableAI", true];
 	_return pushback _warLord;
+	_warLord setVariable ["TOUR_enemySide", true];
 };
 
 for "_i" from 1 to (_min + (ceil (random (_max - _min)))) do
@@ -130,6 +131,7 @@ for "_i" from 1 to (_min + (ceil (random (_max - _min)))) do
 	[_unit, TOUR_EnemySFs, TOUR_EnemySnipers] call TOUR_fnc_skillAI;
 	_unit setVariable ["lambs_danger_disableAI", true];
 	_men pushbackUnique _unit;
+	_unit setVariable ["TOUR_enemySide", true];
 };
 
 if ( count _return > 0) then 

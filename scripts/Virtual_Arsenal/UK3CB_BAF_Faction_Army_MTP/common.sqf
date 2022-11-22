@@ -58,7 +58,6 @@ _magazines = [
 
 	"UK3CB_BAF_1Rnd_HE_Grenade_Shell", 
 	"UK3CB_BAF_1Rnd_HEDP_Grenade_Shell", 
-	"UK3CB_BAF_1Rnd_Blank_Grenade_Shell",
 	"UK3CB_BAF_UGL_FlareWhite_F", 
 	"UK3CB_BAF_UGL_FlareRed_F", 
 	"UK3CB_BAF_UGL_FlareGreen_F", 
@@ -206,6 +205,10 @@ _ACE_common =
 	"ACE_bodyBag",
 	"ACE_epinephrine",
 	"ACE_morphine",
+	"ACE_quikclot",
+	"ACE_fieldDressing",
+	"ACE_adenosine",
+	"ACE_splint",
 	"ACE_tourniquet",
 	"ACE_bloodIV",
 	"ACE_bloodIV_500",

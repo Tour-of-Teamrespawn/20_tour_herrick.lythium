@@ -38,6 +38,7 @@ for "_i" from 1 to (1 + (ceil random 2)) do
 		_x call Tour_fnc_garbageEH;
 		[_x, TOUR_EnemySFs, TOUR_EnemySnipers] call TOUR_fnc_skillAI;
 		_men pushBack _x;
+		_x setVariable ["TOUR_enemySide", true];
 	}forEach units _grp;
 };
 

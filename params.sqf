@@ -79,16 +79,19 @@ if (isMultiplayer) then
 	TOUR_randomEventProbability = 100;
 };
 
-[TOUR_StartTime] remoteExec ["setDate"];
-[0, TOUR_fogSettings] remoteExec ["setFog"];
-[0, TOUR_weatherSettings] remoteExec ["setOvercast"];
-[] remoteExec ["forceWeatherChange"];
-
-[]spawn 
+if (isServer) then 
 {
-	sleep 5;
-	[((TOUR_playTime * 60) * 60), TOUR_fogSettings] remoteExec ["setFog"];
-	[((TOUR_playTime * 60) * 60), TOUR_weatherSettings] remoteExec ["setOvercast"];
+	[TOUR_StartTime] remoteExec ["setDate"];
+	[0, TOUR_fogSettings] remoteExec ["setFog"];
+	[0, TOUR_weatherSettings] remoteExec ["setOvercast"];
+	[] remoteExec ["forceWeatherChange"];
+
+	[]spawn 
+	{
+		sleep 5;
+		[((TOUR_playTime * 60) * 60), TOUR_fogSettings] remoteExec ["setFog"];
+		[((TOUR_playTime * 60) * 60), TOUR_weatherSettings] remoteExec ["setOvercast"];
+	};
 };
 
 setViewDistance 5000;

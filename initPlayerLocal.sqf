@@ -7,11 +7,6 @@ execVM "scripts\general\dust.sqf";
 	_x execVM "scripts\Virtual_arsenal\init.sqf";
 }forEach [TOUR_AmmoBox_1];
 
-if (TOUR_introEnable) then 
-{
-	execVM "scripts\general\intro.sqf";
-};
-
 #include "hpp\briefing.hpp"
 
 [] execVM "scripts\TOUR_IED\init.sqf";
@@ -22,6 +17,13 @@ execVM "scripts\general\playerActions.sqf";
 
 execVM "scripts\general\radioChannelSetup.sqf";
 
-sleep 5;
+if (TOUR_introEnable) then 
+{
+	execVM "scripts\general\intro.sqf";
+	waitUntil {!isNil "TOUR_introComplete"};
+}else 
+{
+	sleep 1;
+};
 
 [player,"QLR"] call BIS_fnc_setUnitInsignia;

@@ -78,6 +78,7 @@ while {(alive _elder) && (isNil {(_elder getVariable "TOUR_tskElder")})} do
 					{
 						_grp = createGroup EAST;
 						_x joinAsSilent [_grp, count units _grp];
+						_x setVariable ["TOUR_enemySide", true];
 					};
 				}forEach _men;
 				if (random 1 > 0.5) then 

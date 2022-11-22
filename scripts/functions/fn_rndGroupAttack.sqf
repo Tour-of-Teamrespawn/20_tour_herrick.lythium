@@ -36,6 +36,7 @@ for "_i" from 0 to (_number -1) do
 		_x call Tour_fnc_garbageEH;
 		[_x, TOUR_EnemySFs, TOUR_EnemySnipers] call TOUR_fnc_skillAI;
 		_men pushBack _x;
+		_x setVariable ["TOUR_enemySide", true];
 	}forEach units _grp;
 	_wp = _grp addWaypoint [_position, random 30];
 	_wp setWaypointType "GUARD";	

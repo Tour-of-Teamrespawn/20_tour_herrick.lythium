@@ -61,6 +61,7 @@ if (random 1 > 0.3) then
 		_x call Tour_fnc_garbageEH;
 		[_x, TOUR_EnemySFs, TOUR_EnemySnipers] call TOUR_fnc_skillAI;
 		_men pushBack _x;
+		_x setVariable ["TOUR_enemySide", true];
 	}forEach units _grp;
 };
 

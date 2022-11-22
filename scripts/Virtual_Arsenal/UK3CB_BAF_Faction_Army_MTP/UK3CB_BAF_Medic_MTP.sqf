@@ -87,8 +87,9 @@ _bis_magazines =
 
 _ACE_items =
 [	
-
-
+	"ACE_packingBandage",
+	"ACE_elasticBandage",
+	"ACE_surgicalKit"
 ];
 
 _ctab = 

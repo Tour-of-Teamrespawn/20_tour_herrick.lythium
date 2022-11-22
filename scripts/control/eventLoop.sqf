@@ -208,7 +208,7 @@ while {true} do
 									_men = [_pos, (10 + (floor random 6)), EAST, 50, 150, TOUR_EnemyInfMen, "TOUR_mkr_FOB"] call TOUR_fnc_rndhouseAttack; 
 									if (count _men == 0) then 
 									{
-										_men = [_pos, TOUR_EnemyInfGrp, "EAST", TOUR_enemyGrpSpawns, (ceil random 2), 500, 200, "TOUR_mkr_FOB"] call TOUR_fnc_rndGroupAttack;
+										_men = [_pos, TOUR_EnemyInfGrp, EAST, TOUR_enemyGrpSpawns, (ceil random 2), 500, 200, "TOUR_mkr_FOB"] call TOUR_fnc_rndGroupAttack;
 									};
 									if (isNil {missionNamespace getVariable "TOUR_tourComplete"}) then 
 									{

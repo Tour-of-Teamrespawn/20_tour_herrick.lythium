@@ -25,6 +25,7 @@ if ((count _men > 0)&&(random 300 > 299)) then
 	_man = _array select 1;
 	_newGrp = createGroup EAST;
 	_man joinAsSilent [_newGrp, (count units _newGrp)];
+	_man setVariable ["TOUR_enemySide", true];
 	_newGrp setCombatBehaviour "SAFE";
 	_newGrp setCombatMode "YELLOW";
 	_newGrp setSpeedMode "LIMITED";

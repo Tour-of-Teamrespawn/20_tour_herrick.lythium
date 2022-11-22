@@ -37,10 +37,21 @@ waitUntil
 	{
 		missionNameSpace setVariable ["TOUR_tourComplete", true, true];
 	};
+	if ((({(side _x == EAST) && (alive _x) && (_x distance (getMarkerPos "TOUR_mkr_FOB") < 20)} count allUnits) > ({(side _x == WEST) && (alive _x) && (_x distance (getMarkerPos "TOUR_mkr_FOB") < 20)} count (playableUnits + switchableUnits)))) then 
+	{
+		if ("TOUR_objBase" call BIS_fnc_taskState != "FAILED") then 
+		{
+			["TOUR_objBase", "FAILED", true] call BIS_fnc_TaskSetState;
+		};
+	}else 
+	{
+		if ("TOUR_objBase" call BIS_fnc_taskState == "FAILED") then 
+		{
+			["TOUR_objBase", "CREATED", true] call BIS_fnc_TaskSetState;
+		};
+	};
 	sleep 2;
 	TOUR_RC_WEST_DEAD
-	or
-	(({(side _x == EAST) && (alive _x) && (_x distance (getMarkerPos "TOUR_mkr_FOB") <20)} count allUnits) > ({(side _x == EAST) && (alive _x) && (_x distance (getMarkerPos "TOUR_mkr_FOB") <20)} count (playableUnits + switchableUnits)))
 	or 
 	!(isNil {missionNamespace getVariable "TOUR_tourCompleteAnswered"})
 };
@@ -59,6 +70,8 @@ if (TOUR_RC_WEST_DEAD) then
 {
 	if 	(
 			!(isNil {missionNamespace getVariable "TOUR_tourCompleteAnswered"})
+			&&
+			("TOUR_objBase" call BIS_fnc_taskState != "FAILED")
 		)then 
 	{
 		["TOUR_objBase", "SUCCEEDED", true] call BIS_fnc_TaskSetState;

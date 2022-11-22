@@ -74,7 +74,9 @@ if (!isdedicated) then
 	"dynamicBlur" ppEffectAdjust [0];
 	"dynamicBlur" ppEffectCommit 3;
 	cutText [" ","BLACK IN", 2];
-	sleep 5;
+	sleep 2;
+	TOUR_introComplete = true;
+	sleep 3;
 	_date = date;
 	_year = _date select 0;
 	_month = _date select 1;
