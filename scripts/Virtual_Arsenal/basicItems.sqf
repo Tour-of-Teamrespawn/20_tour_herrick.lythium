@@ -24,8 +24,8 @@ player addUniform _uniform;
 	player addItemToUniform _x;
 }forEach 
 [
-	"ACE_fieldDressing","ACE_fieldDressing","ACE_fieldDressing","ACE_fieldDressing","ACE_fieldDressing","ACE_fieldDressing","ACE_fieldDressing","ACE_fieldDressing",
-	"ACE_tourniquet",
+	"ACE_fieldDressing","ACE_fieldDressing","ACE_fieldDressing","ACE_fieldDressing","ACE_quikclot","ACE_quikclot","ACE_quikclot","ACE_quikclot",
+	"ACE_tourniquet","ACE_tourniquet",
 	"ACE_morphine","ACE_morphine","ACE_morphine",
 	"ACE_epinephrine",
 	"ACE_bloodIV_500",
